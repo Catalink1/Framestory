@@ -297,8 +297,9 @@ button { font-family: var(--font-sans); cursor: pointer; }
 
 .hero-quote {
   position: absolute;
-  top: 20%;
-  right: 1.2rem;
+  top: 6rem;
+  right: -53%;
+  transform: none;
   width: min(28%, 360px);
   font-family: var(--font-serif);
   font-size: clamp(1.1rem, 1.9vw, 1.35rem);
@@ -314,7 +315,6 @@ button { font-family: var(--font-sans); cursor: pointer; }
   backdrop-filter: blur(4px);
   border-radius: 8px;
   opacity: 0;
-  transform: translateY(20px);
   animation: fadeUp 0.8s 0.5s forwards;
 }
 .hero-quote span {
