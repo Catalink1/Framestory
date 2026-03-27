@@ -1050,7 +1050,7 @@ footer p { font-size: 0.75rem; color: var(--stone); }
 
 .carousel-stage {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   perspective: 1400px;
   background: radial-gradient(circle at 20% 120%, #15120f 0%, #0a0806 45%, #080605 100%);
   border-radius: 16px;
@@ -1145,6 +1145,16 @@ footer p { font-size: 0.75rem; color: var(--stone); }
 .carousel-btn.prev { left: 1.2rem; }
 .carousel-btn.next { right: 1.2rem; }
 .carousel-btn:hover { background: rgba(255,255,255,0.28); transform: translateY(-50%) scale(1.04); }
+
+.carousel-btn.pause {
+  bottom: 1rem;
+  top: auto;
+  right: 1.2rem;
+  transform: none;
+  width: 36px;
+  height: 36px;
+  font-size: 0.8rem;
+}
 
 .carousel-thumbs {
   display: flex;

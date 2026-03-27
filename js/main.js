@@ -229,6 +229,19 @@ function carouselMove(id, dir) {
   }
   carouselGo(id, next);
 }
+function togglePause(id) {
+  const c = carousels[id];
+  if (!c) return;
+  const btn = document.getElementById(`${id}-pause`);
+  if (c.timer) {
+    clearInterval(c.timer);
+    c.timer = null;
+    btn.textContent = "▶";
+  } else {
+    c.timer = setInterval(() => carouselMove(id, 1), 4000);
+    btn.textContent = "⏸";
+  }
+}
 
 function validateCarousel(id) {
   const stage = document.getElementById(`${id}-stage`);

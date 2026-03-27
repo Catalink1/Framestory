@@ -308,164 +308,142 @@
 
     <!-- ══════════ PORTOFOLIU ══════════ -->
     <section class="page" id="portfolio">
-      <div class="portfolio-head">
-        <div>
-          <span class="label">Galerie foto</span>
-          <h2
-            class="big-title"
-            style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 0"
-          >
-            Portofoliu
-          </h2>
+  <div class="portfolio-head">
+    <div>
+      <span class="label">Galerie foto</span>
+      <h2 class="big-title" style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 0">
+        Portofoliu
+      </h2>
+    </div>
+    <div class="filters">
+      <button class="f-btn active" data-filter="all">Toate</button>
+      <button class="f-btn" data-filter="nature">Natură</button>
+      <button class="f-btn" data-filter="architecture">Arhitectură</button>
+      <button class="f-btn" data-filter="black-white">Alb-Negru</button>
+      <button class="f-btn" data-filter="advertising">Advertising</button>
+      <button class="f-btn" data-filter="animals">Animale</button>
+    </div>
+  </div>
+
+  <div class="carousel-wrap" style="padding: 0 5vw 4rem">
+    <div class="carousel-stage" id="port-stage">
+      <div class="carousel-track">
+        <div class="carousel-slide active" data-cat="nature">
+          <img src="img/ceata-lumina.jpg" alt="Ceață și lumină — fotografie natură România" />
+          <div class="carousel-caption"><p>Ceață și lumină</p><span>Natură</span></div>
         </div>
-        <div class="filters">
-          <button class="f-btn active" data-filter="all">Toate</button>
-          <button class="f-btn" data-filter="nature">Natură</button>
-          <button class="f-btn" data-filter="architecture">Arhitectură</button>
-          <button class="f-btn" data-filter="black-white">Alb-Negru</button>
-          <button class="f-btn" data-filter="advertising">Advertising</button>
-          <button class="f-btn" data-filter="animals">Animale</button>
+        <div class="carousel-slide" data-cat="nature">
+          <img src="img/deal-padure-lumina.jpg" alt="Deal cu pădure în lumina serii" />
+          <div class="carousel-caption"><p>Deal, pădure, lumină</p><span>Natură</span></div>
         </div>
-      </div>
-
-      <div class="carousel-wrap" style="padding: 0 5vw 4rem">
-        <div class="carousel-stage" id="port-stage">
-          <div class="carousel-track">
-            <div class="carousel-slide active" data-cat="nature">
-              <img
-                src="img/ceata-lumina.jpg"
-                alt="Ceață și lumină — fotografie natură România"
-              />
-              <div class="carousel-caption">
-                <p>Ceață și lumină</p>
-                <span>Natură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="nature">
-              <img
-                src="img/deal-padure-lumina.jpg"
-                alt="Deal cu pădure în lumina serii — fotografie natură"
-              />
-              <div class="carousel-caption">
-                <p>Deal, pădure, lumină</p>
-                <span>Natură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="nature">
-              <img
-                src="img/dobrogea-lac-munti.jpg"
-                alt="Lac și munți în Dobrogea — fotografie peisaj România"
-              />
-              <div class="carousel-caption">
-                <p>Dobrogea — lac și munți</p>
-                <span>Natură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="architecture">
-              <img
-                src="img/acoperis-biserica-sindrila.jpg"
-                alt="Acoperiș biserică cu șindrilă — fotografie arhitectură România"
-              />
-              <div class="carousel-caption">
-                <p>Șindrilă</p>
-                <span>Arhitectură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="architecture">
-              <img
-                src="img/ateneu-bucuresti-zapada.jpg"
-                alt="Ateneul Român iarna — fotografie arhitectură București"
-              />
-              <div class="carousel-caption">
-                <p>Ateneul iarna</p>
-                <span>Arhitectură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="architecture">
-              <img
-                src="img/banca-ioanid-zapada.jpg"
-                alt="Banca Ioanid în zăpadă — fotografie arhitectură București"
-              />
-              <div class="carousel-caption">
-                <p>Ioanid în zăpadă</p>
-                <span>Arhitectură</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="black-white">
-              <img
-                src="img/gard-zapada-umbre.jpg"
-                alt="Gard cu zăpadă și umbre — fotografie alb-negru"
-                style="object-position: top"
-              />
-              <div class="carousel-caption">
-                <p>Umbre în zăpadă</p>
-                <span>Alb-Negru</span>
-              </div>
-            </div>
-
-            <div class="carousel-slide" data-cat="black-white">
-              <img
-                src="img/sculptura-om.jpg"
-                alt="Sculptură om — fotografie alb-negru artă"
-                style="object-position: top"
-              />
-              <div class="carousel-caption">
-                <p>Sculptură</p>
-                <span>Alb-Negru</span>
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel-btn prev" onclick="carouselMove('port', -1)">
-            &#8592;
-          </button>
-          <button class="carousel-btn next" onclick="carouselMove('port', 1)">
-            &#8594;
-          </button>
+        <div class="carousel-slide" data-cat="nature">
+          <img src="img/dobrogea-lac-munti.jpg" alt="Lac și munți în Dobrogea" />
+          <div class="carousel-caption"><p>Dobrogea — lac și munți</p><span>Natură</span></div>
         </div>
-
-        <div class="carousel-thumbs" id="port-thumbs">
-          <div class="thumb active" onclick="carouselGo('port', 0)">
-            <img src="img/ceata-lumina.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 1)">
-            <img src="img/deal-padure-lumina.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 2)">
-            <img src="img/dobrogea-lac-munti.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 3)">
-            <img src="img/acoperis-biserica-sindrila.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 4)">
-            <img src="img/ateneu-bucuresti-zapada.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 5)">
-            <img src="img/banca-ioanid-zapada.jpg" alt="" />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 6)">
-            <img
-              src="img/gard-zapada-umbre.jpg"
-              alt=""
-              style="object-position: top"
-            />
-          </div>
-          <div class="thumb" onclick="carouselGo('port', 7)">
-            <img
-              src="img/sculptura-om.jpg"
-              alt=""
-              style="object-position: top"
-            />
-          </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/acoperis-biserica-sindrila.jpg" alt="Acoperiș biserică cu șindrilă" />
+          <div class="carousel-caption"><p>Șindrilă</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/ateneu-bucuresti-zapada.jpg" alt="Ateneul Român iarna" />
+          <div class="carousel-caption"><p>Ateneul iarna</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/banca-ioanid-zapada.jpg" alt="Banca Ioanid în zăpadă" />
+          <div class="carousel-caption"><p>Ioanid în zăpadă</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="black-white">
+          <img src="img/gard-zapada-umbre.jpg" alt="Gard cu zăpadă și umbre" style="object-position: top" />
+          <div class="carousel-caption"><p>Umbre în zăpadă</p><span>Alb-Negru</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="black-white">
+          <img src="img/sculptura-om.jpg" alt="Sculptură om" style="object-position: top" />
+          <div class="carousel-caption"><p>Sculptură</p><span>Alb-Negru</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/domul-milano.jpg" alt="Domul din Milano" />
+          <div class="carousel-caption"><p>Domul din Milano</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/domul-milano-acoperis.jpg" alt="Domul Milano — acoperiș" />
+          <div class="carousel-caption"><p>Milano pe acoperiș</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/domul-milano-detaliu.jpg" alt="Domul Milano — detaliu" />
+          <div class="carousel-caption"><p>Detaliu — Domul din Milano</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/domul-milano-strada.jpg" alt="Domul Milano — stradă" />
+          <div class="carousel-caption"><p>Strada spre Dom</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/palat-milano-turisti.jpg" alt="Palat Milano — turiști" />
+          <div class="carousel-caption"><p>Palat și turiști</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/scutere-milano.jpg" alt="Scutere Milano" />
+          <div class="carousel-caption"><p>Scutere milaneze</p><span>Arhitectură</span></div>
+        </div>
+        <div class="carousel-slide" data-cat="architecture">
+          <img src="img/fereastra-detalii.jpg" alt="Fereastră — detalii arhitecturale" />
+          <div class="carousel-caption"><p>Fereastră</p><span>Arhitectură</span></div>
         </div>
       </div>
-    </section>
+
+      <button class="carousel-btn prev" onclick="carouselMove('port', -1)">&#8592;</button>
+      <button class="carousel-btn next" onclick="carouselMove('port', 1)">&#8594;</button>
+      <button class="carousel-btn pause" id="port-pause" onclick="togglePause('port')">⏸</button>
+    </div>
+
+    <div class="carousel-thumbs" id="port-thumbs">
+      <div class="thumb active" onclick="carouselGo('port', 0)">
+        <img src="img/ceata-lumina.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 1)">
+        <img src="img/deal-padure-lumina.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 2)">
+        <img src="img/dobrogea-lac-munti.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 3)">
+        <img src="img/acoperis-biserica-sindrila.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 4)">
+        <img src="img/ateneu-bucuresti-zapada.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 5)">
+        <img src="img/banca-ioanid-zapada.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 6)">
+        <img src="img/gard-zapada-umbre.jpg" alt="" style="object-position: top" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 7)">
+        <img src="img/sculptura-om.jpg" alt="" style="object-position: top" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 8)">
+        <img src="img/domul-milano.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 9)">
+        <img src="img/domul-milano-acoperis.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 10)">
+        <img src="img/domul-milano-detaliu.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 11)">
+        <img src="img/domul-milano-strada.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 12)">
+        <img src="img/palat-milano-turisti.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 13)">
+        <img src="img/scutere-milano.jpg" alt="" />
+      </div>
+      <div class="thumb" onclick="carouselGo('port', 14)">
+        <img src="img/fereastra-detalii.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- ══════════ SERVICII ══════════ -->
     <section class="page" id="services">
@@ -721,6 +699,7 @@
 
         <button class="carousel-btn prev" onclick="carouselMove('phone', -1)">&#8592;</button>
         <button class="carousel-btn next" onclick="carouselMove('phone', 1)">&#8594;</button>
+        <button class="carousel-btn pause" id="phone-pause" onclick="togglePause('phone')">⏸</button>
       </div>
 
       <div class="carousel-thumbs" id="phone-thumbs">
@@ -744,10 +723,35 @@
         </div>
       </div>
     </div>
-
   </div>
-</section>
-
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/domul-milano.jpg" alt="Domul din Milano" />
+  <div class="carousel-caption"><p>Domul din Milano</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/domul-milano-acoperis.jpg" alt="Domul Milano — acoperiș" />
+  <div class="carousel-caption"><p>Milano pe acoperiș</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/domul-milano-detaliu.jpg" alt="Domul Milano — detaliu" />
+  <div class="carousel-caption"><p>Detaliu — Domul din Milano</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/domul-milano-strada.jpg" alt="Domul Milano — stradă" />
+  <div class="carousel-caption"><p>Strada spre Dom</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/palat-milano-turisti.jpg" alt="Palat Milano — turiști" />
+  <div class="carousel-caption"><p>Palat și turiști</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/scutere-milano.jpg" alt="Scutere Milano" />
+  <div class="carousel-caption"><p>Scutere milaneze</p><span>Arhitectură</span></div>
+</div>
+<div class="carousel-slide" data-cat="architecture">
+  <img src="img/fereastra-detalii.jpg" alt="Fereastră — detalii arhitecturale" />
+  <div class="carousel-caption"><p>Fereastră</p><span>Arhitectură</span></div>
+</div></section>
     <!-- ══════════ CONTACT ══════════ -->
     <section class="page" id="contact">
       <div class="contact-wrap">
