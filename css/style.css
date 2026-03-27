@@ -844,6 +844,17 @@ button { font-family: var(--font-sans); cursor: pointer; }
   line-height: 1.8;
   max-width: 560px;
 }
+.carousel-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  padding: 0 0 1.5rem;
+}
+.carousel-title em {
+  font-style: italic;
+  color: var(--accent);
+}
 .phone-grid {
   padding: 1.5rem 4rem 6rem;
   display: grid;
@@ -1074,7 +1085,7 @@ footer p { font-size: 0.75rem; color: var(--stone); }
   box-shadow: 0 24px 45px rgba(0, 0, 0, 0.55);
 }
 
-.carousel-slide img {
+ .carousel-slide img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1087,7 +1098,6 @@ footer p { font-size: 0.75rem; color: var(--stone); }
   transform: translate(-50%, -50%);
   background: #100c09;
 }
-
 .carousel-slide::before {
   content: "";
   position: absolute;

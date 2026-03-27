@@ -676,89 +676,77 @@
 
     <!-- ══════════ FOTOGRAFII CU TELEFONUL ══════════ -->
     <section class="page" id="phone">
-      <div class="phone-wrap">
-        <div class="phone-intro reveal">
-          <span class="label">Fotografii cu telefonul</span>
-          <h2 class="big-title" style="font-size: clamp(2rem, 4vw, 3.5rem)">
-            Când aparatul<br />e <em>în buzunar.</em>
-          </h2>
-          <p>
-            Cel mai bun aparat e cel pe care îl ai la tine. Uneori, asta
-            înseamnă telefonul. Nu e mai puțin valid — e mai spontan.
-          </p>
+  <div class="phone-wrap">
+    <div class="phone-intro reveal">
+      <span class="label">Fotografii cu telefonul</span>
+      <h2 class="big-title" style="font-size: clamp(2rem, 4vw, 3.5rem)">
+        Când aparatul<br />e <em>în buzunar.</em>
+      </h2>
+      <p>
+        Cel mai bun aparat e cel pe care îl ai la tine. Uneori, asta
+        înseamnă telefonul. Nu e mai puțin valid — e mai spontan.
+      </p>
+    </div>
+
+    <div class="carousel-wrap" style="padding: 0 5vw 4rem">
+      <h3 class="carousel-title">Poveste de <em>gheață</em></h3>
+
+      <div class="carousel-stage" id="phone-stage">
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img src="img/amurg_inghetat.jpg" alt="Amurg înghețat" />
+            <div class="carousel-caption"><p>Amurg înghețat</p></div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/culori_de_geata.jpg" alt="Culori de gheață" />
+            <div class="carousel-caption"><p>Culori de gheață</p></div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/gard-gheata.jpg" alt="Gard de gheață" />
+            <div class="carousel-caption"><p>Gard de gheață</p></div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/gaura_de_gheata.jpg" alt="Gaură de gheață" />
+            <div class="carousel-caption"><p>Gaură de gheață</p></div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/plecaciune_inghetata.jpg" alt="Plecăciune înghețată" />
+            <div class="carousel-caption"><p>Plecăciune înghețată</p></div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/soare_inghetat.jpg" alt="Soare înghețat" />
+            <div class="carousel-caption"><p>Soare înghețat</p></div>
+          </div>
         </div>
-        <div class="carousel-wrap" style="padding: 0 5vw 4rem">
-          <div class="carousel-stage" id="phone-stage">
-            <div class="carousel-track">
-              <div class="carousel-slide active">
-                <div class="slide-ph">📱 Foto 1</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 2</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 3</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 4</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 5</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 6</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 7</div>
-              </div>
-              <div class="carousel-slide">
-                <div class="slide-ph">📱 Foto 8</div>
-              </div>
-            </div>
 
-            <button
-              class="carousel-btn prev"
-              onclick="carouselMove('phone', -1)"
-            >
-              &#8592;
-            </button>
-            <button
-              class="carousel-btn next"
-              onclick="carouselMove('phone', 1)"
-            >
-              &#8594;
-            </button>
-          </div>
+        <button class="carousel-btn prev" onclick="carouselMove('phone', -1)">&#8592;</button>
+        <button class="carousel-btn next" onclick="carouselMove('phone', 1)">&#8594;</button>
+      </div>
 
-          <div class="carousel-thumbs" id="phone-thumbs">
-            <div class="thumb active" onclick="carouselGo('phone', 0)">
-              <div class="thumb-ph">1</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 1)">
-              <div class="thumb-ph">2</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 2)">
-              <div class="thumb-ph">3</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 3)">
-              <div class="thumb-ph">4</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 4)">
-              <div class="thumb-ph">5</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 5)">
-              <div class="thumb-ph">6</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 6)">
-              <div class="thumb-ph">7</div>
-            </div>
-            <div class="thumb" onclick="carouselGo('phone', 7)">
-              <div class="thumb-ph">8</div>
-            </div>
-          </div>
+      <div class="carousel-thumbs" id="phone-thumbs">
+        <div class="thumb active" onclick="carouselGo('phone', 0)">
+          <img src="img/amurg_inghetat.jpg" alt="Amurg înghețat" />
+        </div>
+        <div class="thumb" onclick="carouselGo('phone', 1)">
+          <img src="img/culori_de_geata.jpg" alt="Culori de gheață" />
+        </div>
+        <div class="thumb" onclick="carouselGo('phone', 2)">
+          <img src="img/gard-gheata.jpg" alt="Gard de gheață" />
+        </div>
+        <div class="thumb" onclick="carouselGo('phone', 3)">
+          <img src="img/gaura_de_gheata.jpg" alt="Gaură de gheață" />
+        </div>
+        <div class="thumb" onclick="carouselGo('phone', 4)">
+          <img src="img/plecaciune_inghetata.jpg" alt="Plecăciune înghețată" />
+        </div>
+        <div class="thumb" onclick="carouselGo('phone', 5)">
+          <img src="img/soare_inghetat.jpg" alt="Soare înghețat" />
         </div>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
 
     <!-- ══════════ CONTACT ══════════ -->
     <section class="page" id="contact">
