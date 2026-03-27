@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cătălin Cocoș — Fotograf & Copywriter | FrameStory</title>
+    <meta
+      name="description"
+      content="Cătălin Cocoș — fotograf și copywriter senior cu peste 15 ani experiență. Imagini care spun povești, texte care conving. București."
+    />
+    <meta
+      name="keywords"
+      content="fotograf București, copywriter SEO, fotografie portret, copywriting, articole SEO, social media"
+    />
+    <meta
+      property="og:title"
+      content="Cătălin Cocoș — Fotograf & Copywriter | FrameStory"
+    />
+    <meta
+      property="og:description"
+      content="Imagini care spun povești. Texte care conving."
+    />
+    <meta property="og:url" content="https://framestory.ro" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://framestory.ro" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cătălin Cocoș",
+        "jobTitle": "Fotograf & Copywriter Senior",
+        "url": "https://framestory.ro",
+        "email": "catalincd@gmail.com",
+        "telephone": "0722595568",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "București",
+          "addressCountry": "RO"
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ══ NAV ══ -->
+    <nav id="nav" class="on-dark">
+      <a class="nav-logo" href="#" onclick="showPage('home')"
+        >Frame<em>Story</em></a
+      >
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Acasă</a></li>
+        <li><a href="#" onclick="showPage('about')">Despre mine</a></li>
+        <li><a href="#" onclick="showPage('portfolio')">Portofoliu</a></li>
+        <li><a href="#" onclick="showPage('services')">Servicii</a></li>
+        <li>
+          <a href="#" onclick="showPage('poetry')">Poezie și Fotografie</a>
+        </li>
+        <li>
+          <a href="#" onclick="showPage('phone')">Fotografii cu telefonul</a>
+        </li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a
+        href="#"
+        onclick="
+          showPage('home');
+          closeMobile();
+        "
+        >Acasă</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('about');
+          closeMobile();
+        "
+        >Despre mine</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('portfolio');
+          closeMobile();
+        "
+        >Portofoliu</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('services');
+          closeMobile();
+        "
+        >Servicii</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('poetry');
+          closeMobile();
+        "
+        >Poezie și Fotografie</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('phone');
+          closeMobile();
+        "
+        >Cu telefonul</a
+      >
+      <a
+        href="#"
+        onclick="
+          showPage('contact');
+          closeMobile();
+        "
+        >Contact</a
+      >
+    </div>
+
+    <!-- ══════════ HOME ══════════ -->
+    <section class="page active" id="home">
+      <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-label">Fotograf & Copywriter — București</p>
+          <h1 class="hero-title">
+            Imagini<br />care spun<br /><em>povești.</em>
+          </h1>
+          <p class="hero-sub">Texte care conving. Cadre care rămân.</p>
+          <p class="hero-quote">
+            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+            eșuează, ci aceea că țintesc prea jos și reușesc”
+            <span>– Michelangelo</span>
+          </p>
+          <div class="hero-cta">
+            <button class="btn-light" onclick="showPage('portfolio')">
+              Vezi portofoliul
+            </button>
+            <button class="btn-ghost" onclick="showPage('contact')">
+              Lucrăm împreună?
+            </button>
+          </div>
+        </div>
+        <div class="hero-scroll-hint">
+          <div class="scroll-line"></div>
+          <span>Scroll</span>
+        </div>
+      </div>
+
+      <div class="home-intro reveal">
+        <blockquote>
+          Există momente în care o imagine și un cuvânt spun împreună
+          <em>mai mult</em> decât oricare dintre ele separat. Fac asta de peste
+          25 ani.
+        </blockquote>
+        <cite>— Cătălin Cocoș</cite>
+      </div>
+
+      <div class="home-services reveal">
+        <div class="svc-item" onclick="showPage('portfolio')">
+          <div class="svc-n">01</div>
+          <h3>Fotografie</h3>
+          <p>
+            Portret, eveniment, produs, stradă. Imagini cu caracter, nu cu
+            filtru.
+          </p>
+        </div>
+        <div class="svc-item" onclick="showPage('services')">
+          <div class="svc-n">02</div>
+          <h3>Copywriting</h3>
+          <p>
+            Articole SEO, social media, texte de brand. Scris cu sens, optimizat
+            cu cap.
+          </p>
+        </div>
+        <div class="svc-item" onclick="showPage('poetry')">
+          <div class="svc-n">03</div>
+          <h3>Poezie și Fotografie</h3>
+          <p>
+            Proiecte la intersecția dintre imagine și cuvânt. Un spațiu aparte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ DESPRE MINE ══════════ -->
+    <section class="page" id="about">
+      <div class="about-wrap">
+        <div class="about-photo">
+          <!-- înlocuiește cu: <img src="img/portret.jpg" alt="Cătălin Cocoș"> -->
+          <div class="about-photo-ph">
+            <span
+              style="
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--warm-gray);
+              "
+              >Fotografie portret</span
+            >
+          </div>
+        </div>
+        <div class="about-text-col">
+          <span class="label">Despre mine</span>
+          <h2 class="big-title">Cătălin<br /><em>Cocoș</em></h2>
+          <div class="rule"></div>
+
+          <p>
+            Am început cu ziarele, când ziarele încă existau și banii se dădeau
+            în mână. Când se dădeau, că mai încasai și țepe. Redacțiile de la
+            <strong>Ziarul Timișoara</strong>, <strong>Bănățeanul</strong>,
+            <strong>West City Radio</strong>, <strong>ProSport</strong>,
+            <strong>Gazeta Sporturilor</strong>, <strong>Banii Noștri</strong>,
+            <strong>NewsIn</strong>, <strong>Adevărul</strong> mi-au servit
+            fiecare câte o lecție. Toate aceste locuri m-au învățat câte ceva
+            despre cum se construiește un mesaj — și, mai ales, despre cum se
+            distruge unul, dacă nu ești atent.
+          </p>
+
+          <p>
+            Apoi a venit televiziunea peste mine. Vreo <strong>13 ani</strong>,
+            număr cu noroc, în direct, fără plasă de siguranță și fără
+            posibilitatea de a da Ctrl+Z. La <strong>Profit News TV</strong> și
+            <strong>Medika TV</strong> am fost
+            <strong>Editor of the Day</strong> — adică omul responsabil de tot
+            ce iese pe post, indiferent dacă tocmai s-a întâmplat ceva ce nu era
+            în niciun plan editorial. La <strong>Prima News TV</strong> am fost
+            editor. Și producător. La <strong>România TV</strong>
+            am gestionat crawl-ul de știri timp de șase ani. Dacă vreodată te-ai
+            uitat la banda aia care circulă în partea de jos a ecranului și ai
+            dat din cap aprobator — cu ceva șanse, ai dat din cap la munca mea.
+          </p>
+
+          <p>
+            Munca în direct face ceva cu tine: îți calibrează simțul urgenței la
+            un nivel pe care nu îl mai poți dezactiva. Orice deadline mi se pare
+            acum confortabil. O poezie, aș spune.
+          </p>
+
+          <p>
+            În tot acest timp, fotografia s-a insinuat în viața mea — nu ca
+            hobby, ci ca al doilea limbaj. Același instinct de a găsi unghiul
+            potrivit, aceeași nevoie de a spune ceva într-o secundă. Doar că în
+            loc de cuvinte folosesc lumină. Scriu cu lumină, ca să-i citez pe
+            vechii greci. Aparatul foto mă însoțește peste tot, ceea ce uneori
+            îi bucură pe oamenii din jur. Uneori.
+          </p>
+
+          <p>
+            Azi lucrez ca <strong>senior copywriter</strong> și
+            <strong>fotograf independent</strong>. Ajut branduri și oameni să se
+            exprime mai clar — în scris și în imagine. Dacă ai nevoie de ambele,
+            ești în locul potrivit și tocmai ți-ai simplificat viața cu un
+            simplu email.
+          </p>
+
+          <p>
+            M-am îndrăgostit de jurnalism la
+            <strong>Universitatea Tibiscus</strong> din Timișoara în primul an
+            de faculate -, încă din mileniul trecut — ceea ce sună mai dramatic
+            decât este. Când am intrat în presă nu se mai ciopleu mesajele în
+            piatră și nici nu se așterneau pe hârtie de pergament dar internetul
+            venea prin linia telefonică și "cârâia". Am și o formare în
+            <strong>front-end development</strong>, ceea ce înseamnă că înțeleg
+            mediul digital în care trăiesc cuvintele, nu doar textele în sine.
+          </p>
+
+          <div class="awards">
+            <span class="label">Recunoașteri</span>
+            <div class="award">
+              <span class="award-yr">2010</span>
+              <span class="award-txt"
+                >Premiul pentru libertatea de exprimare — ActiveWatch</span
+              >
+            </div>
+            <div class="award">
+              <span class="award-yr">2009</span>
+              <span class="award-txt"
+                >Premiile I și II la concursuri naționale de fotografie</span
+              >
+            </div>
+            <div class="award">
+              <span class="award-yr">2005</span>
+              <span class="award-txt"
+                >Trofeul Presei, secțiunea radio — Gaudeamus</span
+              >
+            </div>
+            <div class="award">
+              <span class="award-yr">—</span>
+              <span class="award-txt"
+                >Expoziții foto colective în București și Brașov</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PORTOFOLIU ══════════ -->
+    <section class="page" id="portfolio">
+      <div class="portfolio-head">
+        <div>
+          <span class="label">Galerie foto</span>
+          <h2
+            class="big-title"
+            style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 0"
+          >
+            Portofoliu
+          </h2>
+        </div>
+        <div class="filters">
+          <button class="f-btn active" data-filter="all">Toate</button>
+          <button class="f-btn" data-filter="nature">Natură</button>
+          <button class="f-btn" data-filter="architecture">Arhitectură</button>
+          <button class="f-btn" data-filter="black-white">Alb-Negru</button>
+          <button class="f-btn" data-filter="advertising">Advertising</button>
+          <button class="f-btn" data-filter="animals">Animale</button>
+        </div>
+      </div>
+
+      <div class="carousel-wrap" style="padding: 0 5vw 4rem">
+        <div class="carousel-stage" id="port-stage">
+          <div class="carousel-track">
+            <div class="carousel-slide active" data-cat="nature">
+              <img
+                src="img/ceata-lumina.jpg"
+                alt="Ceață și lumină — fotografie natură România"
+              />
+              <div class="carousel-caption">
+                <p>Ceață și lumină</p>
+                <span>Natură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="nature">
+              <img
+                src="img/deal-padure-lumina.jpg"
+                alt="Deal cu pădure în lumina serii — fotografie natură"
+              />
+              <div class="carousel-caption">
+                <p>Deal, pădure, lumină</p>
+                <span>Natură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="nature">
+              <img
+                src="img/dobrogea-lac-munti.jpg"
+                alt="Lac și munți în Dobrogea — fotografie peisaj România"
+              />
+              <div class="carousel-caption">
+                <p>Dobrogea — lac și munți</p>
+                <span>Natură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="architecture">
+              <img
+                src="img/acoperis-biserica-sindrila.jpg"
+                alt="Acoperiș biserică cu șindrilă — fotografie arhitectură România"
+              />
+              <div class="carousel-caption">
+                <p>Șindrilă</p>
+                <span>Arhitectură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="architecture">
+              <img
+                src="img/ateneu-bucuresti-zapada.jpg"
+                alt="Ateneul Român iarna — fotografie arhitectură București"
+              />
+              <div class="carousel-caption">
+                <p>Ateneul iarna</p>
+                <span>Arhitectură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="architecture">
+              <img
+                src="img/banca-ioanid-zapada.jpg"
+                alt="Banca Ioanid în zăpadă — fotografie arhitectură București"
+              />
+              <div class="carousel-caption">
+                <p>Ioanid în zăpadă</p>
+                <span>Arhitectură</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="black-white">
+              <img
+                src="img/gard-zapada-umbre.jpg"
+                alt="Gard cu zăpadă și umbre — fotografie alb-negru"
+                style="object-position: top"
+              />
+              <div class="carousel-caption">
+                <p>Umbre în zăpadă</p>
+                <span>Alb-Negru</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-cat="black-white">
+              <img
+                src="img/sculptura-om.jpg"
+                alt="Sculptură om — fotografie alb-negru artă"
+                style="object-position: top"
+              />
+              <div class="carousel-caption">
+                <p>Sculptură</p>
+                <span>Alb-Negru</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-btn prev" onclick="carouselMove('port', -1)">
+            &#8592;
+          </button>
+          <button class="carousel-btn next" onclick="carouselMove('port', 1)">
+            &#8594;
+          </button>
+        </div>
+
+        <div class="carousel-thumbs" id="port-thumbs">
+          <div class="thumb active" onclick="carouselGo('port', 0)">
+            <img src="img/ceata-lumina.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 1)">
+            <img src="img/deal-padure-lumina.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 2)">
+            <img src="img/dobrogea-lac-munti.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 3)">
+            <img src="img/acoperis-biserica-sindrila.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 4)">
+            <img src="img/ateneu-bucuresti-zapada.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 5)">
+            <img src="img/banca-ioanid-zapada.jpg" alt="" />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 6)">
+            <img
+              src="img/gard-zapada-umbre.jpg"
+              alt=""
+              style="object-position: top"
+            />
+          </div>
+          <div class="thumb" onclick="carouselGo('port', 7)">
+            <img
+              src="img/sculptura-om.jpg"
+              alt=""
+              style="object-position: top"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ SERVICII ══════════ -->
+    <section class="page" id="services">
+      <div class="services-wrap">
+        <div class="services-intro reveal">
+          <span class="label">Ce ofer</span>
+          <h2 class="big-title">Servicii</h2>
+          <p
+            style="
+              font-size: 0.95rem;
+              color: var(--warm-gray);
+              line-height: 1.8;
+              max-width: 560px;
+            "
+          >
+            Două meșteșuguri, un singur fir comun: claritatea mesajului.
+            Indiferent că e vorba de un articol sau de un cadru foto, mă
+            interesează să spun ceva real.
+          </p>
+        </div>
+
+        <div class="svc-grid reveal">
+          <div class="svc-block">
+            <div class="ico">✍️</div>
+            <h3>Copywriting & Content</h3>
+            <p>
+              Texte care funcționează — pentru motoarele de căutare, pentru
+              oameni și pentru algoritmii AI care indexează din ce în ce mai
+              mult conținut.
+            </p>
+            <ul>
+              <li>Articole SEO optimizate</li>
+              <li>Conținut AEO (featured snippets)</li>
+              <li>Conținut GEO (căutare localizată)</li>
+              <li>Social media — Facebook, Instagram, LinkedIn</li>
+              <li>Texte de brand & descrieri de produse</li>
+              <li>Audit de conținut & strategie editorială</li>
+            </ul>
+          </div>
+          <div class="svc-block">
+            <div class="ico">📷</div>
+            <h3>Fotografie</h3>
+            <p>
+              Fotografie cu ochi de jurnalist și sensibilitate de artist.
+              Fiecare ședință are un fir narativ — nu e doar „pozat".
+            </p>
+            <ul>
+              <li>Portret — personal & profesional</li>
+              <li>Evenimente & reportaj</li>
+              <li>Fotografie de produs</li>
+              <li>Stradă & documentar</li>
+            </ul>
+          </div>
+          <div class="svc-block">
+            <div class="ico">🎯</div>
+            <h3>Strategie de conținut</h3>
+            <p>
+              Nu doar text, ci un plan. Cercetare de cuvinte cheie, analiză de
+              competiție, calendar editorial — totul documentat și aplicabil.
+            </p>
+            <ul>
+              <li>Audit SEO & analiza gap-urilor de conținut</li>
+              <li>Cercetare keywords cu SEranking / SEMrush</li>
+              <li>Calendar editorial 6–12 luni</li>
+              <li>Brief de brand & ton of voice</li>
+            </ul>
+          </div>
+          <div class="svc-block">
+            <div class="ico">🤝</div>
+            <h3>Proiecte combinate</h3>
+            <p>
+              Dacă ai nevoie de text și imagine pentru același proiect —
+              campanie, lansare, brand personal — poți lucra cu o singură
+              persoană pentru coerență.
+            </p>
+            <ul>
+              <li>Pachet text + fotografie pentru campanii</li>
+              <li>Brand personal — conținut complet</li>
+              <li>Materiale pentru social media (visual + copy)</li>
+              <li>Proiecte editoriale mixte</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="services-cta reveal">
+          <p>
+            „Fiecare proiect e diferit. Dacă nu ești sigur ce ai nevoie,
+            scrie-mi și discutăm."
+          </p>
+          <button class="btn-dark" onclick="showPage('contact')">
+            Discutăm proiectul tău
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ POEZIE ȘI FOTOGRAFIE ══════════ -->
+    <section class="page" id="poetry">
+      <div class="poetry-wrap">
+        <div class="poetry-intro reveal">
+          <span class="label">Un spațiu aparte</span>
+          <h2 class="big-title">Poezie și<br /><em>Fotografie</em></h2>
+          <p>
+            Există imagini care cer cuvinte. Există cuvinte care cer imagini.
+            Aici le las să coexiste — fără ierarhie, fără explicații
+            suplimentare.
+          </p>
+          <p class="section-quote">
+            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+            eșuează, ci aceea că țintesc prea jos și reușesc”
+            <span>– Michelangelo</span>
+          </p>
+        </div>
+
+        <div class="p-item">
+          <div class="p-photo">
+            <img
+              src="img/luceafarul-si-luna.jpg"
+              alt="Luceafărul și Luna — Cătălin Cocoș"
+            />
+          </div>
+          <div class="p-text">
+            <p class="p-label">Lui Onișor, cu prietenie veșnică!</p>
+            <p class="p-intro-text">
+              Îmi e imposibil să mai spun ceva sau să mă mai gândesc și la
+              altceva decât la dramatica veste a pierderii unui PRIETEN. Onișor
+              era un OM cum puțini se nasc pe pământ. Acum mi-a rămas doar
+              amintirea lui și poezia asta, pe care mi-a recitat-o în urmă cu
+              aproape 50 de ani. Adio, dragă Onișor!
+            </p>
+            <div
+              style="
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                border-top: 1px solid var(--cream);
+              "
+            >
+              <p class="p-poem">
+                La Circ...<br />
+                Un accident banal –<br />
+                Un acrobat,<br />
+                Un salt mortal<br />
+                Și...<br />
+                Acrobatul nu s-a mai sculat...<br /><br />
+                Alămurile din orchestră au tăcut,<br />
+                Iar clovnii din arenă au țipat...<br />
+                Dar publicul din staluri n-a crezut<br />
+                Că poate fi și-un accident adevărat<br />
+                Și-a fluierat...<br />
+                Zadarnic –<br />
+                Mortul n-a mai înviat...<br /><br />
+                Păcat de el!...<br />
+                Era un tânăr acrobat frumos,<br />
+                Cu corpul tatuat de sus și până jos,<br />
+                De care publicul se minuna,<br />
+                Când îl vedea-ndoit ca un inel,<br />
+                Sau când pe bara fixă se-nvârtea<br />
+                Ca o morișcă de cafea<br />
+                Cu balerina lângă el!...<br /><br />
+                Dar balerina nu-l iubea!...<br /><br />
+                Povestea lui?<br />
+                Hm!...<br />
+                Povestea mea –<br />
+                A mea,<br />
+                A ta<br />
+                Și-a altora!...<br /><br />
+                Același accident de circ, banal...<br />
+                O zi relâche,<br />
+                Și-apoi, la fel,<br />
+                Cu-aceeași balerină lângă el,<br />
+                Alt acrobat...<br />
+                Alt salt mortal!...
+              </p>
+              <p class="p-note">
+                Ion Minulescu — <em>Ultima oră</em>, din volumul „Strofe pentru
+                toată lumea", 1930
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-item rev">
+          <div class="p-photo">
+            <div class="p-photo-ph">Fotografie</div>
+          </div>
+          <div class="p-text">
+            <p class="p-label">Titlu</p>
+            <p class="p-poem">
+              Textul sau poezia ta<br />
+              vine aici.
+            </p>
+            <p class="p-note">Descriere, an, locație</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FOTOGRAFII CU TELEFONUL ══════════ -->
+    <section class="page" id="phone">
+      <div class="phone-wrap">
+        <div class="phone-intro reveal">
+          <span class="label">Fotografii cu telefonul</span>
+          <h2 class="big-title" style="font-size: clamp(2rem, 4vw, 3.5rem)">
+            Când aparatul<br />e <em>în buzunar.</em>
+          </h2>
+          <p>
+            Cel mai bun aparat e cel pe care îl ai la tine. Uneori, asta
+            înseamnă telefonul. Nu e mai puțin valid — e mai spontan.
+          </p>
+        </div>
+        <div class="carousel-wrap" style="padding: 0 5vw 4rem">
+          <div class="carousel-stage" id="phone-stage">
+            <div class="carousel-track">
+              <div class="carousel-slide active">
+                <div class="slide-ph">📱 Foto 1</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 2</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 3</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 4</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 5</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 6</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 7</div>
+              </div>
+              <div class="carousel-slide">
+                <div class="slide-ph">📱 Foto 8</div>
+              </div>
+            </div>
+
+            <button
+              class="carousel-btn prev"
+              onclick="carouselMove('phone', -1)"
+            >
+              &#8592;
+            </button>
+            <button
+              class="carousel-btn next"
+              onclick="carouselMove('phone', 1)"
+            >
+              &#8594;
+            </button>
+          </div>
+
+          <div class="carousel-thumbs" id="phone-thumbs">
+            <div class="thumb active" onclick="carouselGo('phone', 0)">
+              <div class="thumb-ph">1</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 1)">
+              <div class="thumb-ph">2</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 2)">
+              <div class="thumb-ph">3</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 3)">
+              <div class="thumb-ph">4</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 4)">
+              <div class="thumb-ph">5</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 5)">
+              <div class="thumb-ph">6</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 6)">
+              <div class="thumb-ph">7</div>
+            </div>
+            <div class="thumb" onclick="carouselGo('phone', 7)">
+              <div class="thumb-ph">8</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTACT ══════════ -->
+    <section class="page" id="contact">
+      <div class="contact-wrap">
+        <div class="contact-left">
+          <span class="label">Hai să vorbim</span>
+          <h2 class="big-title">Con<em>tact</em></h2>
+          <div class="rule"></div>
+          <p>
+            Fie că ai un proiect concret sau doar o idee vagă, scrie-mi.
+            Clarificăm împreună ce ai nevoie.
+          </p>
+          <p class="section-quote">
+            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+            eșuează, ci aceea că țintesc prea jos și reușesc”
+            <span>– Michelangelo</span>
+          </p>
+          <div class="c-info">
+            <div class="c-row">
+              <span class="c-lbl">Email</span>
+              <span class="c-val"
+                ><a href="mailto:catalincd@gmail.com"
+                  >catalincd@gmail.com</a
+                ></span
+              >
+            </div>
+            <div class="c-row">
+              <span class="c-lbl">Telefon</span>
+              <span class="c-val"
+                ><a href="tel:0722595568">0722 595 568</a></span
+              >
+            </div>
+            <div class="c-row">
+              <span class="c-lbl">Locație</span>
+              <span class="c-val">București, România</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-right">
+          <h3>Trimite un mesaj</h3>
+          <div class="f-group">
+            <label for="fname">Numele tău</label>
+            <input type="text" id="fname" placeholder="Ion Popescu" />
+          </div>
+          <div class="f-group">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" placeholder="ion@example.com" />
+          </div>
+          <div class="f-group">
+            <label for="fsubject">Tipul proiectului</label>
+            <select id="fsubject">
+              <option value="">— Alege —</option>
+              <option>Copywriting / Content SEO</option>
+              <option>Fotografie</option>
+              <option>Strategie de conținut</option>
+              <option>Proiect combinat (text + foto)</option>
+              <option>Altceva</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="fmsg">Mesajul tău</label>
+            <textarea
+              id="fmsg"
+              placeholder="Spune-mi pe scurt despre proiect..."
+            ></textarea>
+          </div>
+          <button class="btn-dark" onclick="submitForm()">
+            Trimite mesajul
+          </button>
+          <div class="f-success" id="fSuccess">
+            ✓ Mesajul a fost trimis. Îți răspund în maximum 24 de ore.
+          </div>
+          <p
+            style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--stone)"
+          >
+            * Formularul necesită configurarea Formspree înainte de publicare.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="f-logo">Frame<em>Story</em></div>
+      <p>© 2025 Cătălin Cocoș. Toate drepturile rezervate.</p>
+      <p>framestory.ro</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
