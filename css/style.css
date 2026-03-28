@@ -974,12 +974,11 @@ button { font-family: var(--font-sans); cursor: pointer; }
 ════════════════════════════════ */
 footer {
   background: var(--charcoal);
-  padding: 2.5rem 3.5rem;
-  display: flex;
+  padding: 3rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .f-logo {
   font-family: var(--font-serif);
@@ -987,7 +986,34 @@ footer {
   color: var(--cream);
 }
 .f-logo em { font-style: italic; color: var(--accent-lt); }
-footer p { font-size: 0.75rem; color: var(--stone); }
+.f-tagline {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--stone);
+  text-align: center;
+}
+.f-social {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.f-social a {
+  color: var(--stone);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.f-social a:hover { color: var(--accent-lt); }
+.f-copy {
+  font-size: 0.7rem;
+  color: var(--stone);
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+}
 
 /* ════════════════════════════════
    BUTTONS
