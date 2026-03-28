@@ -350,27 +350,23 @@ button { font-family: var(--font-sans); cursor: pointer; }
 
 .btn-light {
   display: inline-block;
-  padding: 0.8rem 2.2rem;
+  padding: 0.85rem 2.4rem;
   background: #fff;
   color: var(--charcoal);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: background 0.2s, color 0.2s;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #b0a898;
+  transition: box-shadow 0.1s, transform 0.1s;
 }
-.btn-light:hover { background: var(--accent); color: #fff; }
-.btn-ghost {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  border: none; background: none;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
+.btn-light:hover {
+  box-shadow: 0 2px 0 #b0a898;
+  transform: translateY(2px);
 }
 .btn-ghost:hover { color: #fff; border-color: #fff; }
 
@@ -477,6 +473,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   padding-top: var(--nav-h);
+  align-items: start;
 }
 .about-photo {
   position: sticky;
@@ -493,6 +490,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 }
 .about-text-col {
   padding: 5rem 4rem 5rem 5rem;
+  padding-bottom: 6rem;
 }
 .label {
   font-size: 0.65rem;
@@ -525,6 +523,22 @@ button { font-family: var(--font-sans); cursor: pointer; }
   margin-top: 3rem;
   padding-top: 2.5rem;
   border-top: 1px solid var(--cream);
+}
+.about-cta {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.about-cta p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--warm-gray);
+  margin: 0;
 }
 .award {
   display: flex;
@@ -978,21 +992,33 @@ footer p { font-size: 0.75rem; color: var(--stone); }
 /* ════════════════════════════════
    BUTTONS
 ════════════════════════════════ */
-.btn-dark {
+.btn-accent {
   display: inline-block;
   padding: 0.85rem 2.4rem;
-  background: var(--charcoal);
+  background: var(--accent);
   color: #fff;
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border: none;
-  transition: background 0.2s, transform 0.2s;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 4px 0 #6b5235;
+  transition: box-shadow 0.1s, transform 0.1s;
 }
-.btn-dark:hover { background: var(--accent); transform: translateY(-2px); }
-
+.btn-accent:hover {
+  box-shadow: 0 2px 0 #6b5235;
+  transform: translateY(2px);
+}
+.hero-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 /* ════════════════════════════════
    ANIMATIONS
 ════════════════════════════════ */
