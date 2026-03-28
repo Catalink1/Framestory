@@ -657,10 +657,6 @@ button { font-family: var(--font-sans); cursor: pointer; }
   font-size: 0.85rem; color: var(--dark);
   display: flex; align-items: center; gap: 0.75rem;
 }
-.svc-block ul li::before {
-  content: ''; width: 18px; height: 1px;
-  background: var(--accent); flex-shrink: 0;
-}
 .services-cta {
   text-align: center;
   padding: 3rem 4rem 6rem;
@@ -672,6 +668,60 @@ button { font-family: var(--font-sans); cursor: pointer; }
   font-weight: 400;
   color: var(--warm-gray);
   margin-bottom: 2rem;
+}
+
+.faq-wrap {
+  padding: 4rem 4rem 6rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 0.5px solid var(--cream);
+}
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1.5rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--accent); }
+.faq-q::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.faq-q.open::after {
+  transform: rotate(45deg);
+}
+.faq-a {
+  display: none;
+  padding: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--warm-gray);
+  line-height: 1.9;
+  max-width: 680px;
+}
+.faq-a.open {
+  display: block;
 }
 
 /* ════════════════════════════════

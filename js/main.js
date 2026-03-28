@@ -100,6 +100,22 @@ function submitForm() {
   }
   document.getElementById("fSuccess").style.display = "block";
 }
+// ── FAQ ──
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector(".faq-a");
+  const isOpen = btn.classList.contains("open");
+
+  document.querySelectorAll(".faq-q.open").forEach((q) => {
+    q.classList.remove("open");
+    q.parentElement.querySelector(".faq-a").classList.remove("open");
+  });
+
+  if (!isOpen) {
+    btn.classList.add("open");
+    answer.classList.add("open");
+  }
+}
 
 // ── Carusel ──
 const carousels = {};
