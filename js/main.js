@@ -369,8 +369,33 @@ function initParallax() {
   });
 }
 
+// ── Cookies ──
+function acceptCookies() {
+  localStorage.setItem("cookieConsent", "accepted");
+  hideCookieBanner();
+}
+function declineCookies() {
+  localStorage.setItem("cookieConsent", "declined");
+  hideCookieBanner();
+}
+function hideCookieBanner() {
+  const banner = document.getElementById("cookieBanner");
+  if (banner) {
+    banner.classList.add("hidden");
+    setTimeout(() => banner.remove(), 300);
+  }
+}
+function checkCookieConsent() {
+  const consent = localStorage.getItem("cookieConsent");
+  if (consent) {
+    const banner = document.getElementById("cookieBanner");
+    if (banner) banner.remove();
+  }
+}
+
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
+  checkCookieConsent();
   updateNav("home");
   initReveal();
   animateCounters();
