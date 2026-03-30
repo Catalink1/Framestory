@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presă — Cătălin Cocoș | 106 articole în publicații din România</title>
+    <meta name="description" content="Cătălin Cocoș a fost menționat în peste 106 publicații din România. Vezi lista completă de articole despre copywriting, SEO, fotografie și strategie de conținut." />
+    <meta name="keywords" content="Cătălin Cocoș presă, articole copywriter, menționări media, publicații România, SEO expert România, fotograf presă" />
+    <meta name="author" content="Cătălin Cocoș" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Presă — Cătălin Cocoș | 106 articole în publicații din România" />
+    <meta property="og:description" content="Lista completă de articole și menționări media despre Cătălin Cocoș — copywriter senior și fotograf." />
+    <meta property="og:url" content="https://framestory.ro/presa.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://framestory.ro/img/eu.jpg" />
+    <meta property="og:locale" content="ro_RO" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Presă — Cătălin Cocoș | 106 articole" />
+    <meta name="twitter:description" content="Vezi toate articolele și menționările media despre Cătălin Cocoș." />
+    <meta name="twitter:image" content="https://framestory.ro/img/eu.jpg" />
+
+    <link rel="canonical" href="https://framestory.ro/presa.html" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* ══════════════════════════════
+       PRESS PAGE
+    ══════════════════════════════ */
+      .press-wrap {
+        padding-top: var(--nav-h);
+        min-height: 100vh;
+        background: var(--white);
+      }
+
+      /* Hero intro */
+      .press-intro {
+        padding: 5rem 4rem 3rem;
+        max-width: 860px;
+      }
+      .press-intro .label {
+        margin-bottom: 1rem;
+      }
+      .press-intro p {
+        font-size: 0.95rem;
+        color: var(--warm-gray);
+        line-height: 1.9;
+        max-width: 560px;
+        margin-top: 1.5rem;
+      }
+      .press-count {
+        font-family: var(--font-serif);
+        font-size: clamp(4rem, 10vw, 9rem);
+        font-weight: 400;
+        color: var(--cream);
+        line-height: 1;
+        margin: 0.5rem 0 0;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* Controls */
+      .press-controls {
+        padding: 0 4rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--cream);
+      }
+      .press-search {
+        flex: 1;
+        min-width: 220px;
+        max-width: 400px;
+        padding: 0.6rem 1rem;
+        background: none;
+        border: 1px solid var(--cream);
+        border-radius: 6px;
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        color: var(--dark);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .press-search::placeholder {
+        color: var(--stone);
+      }
+      .press-search:focus {
+        border-color: var(--accent);
+      }
+      .press-results-info {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stone);
+        margin-left: auto;
+      }
+
+      /* Grid */
+      .press-grid {
+        padding: 2.5rem 4rem 6rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1px;
+        background: var(--cream);
+      }
+
+      /* Card — book / opening pages style */
+      .press-card {
+        position: relative;
+        perspective: 800px;
+        min-height: 220px;
+      }
+
+      /* Front page (cover) */
+      .press-card-front {
+        background: #faf8f4;
+        padding: 2.2rem 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        position: relative;
+        height: 100%;
+        border: 1px solid #e8e3da;
+        border-radius: 4px;
+        box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+        transform-origin: left center;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.5s;
+        z-index: 2;
+        /* spine edge */
+        border-left: 4px solid var(--charcoal);
+      }
+      .press-card-front::after {
+        content: "";
+        position: absolute;
+        top: 0; right: 0;
+        width: 20px; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,0.03));
+        pointer-events: none;
+      }
+
+      /* Inner page (revealed on hover) */
+      .press-card-inner {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, #f5f0e8, #ede8df);
+        border: 1px solid #ddd8cf;
+        border-left: 4px solid var(--accent);
+        border-radius: 4px;
+        padding: 2.2rem 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        z-index: 1;
+        /* faded lines like a notebook */
+        background-image: repeating-linear-gradient(
+          180deg,
+          transparent 0px,
+          transparent 28px,
+          rgba(0,0,0,0.04) 28px,
+          rgba(0,0,0,0.04) 29px
+        );
+        background-position: 0 2.2rem;
+      }
+
+      /* Hover — open the book */
+      .press-card:hover .press-card-front {
+        transform: rotateY(-55deg);
+        box-shadow: 8px 4px 16px rgba(0,0,0,0.12);
+        pointer-events: none;
+      }
+
+      /* Cover text */
+      .press-card-site {
+        font-size: 0.58rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid #ddd8cf;
+      }
+      .press-card-title {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--charcoal);
+        flex: 1;
+      }
+      .press-card-hint {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stone);
+        transition: color 0.3s;
+      }
+      .press-card:hover .press-card-hint {
+        color: var(--accent);
+      }
+
+      /* Inner page text */
+      .press-card-inner-site {
+        font-size: 0.55rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .press-card-inner-title {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: var(--charcoal);
+        flex: 1;
+      }
+      .press-card-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--accent);
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        margin-top: auto;
+        box-shadow: 0 3px 0 #6b5235;
+        transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+      }
+      .press-card-link:hover {
+        background: var(--charcoal);
+        box-shadow: 0 2px 0 #111;
+        transform: translateY(1px);
+      }
+      .press-card-link svg {
+        stroke: #fff;
+        transition: transform 0.2s;
+      }
+      .press-card-link:hover svg {
+        transform: translate(3px, -3px);
+      }
+
+      /* No results */
+      .press-empty {
+        grid-column: 1 / -1;
+        padding: 5rem 2rem;
+        text-align: center;
+        color: var(--stone);
+      }
+      .press-empty p {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .press-intro {
+          padding: 3rem 2rem 2rem;
+        }
+        .press-controls {
+          padding: 0 2rem 1.5rem;
+        }
+        .press-grid {
+          padding: 2rem 0 4rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .press-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Presă — Cătălin Cocoș",
+      "description": "Peste 106 articole și menționări media despre Cătălin Cocoș în publicații din România.",
+      "url": "https://framestory.ro/presa.html",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Articole de presă despre Cătălin Cocoș",
+        "numberOfItems": 106,
+        "itemListOrder": "https://schema.org/ItemListUnordered"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://framestory.ro" },
+          { "@type": "ListItem", "position": 2, "name": "Presă", "item": "https://framestory.ro/presa.html" }
+        ]
+      },
+      "about": {
+        "@type": "Person",
+        "name": "Cătălin Cocoș",
+        "jobTitle": "Fotograf & Copywriter Senior",
+        "url": "https://framestory.ro",
+        "sameAs": [
+          "https://www.facebook.com/CatalinCocosCatalink",
+          "https://www.linkedin.com/in/catalin-cocos-7ab2882b/",
+          "https://www.instagram.com/catalink1",
+          "https://www.tiktok.com/@catalincocos8"
+        ]
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- NAV (identică cu restul site-ului) -->
+    <nav id="nav">
+      <a href="index.html" class="nav-logo">Frame<em>Story</em></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">Despre mine</a></li>
+        <li><a href="index.html#portfolio">Portofoliu</a></li>
+        <li><a href="index.html#services">Servicii</a></li>
+        <li>
+          <a href="presa.html" style="color: var(--accent); opacity: 1"
+            >Presă</a
+          >
+        </li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="index.html#about">Despre mine</a>
+      <a href="index.html#portfolio">Portofoliu</a>
+      <a href="index.html#services">Servicii</a>
+      <a href="presa.html">Presă</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <!-- CONTENT -->
+    <main class="press-wrap">
+      <section class="press-intro reveal">
+        <span class="label">În presă</span>
+        <div class="big-title" style="margin-bottom: 0">
+          Scrie presa<br /><em>despre mine</em>
+        </div>
+        <div class="press-count" id="pressCountDisplay">106</div>
+        <div class="rule"></div>
+        <p>
+          Articole, interviuri și mențiuni în publicații online din România —
+          copywriting, SEO, fotografie și comunicare digitală.
+        </p>
+      </section>
+
+      <div class="press-controls">
+        <input
+          type="search"
+          class="press-search"
+          id="pressSearch"
+          placeholder="Caută după titlu sau publicație..."
+          autocomplete="off"
+        />
+        <span class="press-results-info" id="pressInfo">106 articole</span>
+      </div>
+
+      <div class="press-grid" id="pressGrid"></div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="f-logo">Frame<em>Story</em></div>
+      <p class="f-tagline">
+        „Fiecare imagine spune o poveste. Fiecare cuvânt construiește una."
+      </p>
+      <div class="f-social">
+        <a href="#" aria-label="Instagram">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+      </div>
+      <p class="f-copy">
+        © 2025 Cătălin Cocoș · FrameStory · Toate drepturile rezervate
+      </p>
+    </footer>
+
+    <script>
+      const ARTICLES = [
+        {
+          site: "B2B Conect",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, explică importanța SEO în redactarea conținutului",
+          url: "https://b2b-conect.ro/stiri-de-ultima-ora/catalin-cocos-senior-copywriter-la-ekogroup-explica-importanta-seo-in-redactarea-continutului/",
+        },
+        {
+          site: "b2b-invest.ro",
+          title:
+            "Cum optimizează Cătălin Cocoș, senior copywriter la EkoGroup, articolele pentru prima pagină Google",
+          url: "https://b2b-invest.ro/noutati/cum-optimizeaza-catalin-cocos-senior-copywriter-la-ekogroup-articolele-pentru-prima-pagina-google/",
+        },
+        {
+          site: "B2B Romania",
+          title:
+            "Cătălin Cocoș, senior copywriter EkoGroup, și strategiile SEO care aduc trafic organic",
+          url: "https://b2b-romania.ro/b2b-romania-economie-si-finante-stiri-din-business-stiri-despre-investitii/catalin-cocos-senior-copywriter-ekogroup-si-strategiile-seo-care-aduc-trafic-organic/",
+        },
+        {
+          site: "B2B Corporate",
+          title:
+            "SEO pentru începători: Ghid esențial explicat de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://b2b-corporate.ro/b2b-corporate-banci-companii-piata-de-capital/seo-pentru-incepatori-ghid-esential-explicat-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "itfan.ro",
+          title:
+            "Cum a reușit Cătălin Cocoș, senior copywriter la EkoGroup, să crească vizibilitatea brandurilor prin SEO",
+          url: "https://itfan.ro/it-fan-evaluari-de-produs-devino-expert-tech-agenda-tech/cum-a-reusit-catalin-cocos-senior-copywriter-la-ekogroup-sa-creasca-vizibilitatea-brandurilor-prin-seo/",
+        },
+        {
+          site: "techalert.ro",
+          title:
+            "Arta optimizării conținutului: Metodele lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://techalert.ro/actualizari-tehnologice/arta-optimizarii-continutului-metodele-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "Tech Source",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, despre cum să scrii meta-descrieri care atrag clickuri",
+          url: "https://techsource.ro/ultimele-actualizari/catalin-cocos-senior-copywriter-la-ekogroup-despre-cum-sa-scrii-meta-descrieri-care-atrag-clickuri/",
+        },
+        {
+          site: "techtrend.ro",
+          title:
+            "Cum folosește Cătălin Cocoș, senior copywriter la EkoGroup, structura H1-H2-H3 pentru SEO",
+          url: "https://techtrend.ro/ultimele-noutati/cum-foloseste-catalin-cocos-senior-copywriter-la-ekogroup-structura-h1-h2-h3-pentru-seo/",
+        },
+        {
+          site: "romaniapolitica.ro",
+          title:
+            "Importanța link building-ului explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://romaniapolitica.ro/actualitate-politica-administratie-locala-politica-economica-politica-externa-stiri-guvernamentale/importanta-link-building-ului-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "fabricadestiri.ro",
+          title:
+            "Cum transformă Cătălin Cocoș, senior copywriter la EkoGroup, articolele în magneți de trafic",
+          url: "https://fabricadestiri.ro/stiri/cum-transforma-catalin-cocos-senior-copywriter-la-ekogroup-articolele-in-magneti-de-trafic/",
+        },
+        {
+          site: "reporterspecial.ro",
+          title:
+            "Cum creează Cătălin Cocoș, senior copywriter la EkoGroup, conținut captivant pentru orice industrie",
+          url: "https://reporterspecial.ro/noutati/cum-creeaza-catalin-cocos-senior-copywriter-la-ekogroup-continut-captivant-pentru-orice-industrie/",
+        },
+        {
+          site: "24web.ro",
+          title:
+            "Secretele unui copywriting de succes: Sfaturi de la Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://24web.ro/actualizari/secretele-unui-copywriting-de-succes-sfaturi-de-la-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "euro-stiri.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, explică cum să transformi un text banal într-unul memorabil",
+          url: "https://euro-stiri.ro/stiri/catalin-cocos-senior-copywriter-la-ekogroup-explica-cum-sa-transformi-un-text-banal-intr-unul-memorabil/",
+        },
+        {
+          site: "livestiri.ro",
+          title:
+            "Cum folosește Cătălin Cocoș, senior copywriter la EkoGroup, storytelling-ul în marketing",
+          url: "https://livestiri.ro/noutati/cum-foloseste-catalin-cocos-senior-copywriter-la-ekogroup-storytelling-ul-in-marketing/",
+        },
+        {
+          site: "primetimenews.ro",
+          title:
+            "De ce este esențială creativitatea în copywriting? Răspunsul lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://primetimenews.ro/ultima-ora-piete-de-capital-antreprenoriat-achizitii-economie-digitala/de-ce-este-esentiala-creativitatea-in-copywriting-raspunsul-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "stiribune.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, dezvăluie strategii de persuasiune în conținutul digital",
+          url: "https://stiribune.ro/ultima-ora/catalin-cocos-senior-copywriter-la-ekogroup-dezvaluie-strategii-de-persuasiune-in-continutul-digital/",
+        },
+        {
+          site: "sursedestiri.ro",
+          title:
+            "Cum structurează Cătălin Cocoș, senior copywriter la EkoGroup, articolele pentru a crește rata de conversie",
+          url: "https://sursedestiri.ro/ultima-ora/cum-structureaza-catalin-cocos-senior-copywriter-la-ekogroup-articolele-pentru-a-creste-rata-de-conversie/",
+        },
+        {
+          site: "stiri-zf.ro",
+          title:
+            "Cele mai frecvente greșeli în redactare și cum le evită Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://stiri-zf.ro/ultima-ora/cele-mai-frecvente-greseli-in-redactare-si-cum-le-evita-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "media-news.ro",
+          title:
+            "Ghidul unui articol perfect: Recomandările lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://media-news.ro/ultima-ora/ghidul-unui-articol-perfect-recomandarile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "stiri-finante.ro",
+          title:
+            "Cum adaptează Cătălin Cocoș, senior copywriter la EkoGroup, tonul și stilul conținutului pentru fiecare public",
+          url: "https://stiri-finante.ro/ultima-ora-media-investitii-economie-piete-de-capital/cum-adapteaza-catalin-cocos-senior-copywriter-la-ekogroup-tonul-si-stilul-continutului-pentru-fiecare-public/",
+        },
+        {
+          site: "mediabiz.ro",
+          title:
+            "Cum colaborează Cătălin Cocoș, senior copywriter la EkoGroup, cu echipa de vânzări pentru conținut eficient",
+          url: "https://mediabiz.ro/ultima-ora/cum-colaboreaza-catalin-cocos-senior-copywriter-la-ekogroup-cu-echipa-de-vanzari-pentru-continut-eficient/",
+        },
+        {
+          site: "business-news.ro",
+          title:
+            "Importanța colaborării dintre copywriting și marketing, explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-news.ro/ultima-ora/importanta-colaborarii-dintre-copywriting-si-marketing-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "afacerea-ta.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, despre cum să creezi conținut aliniat strategiei de brand",
+          url: "https://afacerea-ta.ro/afaceri/catalin-cocos-senior-copywriter-la-ekogroup-despre-cum-sa-creezi-continut-aliniat-strategiei-de-brand/",
+        },
+        {
+          site: "business-consult.ro",
+          title:
+            "Cum lucrează Cătălin Cocoș, senior copywriter la EkoGroup, alături de echipa IT pentru optimizarea conținutului",
+          url: "https://business-consult.ro/stiri-business/cum-lucreaza-catalin-cocos-senior-copywriter-la-ekogroup-alaturi-de-echipa-it-pentru-optimizarea-continutului/",
+        },
+        {
+          site: "business-market.ro",
+          title:
+            "Rolul copywriter-ului în echipa de PR: Perspectiva lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-market.ro/actualitati-business/rolul-copywriter-ului-in-echipa-de-pr-perspectiva-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-area.ro",
+          title:
+            "Cum gestionează Cătălin Cocoș, senior copywriter la EkoGroup, feedback-ul primit de la diferite departamente",
+          url: "https://business-area.ro/noutati-de-business/cum-gestioneaza-catalin-cocos-senior-copywriter-la-ekogroup-feedback-ul-primit-de-la-diferite-departamente/",
+        },
+        {
+          site: "business360.ro",
+          title:
+            "Importanța adaptării conținutului pentru diverse echipe: Experiența lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business360.ro/informatii-business/importanta-adaptarii-continutului-pentru-diverse-echipe-experienta-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-city.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, despre colaborarea interdepartamentală pentru eficiență maximă",
+          url: "https://business-city.ro/stiri-business/catalin-cocos-senior-copywriter-la-ekogroup-despre-colaborarea-interdepartamentala-pentru-eficienta-maxima/",
+        },
+        {
+          site: "business-zone.ro",
+          title:
+            "Cum sprijină Cătălin Cocoș, senior copywriter la EkoGroup, echipa de vânzări prin materiale persuasive",
+          url: "https://business-zone.ro/actualizari-business/cum-sprijina-catalin-cocos-senior-copywriter-la-ekogroup-echipa-de-vanzari-prin-materiale-persuasive/",
+        },
+        {
+          site: "top-news.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, explică rolul copywriting-ului în generarea de leaduri",
+          url: "https://top-news.ro/antreprenoriat/catalin-cocos-senior-copywriter-la-ekogroup-explica-rolul-copywriting-ului-in-generarea-de-leaduri/",
+        },
+        {
+          site: "top-15.ro",
+          title:
+            "Cum gestionează Cătălin Cocoș, senior copywriter la EkoGroup, articolele de pe site-urile companiei",
+          url: "https://top-15.ro/actualitate/cum-gestioneaza-catalin-cocos-senior-copywriter-la-ekogroup-articolele-de-pe-site-urile-companiei/",
+        },
+        {
+          site: "top-1.ro",
+          title:
+            "Importanța monitorizării conținutului explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://top-1.ro/actualitate/importanta-monitorizarii-continutului-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "top-events.ro",
+          title:
+            "Cum se asigură Cătălin Cocoș, senior copywriter la EkoGroup, că articolele sunt mereu relevante",
+          url: "https://top-events.ro/conferinte-financiare-summit-uri-antreprenoriale-workshop-uri-investitii-conferinte-ai/cum-se-asigura-catalin-cocos-senior-copywriter-la-ekogroup-ca-articolele-sunt-mereu-relevante/",
+        },
+        {
+          site: "top-business.ro",
+          title:
+            "Actualizarea conținutului online: Strategiile lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://top-business.ro/uncategorized/actualizarea-continutului-online-strategiile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "ideiafaceri.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, despre structura ideală a unui site optimizat SEO",
+          url: "https://ideiafaceri.ro/diverse-stiri-finante-inovatie-start-up/catalin-cocos-senior-copywriter-la-ekogroup-despre-structura-ideala-a-unui-site-optimizat-seo/",
+        },
+        {
+          site: "roafaceri.ro",
+          title:
+            "Rolul lui Cătălin Cocoș, senior copywriter la EkoGroup, în dezvoltarea aplicației de rescriere știri",
+          url: "https://roafaceri.ro/ro-afaceri-consultanta-investitii-dezvoltare-personala/rolul-lui-catalin-cocos-senior-copywriter-la-ekogroup-in-dezvoltarea-aplicatiei-de-rescriere-stiri/",
+        },
+        {
+          site: "afaceriweb.ro",
+          title:
+            "Cum a contribuit Cătălin Cocoș, senior copywriter la EkoGroup, la testarea aplicației de rescriere de știri",
+          url: "https://afaceriweb.ro/afaceri-web-comert-electronic-marketing-digital-tehnologie/cum-a-contribuit-catalin-cocos-senior-copywriter-la-ekogroup-la-testarea-aplicatiei-de-rescriere-de-stiri/",
+        },
+        {
+          site: "afaceri-press.ro",
+          title:
+            "De ce este necesară o aplicație de rescriere știri? Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://afaceri-press.ro/breaking-news/de-ce-este-necesara-o-aplicatie-de-rescriere-stiri-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "clubul-afacerilor.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, despre integrarea inteligenței artificiale în copywriting",
+          url: "https://clubul-afacerilor.ro/in-prim-plan/catalin-cocos-senior-copywriter-la-ekogroup-despre-integrarea-inteligentei-artificiale-in-copywriting/",
+        },
+        {
+          site: "club-afaceri.ro",
+          title:
+            "Cum optimizează Cătălin Cocoș, senior copywriter la EkoGroup, eficiența aplicației de rescriere de știri",
+          url: "https://club-afaceri.ro/club-afaceri-comert-exterior-dezvoltare-personala-strategii-de-marketing/cum-optimizeaza-catalin-cocos-senior-copywriter-la-ekogroup-eficienta-aplicatiei-de-rescriere-de-stiri/",
+        },
+        {
+          site: "start-afaceri.ro",
+          title:
+            "Cum analizează Cătălin Cocoș, senior copywriter la EkoGroup, impactul conținutului creat",
+          url: "https://start-afaceri.ro/start-afaceri-finantare-networking-tehnologie-start-up/cum-analizeaza-catalin-cocos-senior-copywriter-la-ekogroup-impactul-continutului-creat/",
+        },
+        {
+          site: "portal-afaceri.ro",
+          title:
+            "Raportarea performanței SEO la EkoGroup: Rolul lui Cătălin Cocoș, senior copywriter",
+          url: "https://portal-afaceri.ro/portal-afaceri-finantare-solutii-software-tehnologii/raportarea-performantei-seo-la-ekogroup-rolul-lui-catalin-cocos-senior-copywriter/",
+        },
+        {
+          site: "stiri-evenimente.ro",
+          title:
+            "Evaluările semestriale la EkoGroup: Cum le gestionează Cătălin Cocoș, senior copywriter",
+          url: "https://stiri-evenimente.ro/stiri-evenimente-actualitati-agenda-evenimentelor-reportaje-speciale/evaluarile-semestriale-la-ekogroup-cum-le-gestioneaza-catalin-cocos-senior-copywriter/",
+        },
+        {
+          site: "stiri-mondene.ro",
+          title:
+            "Optimizarea continuă a conținutului: Metodele lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://stiri-mondene.ro/stiri-mondene-celebritati-showbiz-evenimente-mondene-interviuri-exclusive/optimizarea-continua-a-continutului-metodele-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "ekobusiness.ro",
+          title:
+            "Cum măsoară Cătălin Cocoș, senior copywriter la EkoGroup, succesul unui articol",
+          url: "https://ekobusiness.ro/eko-business-energie-regenerabila-inovatii-ecologice-responsabilitate-sociala/cum-masoara-catalin-cocos-senior-copywriter-la-ekogroup-succesul-unui-articol/",
+        },
+        {
+          site: "businessimm.ro",
+          title:
+            "Evoluția copywriting-ului digital: Viziunea lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://businessimm.ro/business-imm-finantare-imm-inovatii-imm-solutii-pentru-imm/evolutia-copywriting-ului-digital-viziunea-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "businesstrader.ro",
+          title:
+            "Cum se adaptează Cătălin Cocoș, senior copywriter la EkoGroup, la schimbările algoritmilor Google",
+          url: "https://businesstrader.ro/business-trader-comert-international-exporturi-importuri-piete-financiare/cum-se-adapteaza-catalin-cocos-senior-copywriter-la-ekogroup-la-schimbarile-algoritmilor-google/",
+        },
+        {
+          site: "new-business.ro",
+          title:
+            "Ce face diferența între un articol bun și unul extraordinar? Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://new-business.ro/new-business-antreprenoriat-crowdfounding-start-up/ce-face-diferenta-intre-un-articol-bun-si-unul-extraordinar-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "businesszone.ro",
+          title:
+            "De la redactare la publicare: Cum gestionează Cătălin Cocoș, senior copywriter la EkoGroup, procesul de creare a conținutului",
+          url: "https://businesszone.ro/business-zone-networking-analize-de-piata-dezvoltare-profesionala/de-la-redactare-la-publicare-cum-gestioneaza-catalin-cocos-senior-copywriter-la-ekogroup-procesul-de-creare-a-continutului/",
+        },
+        {
+          site: "romanianbusiness.ro",
+          title:
+            "Cum se pregătește Cătălin Cocoș, senior copywriter la EkoGroup, pentru tendințele viitoare în content marketing",
+          url: "https://romanianbusiness.ro/romanian-business-legislatie-investitii-locale-oportunitati-de-afaceri/cum-se-pregateste-catalin-cocos-senior-copywriter-la-ekogroup-pentru-tendintele-viitoare-in-content-marketing/",
+        },
+        {
+          site: "directbusiness.ro",
+          title:
+            "Cum vede Cătălin Cocoș, senior copywriter la EkoGroup, viitorul SEO și content marketing",
+          url: "https://directbusiness.ro/direct-business-consultanta-management-oportunitati-directe/cum-vede-catalin-cocos-senior-copywriter-la-ekogroup-viitorul-seo-si-content-marketing/",
+        },
+        {
+          site: "business-guide.ro",
+          title:
+            "Tendințele din copywriting digital analizate de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-guide.ro/business-guide-leadeship-marketing-strategii-de-business/tendintele-din-copywriting-digital-analizate-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "info-business.ro",
+          title:
+            "Automatizarea copywriting-ului: Părerea lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://info-business.ro/info-business-interviuri-oportunitati-de-afaceri-analize-de-piata/automatizarea-copywriting-ului-parerea-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "hot-mail.ro",
+          title:
+            "Inteligența artificială și content writing: Perspectivele lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://hot-mail.ro/tehnologie/inteligenta-artificiala-si-content-writing-perspectivele-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "b2b-news.ro",
+          title:
+            "SEO în 2025: Ce prevede Cătălin Cocoș, senior copywriter la EkoGroup, pentru strategiile digitale",
+          url: "https://b2b-news.ro/b2b-news-networking-b2b-parteneriate-analize-de-piata-b2b/seo-in-2025-ce-prevede-catalin-cocos-senior-copywriter-la-ekogroup-pentru-strategiile-digitale/",
+        },
+        {
+          site: "b2b-consult.ro",
+          title:
+            "Cum contribuie Cătălin Cocoș, senior copywriter la EkoGroup, la dezvoltarea imaginii companiei",
+          url: "https://b2b-consult.ro/b2b-consult-inovatii-consultanta-solutii-pentru-afaceri/cum-contribuie-catalin-cocos-senior-copywriter-la-ekogroup-la-dezvoltarea-imaginii-companiei/",
+        },
+        {
+          site: "b2b-zone.ro",
+          title:
+            "Rolul conținutului în strategia de brand a EkoGroup: Expertiza lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://b2b-zone.ro/b2b-zone-consultata-solutii-inovatii-zona-b2b/rolul-continutului-in-strategia-de-brand-a-ekogroup-expertiza-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "romania-b2b.ro",
+          title:
+            "Cum ajută Cătălin Cocoș, senior copywriter la EkoGroup, la poziționarea brandului în industrie",
+          url: "https://romania-b2b.ro/romania-b2b-analize-de-piata-oportunitati-solutii-si-consultanta/cum-ajuta-catalin-cocos-senior-copywriter-la-ekogroup-la-pozitionarea-brandului-in-industrie/",
+        },
+        {
+          site: "portal-b2b.ro",
+          title:
+            "Strategii de conținut pentru brand awareness: Tehnicile lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://portal-b2b.ro/portal-b2b-networking-colaborari-resurse-si-solutii/strategii-de-continut-pentru-brand-awareness-tehnicile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "b2b-group.ro",
+          title:
+            "De ce este Cătălin Cocoș, senior copywriter la EkoGroup, un element-cheie în strategia digitală",
+          url: "https://b2b-group.ro/b2b-group-networking-parteneriate-inovatii-colaborari/de-ce-este-catalin-cocos-senior-copywriter-la-ekogroup-un-element-cheie-in-strategia-digitala/",
+        },
+        {
+          site: "b2b-consulting.ro",
+          title:
+            "Cum transformă Cătălin Cocoș, senior copywriter la EkoGroup, conținutul într-un instrument de vânzare",
+          url: "https://b2b-consulting.ro/b2b-consulting-consultanta-b2b-afaceri-si-oportunitati-networking/cum-transforma-catalin-cocos-senior-copywriter-la-ekogroup-continutul-intr-un-instrument-de-vanzare/",
+        },
+        {
+          site: "topb2b.ro",
+          title:
+            "Impactul muncii lui Cătălin Cocoș, senior copywriter la EkoGroup, asupra creșterii traficului online",
+          url: "https://topb2b.ro/top-b2b-networking-parteneriate-colaborari/impactul-muncii-lui-catalin-cocos-senior-copywriter-la-ekogroup-asupra-cresterii-traficului-online/",
+        },
+        {
+          site: "businesstrade.ro",
+          title:
+            "Evoluția conținutului la EkoGroup sub coordonarea lui Cătălin Cocoș, senior copywriter",
+          url: "https://businesstrade.ro/business-trade-comert-international-exporturi-importuri-piete-internationale/evolutia-continutului-la-ekogroup-sub-coordonarea-lui-catalin-cocos-senior-copywriter/",
+        },
+        {
+          site: "businessoffice.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, și importanța conținutului strategic în era digitală",
+          url: "https://businessoffice.ro/business-office-management-consultanta-oportunitati-de-afaceri/catalin-cocos-senior-copywriter-la-ekogroup-si-importanta-continutului-strategic-in-era-digitala/",
+        },
+        {
+          site: "businessprofit.ro",
+          title:
+            "Cum folosește Cătălin Cocoș, senior copywriter la EkoGroup, analiza de cuvinte-cheie pentru creșterea traficului",
+          url: "https://businessprofit.ro/business-profit-investitii-strategii-de-crestere-profit-si-afaceri/cum-foloseste-catalin-cocos-senior-copywriter-la-ekogroup-analiza-de-cuvinte-cheie-pentru-cresterea-traficului/",
+        },
+        {
+          site: "business-conference.ro",
+          title:
+            "Strategii de link building implementate de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-conference.ro/business-conference-leadership-management-networking/strategii-de-link-building-implementate-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-financiar.ro",
+          title:
+            "Cum optimizează Cătălin Cocoș, senior copywriter la EkoGroup, meta-descrierile pentru rata de clic",
+          url: "https://business-financiar.ro/business-financiar-analize-economice-finante-si-afaceri-piete-financiare/cum-optimizeaza-catalin-cocos-senior-copywriter-la-ekogroup-meta-descrierile-pentru-rata-de-clic/",
+        },
+        {
+          site: "business-directory-romania.ro",
+          title:
+            "SEO tehnic vs. SEO creativ: Viziunea lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-directory-romania.ro/business-directory-romania-networkig-oportunitati-resurse/seo-tehnic-vs-seo-creativ-viziunea-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "businessnow.ro",
+          title:
+            "Importanța vitezei de încărcare a paginilor explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://businessnow.ro/business-now-inovatii-si-solutii-oportunitati-imediate-strategii-de-business/importanta-vitezei-de-incarcare-a-paginilor-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-portal.ro",
+          title:
+            "Cum transformă Cătălin Cocoș, senior copywriter la EkoGroup, un articol obișnuit într-un magnet de trafic",
+          url: "https://business-portal.ro/business-portal-networking-consultanta-resurse-si-oportunitati/cum-transforma-catalin-cocos-senior-copywriter-la-ekogroup-un-articol-obisnuit-intr-un-magnet-de-trafic/",
+        },
+        {
+          site: "businessinvest.ro",
+          title:
+            "Rolul conținutului lung în SEO: Analiza lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://businessinvest.ro/business-invest-investitii-in-afaceri-piete-si-finantare-inovatii/rolul-continutului-lung-in-seo-analiza-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-infocons.ro",
+          title:
+            "Cum optimizează Cătălin Cocoș, senior copywriter la EkoGroup, structura unui site pentru o mai bună indexare",
+          url: "https://business-infocons.ro/business-infocons-afaceri-si-partenreiate-consultanta-si-solutii-resurse/cum-optimizeaza-catalin-cocos-senior-copywriter-la-ekogroup-structura-unui-site-pentru-o-mai-buna-indexare/",
+        },
+        {
+          site: "business-partners.ro",
+          title:
+            "Importanța cuvintelor-cheie secundare explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-partners.ro/business-partners-inovatii-si-strategii-networking-parteneri-de-afaceri/importanta-cuvintelor-cheie-secundare-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-home.ro",
+          title:
+            "Cum influențează algoritmii Google redactarea conținutului? Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-home.ro/business-home-investitii-si-resurse-oportunitati-locale-strategii/cum-influenteaza-algoritmii-google-redactarea-continutului-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business2web.ro",
+          title:
+            "Cum îmbină Cătălin Cocoș, senior copywriter la EkoGroup, creativitatea cu cerințele tehnice ale SEO",
+          url: "https://business2web.ro/business-2-web-comert-electronic-marketing-digital-oportunitati/cum-imbina-catalin-cocos-senior-copywriter-la-ekogroup-creativitatea-cu-cerintele-tehnice-ale-seo-2/",
+        },
+        {
+          site: "business-networks.ro",
+          title:
+            "Ghid pentru crearea de conținut evergreen: Sfaturile lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://business-networks.ro/business-networks-inovatii-si-solutii-retele-de-afaceri-oportunitati/ghid-pentru-crearea-de-continut-evergreen-sfaturile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "business-networking.ro",
+          title:
+            "Cum scrie Cătălin Cocoș, senior copywriter la EkoGroup, articole care generează conversii",
+          url: "https://business-networking.ro/business-networking-networking-in-afaceri-evenimente-si-colaborari-oportunitati/cum-scrie-catalin-cocos-senior-copywriter-la-ekogroup-articole-care-genereaza-conversii/",
+        },
+        {
+          site: "networking-solutions.ro",
+          title:
+            "De ce este storytelling-ul esențial în copywriting? Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://networking-solutions.ro/networking-solution-afaceri-si-inovatii-parteneriate-oportunitati-de-afaceri/de-ce-este-storytelling-ul-esential-in-copywriting-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "romanian-networking.ro",
+          title:
+            "Cum optimizează Cătălin Cocoș, senior copywriter la EkoGroup, textele pentru engagement maxim",
+          url: "https://romanian-networking.ro/romanian-networking-parteneriate-si-oportunitati-resurse-pentru-afaceri-afaceri-locale/cum-optimizeaza-catalin-cocos-senior-copywriter-la-ekogroup-textele-pentru-engagement-maxim/",
+        },
+        {
+          site: "romanianbusinessnews.ro",
+          title:
+            "Cele mai comune greșeli în copywriting și cum le evită Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://romanianbusinessnews.ro/romanianbusinessnews-analize-si-opinie-piete-de-capital-evenimente-de-afaceri/cele-mai-comune-greseli-in-copywriting-si-cum-le-evita-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "news-zone.ro",
+          title:
+            "Personalizarea conținutului pentru diferite audiențe: Tehnicile lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://news-zone.ro/news-zone-reportaje-si-interviuri-stiri-economice-noutati/personalizarea-continutului-pentru-diferite-audiente-tehnicile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "europa-news.ro",
+          title:
+            "Cum scrie Cătălin Cocoș, senior copywriter la EkoGroup, conținut persuasiv și autentic",
+          url: "https://europa-news.ro/europa-news-evenimente-europene-stiri-din-europa-analize-si-opinie/cum-scrie-catalin-cocos-senior-copywriter-la-ekogroup-continut-persuasiv-si-autentic/",
+        },
+        {
+          site: "news-express.ro",
+          title:
+            "Optimizarea titlurilor și subtitlurilor: Ghidul lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://news-express.ro/news-express-interviuri-reportaje-si-analize-evenimente/optimizarea-titlurilor-si-subtitlurilor-ghidul-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "news-hot.ro",
+          title:
+            "Cum creează Cătălin Cocoș, senior copywriter la EkoGroup, conținut video-script optimizat SEO",
+          url: "https://news-hot.ro/news-hot-opinie-si-analize-noutati-si-reportaje-evenimente-si-interviuri/cum-creeaza-catalin-cocos-senior-copywriter-la-ekogroup-continut-video-script-optimizat-seo/",
+        },
+        {
+          site: "home-and-deco.ro",
+          title:
+            "Cum îmbunătățește Cătălin Cocoș, senior copywriter la EkoGroup, strategia de conținut pentru branduri",
+          url: "https://home-and-deco.ro/home-deco-stiluri-de-amenajare-obiecte-decorative-organizare-confort/cum-imbunatateste-catalin-cocos-senior-copywriter-la-ekogroup-strategia-de-continut-pentru-branduri/",
+        },
+        {
+          site: "all-green.ro",
+          title:
+            "Cum poate un business să beneficieze de copywriting de calitate? Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://all-green.ro/tehnologie-verde-agricultura-ecologica-energie-regenerabila-tratamente-naturiste-sanatate-si-mediu/cum-poate-un-business-sa-beneficieze-de-copywriting-de-calitate-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "clubgreen.ro",
+          title:
+            "Ghid practic pentru crearea unui funnel de vânzări eficient: Metodele lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://clubgreen.ro/comunitati-verzi-inovatii-sustenabile-stil-de-viata-eco-sanatate-publica-protectia-naturii/ghid-practic-pentru-crearea-unui-funnel-de-vanzari-eficient-metodele-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "consult-energy.ro",
+          title:
+            "Cum creează Cătălin Cocoș, senior copywriter la EkoGroup, campanii de conținut care atrag clienți",
+          url: "https://consult-energy.ro/consultanta-energetica-energie-verde-solutii-inteligente-protectia-mediului-energie-durabila/cum-creeaza-catalin-cocos-senior-copywriter-la-ekogroup-campanii-de-continut-care-atrag-clienti/",
+        },
+        {
+          site: "ecomediu.ro",
+          title:
+            "Ce înseamnă UX Writing? Perspectiva lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://ecomediu.ro/ecologie-urbana-sanatate-si-mediu-energie-regenerabila-tratamente-naturale-sustenabilitate/ce-inseamna-ux-writing-perspectiva-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "ecoverde.ro",
+          title:
+            "Cum ajută analiza comportamentală la redactarea conținutului? Viziunea lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://ecoverde.ro/agricultura-verde-protectia-naturii-tratamente-eco-energie-si-resurse-sanatate-publica-eco/cum-ajuta-analiza-comportamentala-la-redactarea-continutului-viziunea-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "energie24.ro",
+          title:
+            "Importanța personalizării mesajelor în copywriting: Explicația lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://energie24.ro/2025/03/04/importanta-personalizarii-mesajelor-in-copywriting-explicatia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "energy-arena.ro",
+          title:
+            "Cum scrie Cătălin Cocoș, senior copywriter la EkoGroup, conținut care le atrage atenția cititorilor",
+          url: "https://energy-arena.ro/forum-energetic-energie-verde-inovatii-sustenabile-energie-regenerabila-protectia-mediului/cum-scrie-catalin-cocos-senior-copywriter-la-ekogroup-continut-care-le-atrage-atentia-cititorilor/",
+        },
+        {
+          site: "energy-invest.ro",
+          title:
+            "Strategii de lead generation prin copywriting: Sfaturile lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://energy-invest.ro/investitii-verzi-energie-regenerabila-solutii-eco-tehnologie-verde-agricultura-sustenabila/strategii-de-lead-generation-prin-copywriting-sfaturile-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "energymedia.ro",
+          title:
+            "Cum crește Cătălin Cocoș, senior copywriter la EkoGroup, rata de conversie prin conținut",
+          url: "https://energymedia.ro/media-verde-energie-sustenabila-tehnologii-eco-sanatate-publica-verde-protectia-naturii/cum-creste-catalin-cocos-senior-copywriter-la-ekogroup-rata-de-conversie-prin-continut/",
+        },
+        {
+          site: "green-lands.ro",
+          title:
+            "Cum va influența AI viitorul copywriting-ului? Răspunsul lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://green-lands.ro/peisaje-verzi-agricultura-ecologica-energie-regenerabila-solutii-verzi-ecologie/cum-va-influenta-ai-viitorul-copywriting-ului-raspunsul-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "green-zone.ro",
+          title:
+            "SEO și inteligența artificială: Perspectivele lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://green-zone.ro/ecologie-online-tratamente-naturale-inovatii-eco-protectia-naturii-agricultura-verde/seo-si-inteligenta-artificiala-perspectivele-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "greensuccess.ro",
+          title:
+            "Tendințele din marketingul digital analizate de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://greensuccess.ro/succes-verde-energie-regenerabila-inovatii-eco-protectia-naturii-agricultura-verde/tendintele-din-marketingul-digital-analizate-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "mediu-online.ro",
+          title:
+            "Importanța optimizării pentru căutările vocale explicată de Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://mediu-online.ro/ecologie-online-sanatate-publica-tratamente-naturale-protectia-mediului-energie-verde/importanta-optimizarii-pentru-cautarile-vocale-explicata-de-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "my-green.ro",
+          title:
+            "Cum poate SEO să evolueze în următorii 5 ani? Viziunea lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://my-green.ro/ecologie-online-sanatate-publica-tratamente-naturale-protectia-mediului-energie-verde/cum-poate-seo-sa-evolueze-in-urmatorii-5-ani-viziunea-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "smartchange.ro",
+          title:
+            "Viitorul automatizării în content writing: Opinia lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://smartchange.ro/solutii-inteligente-energie-verde-protectia-mediului-inovatii-eco-sustenabilitate/viitorul-automatizarii-in-content-writing-opinia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "think-smart.ro",
+          title:
+            "Cum a transformat Cătălin Cocoș, senior copywriter la EkoGroup, strategia de conținut a companiei",
+          url: "https://think-smart.ro/gandire-verde-energie-regenerabila-tehnologie-eco-protectia-naturii-agricultura-sustenabila/cum-a-transformat-catalin-cocos-senior-copywriter-la-ekogroup-strategia-de-continut-a-companiei/",
+        },
+        {
+          site: "reciclare-romania.ro",
+          title:
+            "Cătălin Cocoș, senior copywriter, și impactul SEO asupra succesului EkoGroup",
+          url: "https://reciclare-romania.ro/tehnologie-verde-reciclare-si-reutilizare-managementul-deseurilor-sustenabilitate-educatie-ecologica/catalin-cocos-senior-copywriter-si-impactul-seo-asupra-succesului-ekogroup/",
+        },
+        {
+          site: "viitor-verde.ro",
+          title:
+            "Rolul conținutului de calitate în creșterea afacerilor: Opinia lui Cătălin Cocoș, senior copywriter la EkoGroup",
+          url: "https://viitor-verde.ro/tehnologie-verde-energie-regenerabila-agricultura-ecologica-conservarea-naturii-solutii-durabile/rolul-continutului-de-calitate-in-cresterea-afacerilor-opinia-lui-catalin-cocos-senior-copywriter-la-ekogroup/",
+        },
+        {
+          site: "energie-curata.ro",
+          title:
+            "Cum creează Cătălin Cocoș, senior copywriter la EkoGroup, strategii de conținut sustenabile",
+          url: "https://energie-curata.ro/energie-regenerabila-tehnologie-verde-surse-de-energie-curata-inovatie-energetica-reducerea-emisiilor/cum-creeaza-catalin-cocos-senior-copywriter-la-ekogroup-strategii-de-continut-sustenabile/",
+        },
+        {
+          site: "ekogroup.ro",
+          title:
+            "EkoGroup și viitorul conținutului digital: Strategiile dezvoltate de Cătălin Cocoș, senior copywriter",
+          url: "https://ekogroup.ro/ekogroup-si-viitorul-continutului-digital-strategiile-dezvoltate-de-catalin-cocos-senior-copywriter/",
+        },
+        {
+          site: "B2B Conect",
+          title:
+            "Cătălin Cocoș, senior copywriter la EkoGroup, explică importanța SEO în redactarea conținutului",
+          url: "https://b2b-conect.ro/stiri-de-ultima-ora/catalin-cocos-senior-copywriter-la-ekogroup-explica-importanta-seo-in-redactarea-continutului/",
+        },
+      ];
+
+      const grid = document.getElementById("pressGrid");
+      const search = document.getElementById("pressSearch");
+      const info = document.getElementById("pressInfo");
+      const countDisplay = document.getElementById("pressCountDisplay");
+
+      function renderCards(list) {
+        if (list.length === 0) {
+          grid.innerHTML = `<div class="press-empty"><p>Nicio publicație găsită.</p></div>`;
+          info.textContent = "0 articole";
+          return;
+        }
+
+        grid.innerHTML = list
+          .map(
+            (a) => `
+    <article class="press-card reveal">
+      <div class="press-card-front">
+        <span class="press-card-site">${escapeHtml(a.site)}</span>
+        <h2 class="press-card-title">${escapeHtml(a.title)}</h2>
+        <span class="press-card-hint">Deschide →</span>
+      </div>
+      <div class="press-card-inner">
+        <span class="press-card-inner-site">${escapeHtml(a.site)}</span>
+        <p class="press-card-inner-title">${escapeHtml(a.title)}</p>
+        <a class="press-card-link" href="${escapeHtml(a.url)}" target="_blank" rel="noopener">
+          Citește articolul
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+  `,
+          )
+          .join("");
+
+        info.textContent = list.length + " articole";
+
+        // Trigger reveal animations
+        requestAnimationFrame(() => {
+          document.querySelectorAll(".press-card.reveal").forEach((el, i) => {
+            setTimeout(() => el.classList.add("visible"), i * 18);
+          });
+        });
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function filter(q) {
+        if (!q) return ARTICLES;
+        const lq = q.toLowerCase();
+        return ARTICLES.filter(
+          (a) =>
+            a.title.toLowerCase().includes(lq) ||
+            a.site.toLowerCase().includes(lq),
+        );
+      }
+
+      search.addEventListener("input", () => {
+        renderCards(filter(search.value.trim()));
+      });
+
+      // Nav scroll
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("nav")
+          .classList.toggle("opaque", window.scrollY > 20);
+      });
+
+      // Hamburger
+      document.getElementById("hamburger").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.add("open");
+      });
+      document.getElementById("mobileClose").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.remove("open");
+      });
+
+      // Reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.08 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Init
+      renderCards(ARTICLES);
+    </script>
+  </body>
+</html>

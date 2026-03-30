@@ -4,16 +4,34 @@
 
 // ── Page navigation ──
 function showPage(id) {
-  document
-    .querySelectorAll(".page")
-    .forEach((p) => p.classList.remove("active"));
+  const current = document.querySelector(".page.active");
   const target = document.getElementById(id);
-  if (target) target.classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  updateNav(id);
-  initReveal();
-  if (id === "portfolio") setTimeout(() => initCarousel("port"), 100);
-  if (id === "phone") setTimeout(() => initCarousel("phone"), 100);
+  if (!target || target === current) return;
+
+  // Fade out current
+  if (current) {
+    current.classList.add("page-exit");
+    setTimeout(() => {
+      current.classList.remove("active", "page-exit");
+      // Fade in target
+      target.classList.add("active", "page-enter");
+      window.scrollTo({ top: 0, behavior: "instant" });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          target.classList.remove("page-enter");
+        });
+      });
+      updateNav(id);
+      initReveal();
+      animateCounters();
+      if (id === "portfolio") setTimeout(() => initCarousel("port"), 100);
+      if (id === "phone") setTimeout(() => initCarousel("phone"), 100);
+    }, 300);
+  } else {
+    target.classList.add("active");
+    updateNav(id);
+    initReveal();
+  }
 }
 
 // ── Nav state ──
@@ -289,9 +307,74 @@ function validateAllCarousels() {
   validateCarousel("phone");
 }
 
+// ── Animated counter ──
+function animateCounters() {
+  const nums = document.querySelectorAll(".stat-num");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.target;
+        const duration = 2000;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
+          el.textContent = Math.round(target * ease);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    },
+    { threshold: 0.5 },
+  );
+  nums.forEach((n) => observer.observe(n));
+}
+
+// ── Hero text stagger ──
+function initHeroStagger() {
+  const title = document.querySelector(".hero-title");
+  if (!title) return;
+  const html = title.innerHTML;
+  // Split into characters, preserve <br/> and <em> tags
+  let charIndex = 0;
+  const newHtml = html.replace(/(<[^>]+>)|([^<])/g, (match, tag, char) => {
+    if (tag) return tag;
+    if (char === " ") return `<span class="char" style="animation-delay:${charIndex++ * 0.04}s">&nbsp;</span>`;
+    return `<span class="char" style="animation-delay:${charIndex++ * 0.04}s">${char}</span>`;
+  });
+  title.innerHTML = newHtml;
+  title.classList.add("stagger-ready");
+}
+
+// ── Parallax ──
+function initParallax() {
+  const parallaxEls = document.querySelectorAll(".about-photo img");
+  if (!parallaxEls.length) return;
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      parallaxEls.forEach((img) => {
+        const rect = img.closest("section, .about-wrap").getBoundingClientRect();
+        const speed = 0.15;
+        const yPos = rect.top * speed;
+        img.style.transform = `translateY(${yPos}px) scale(1.1)`;
+      });
+      ticking = false;
+    });
+  });
+}
+
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
   updateNav("home");
   initReveal();
+  animateCounters();
+  initHeroStagger();
+  initParallax();
   validateAllCarousels();
 });
