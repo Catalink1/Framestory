@@ -433,7 +433,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   font-weight: 400;
   font-style: italic;
   line-height: 1.65;
-  color: var(--dark);
+  color: #fff;
 }
 .home-intro blockquote em { color: var(--accent); font-style: normal; }
 .home-intro cite {
@@ -442,7 +442,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: rgba(255,255,255,0.6);
   font-style: normal;
 }
 
