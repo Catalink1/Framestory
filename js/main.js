@@ -396,7 +396,10 @@ function checkCookieConsent() {
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
   checkCookieConsent();
-  updateNav("home");
+  const hash = window.location.hash.replace("#", "");
+  const validPages = ["home", "about", "portfolio", "services", "poetry", "phone", "contact"];
+  const startPage = validPages.includes(hash) ? hash : "home";
+  showPage(startPage);
   initReveal();
   animateCounters();
   initHeroStagger();
