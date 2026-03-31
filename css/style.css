@@ -450,12 +450,21 @@ button { font-family: var(--font-sans); cursor: pointer; }
 .svc-item:hover::after { width: 100%; }
 .svc-item:hover { background: var(--off-white); }
 .svc-n {
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--accent) 0%, #c9a96e 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
   margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(161, 127, 75, 0.25);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.svc-item:hover .svc-n {
+  box-shadow: 0 6px 20px rgba(161, 127, 75, 0.4);
+  transform: translateY(-2px);
 }
 .svc-item h3 {
   font-family: var(--font-serif);
@@ -644,7 +653,19 @@ button { font-family: var(--font-sans); cursor: pointer; }
   background: var(--white);
   padding: 3rem;
 }
-.svc-block .ico { font-size: 1.5rem; margin-bottom: 1.5rem; }
+.svc-block .ico {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent) 0%, #c9a96e 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(161, 127, 75, 0.3);
+}
 .svc-block h3 {
   font-family: var(--font-serif);
   font-size: 1.6rem;
