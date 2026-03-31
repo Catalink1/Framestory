@@ -672,8 +672,10 @@ button { font-family: var(--font-sans); cursor: pointer; }
 
 .faq-wrap {
   padding: 4rem 4rem 6rem;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .faq-list {
   display: flex;
@@ -718,7 +720,6 @@ button { font-family: var(--font-sans); cursor: pointer; }
   font-size: 0.95rem;
   color: var(--warm-gray);
   line-height: 1.9;
-  max-width: 680px;
 }
 .faq-a.open {
   display: block;

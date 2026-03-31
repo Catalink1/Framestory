@@ -291,7 +291,10 @@ function validateAllCarousels() {
 
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
-  updateNav("home");
+  const hash = window.location.hash.replace("#", "");
+  const validPages = ["home", "about", "portfolio", "services", "poetry", "phone", "contact"];
+  const startPage = validPages.includes(hash) ? hash : "home";
+  showPage(startPage);
   initReveal();
   validateAllCarousels();
 });
