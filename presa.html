@@ -109,8 +109,8 @@
       /* Card — book / opening pages style */
       .press-card {
         position: relative;
-        perspective: 800px;
-        min-height: 220px;
+        perspective: 1200px;
+        min-height: 280px;
       }
 
       /* Front page (cover) */
@@ -126,8 +126,9 @@
         border-radius: 4px;
         box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
         transform-origin: left center;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                    box-shadow 0.5s;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.8s,
+                    opacity 0.6s ease 0.3s;
         z-index: 2;
         /* spine edge */
         border-left: 4px solid var(--charcoal);
@@ -165,11 +166,12 @@
         background-position: 0 2.2rem;
       }
 
-      /* Hover — open the book */
+      /* Hover — open the book fully like turning a page */
       .press-card:hover .press-card-front {
-        transform: rotateY(-55deg);
-        box-shadow: 8px 4px 16px rgba(0,0,0,0.12);
+        transform: rotateY(-160deg);
+        box-shadow: -4px 4px 12px rgba(0,0,0,0.08);
         pointer-events: none;
+        opacity: 0.3;
       }
 
       /* Cover text */
@@ -318,9 +320,16 @@
     <nav id="nav">
       <a href="index.html" class="nav-logo">Frame<em>Story</em></a>
       <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
         <li><a href="index.html#about">Despre mine</a></li>
         <li><a href="index.html#portfolio">Portofoliu</a></li>
         <li><a href="index.html#services">Servicii</a></li>
+        <li>
+          <a href="index.html#poetry">Poezie și Fotografie</a>
+        </li>
+        <li>
+          <a href="index.html#phone">Fotografii cu telefonul</a>
+        </li>
         <li>
           <a href="presa.html" style="color: var(--accent); opacity: 1"
             >Presă</a
@@ -335,9 +344,12 @@
 
     <div class="mobile-nav" id="mobileNav">
       <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="index.html">Acasă</a>
       <a href="index.html#about">Despre mine</a>
       <a href="index.html#portfolio">Portofoliu</a>
       <a href="index.html#services">Servicii</a>
+      <a href="index.html#poetry">Poezie și Fotografie</a>
+      <a href="index.html#phone">Fotografii cu telefonul</a>
       <a href="presa.html">Presă</a>
       <a href="index.html#contact">Contact</a>
     </div>
