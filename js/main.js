@@ -141,27 +141,16 @@ const carousels = {};
 function setCarouselPositions(id) {
   const c = carousels[id];
   if (!c) return;
-  const count = c.slides.length;
-  const angle = 360 / count;
-  const radius = Math.max(
-    300,
-    Math.round(c.stage.clientWidth / 2 / Math.tan(Math.PI / count)),
-  );
-  c.angle = angle;
-  c.radius = radius;
-  c.slides.forEach((slide, i) => {
-    const itemAngle = i * angle;
-    slide.style.transform = `rotateY(${itemAngle}deg) translateZ(${radius}px)`;
-    slide.style.opacity = "0.28";
-    slide.style.zIndex = "1";
+  c.slides.forEach((slide) => {
+    slide.style.transform = "";
+    slide.style.opacity = "0";
+    slide.style.zIndex = "0";
     slide.classList.remove("active");
   });
 }
 
 function setCarouselRotation(id) {
-  const c = carousels[id];
-  if (!c || !c.track) return;
-  c.track.style.transform = `translateZ(-${c.radius}px) rotateY(${-c.current * c.angle}deg)`;
+  // no-op: rotation replaced by fade transition
 }
 
 function setActiveSlide(id, index) {
@@ -169,15 +158,13 @@ function setActiveSlide(id, index) {
   if (!c) return;
   c.slides.forEach((slide) => {
     slide.classList.remove("active");
-    slide.style.opacity = "0.28";
-    slide.style.zIndex = "1";
+    slide.style.opacity = "";
+    slide.style.zIndex = "";
   });
   c.thumbs.forEach((thumb) => thumb.classList.remove("active"));
   const slide = c.slides[index];
   if (!slide) return;
   slide.classList.add("active");
-  slide.style.opacity = "1";
-  slide.style.zIndex = "2";
   const thumb = c.thumbs[index];
   if (thumb) {
     thumb.classList.add("active");
