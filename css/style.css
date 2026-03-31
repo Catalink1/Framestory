@@ -722,13 +722,22 @@ button { font-family: var(--font-sans); cursor: pointer; }
 .svc-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--cream);
+  gap: 1.5rem;
+  background: transparent;
   margin: 0 4rem 2rem;
 }
 .svc-block {
   background: var(--white);
   padding: 3rem;
+  border: 1px solid var(--cream);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.svc-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-color: var(--accent);
 }
 .svc-block .ico {
   font-size: 1.5rem;
