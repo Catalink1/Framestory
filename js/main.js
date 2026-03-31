@@ -139,14 +139,8 @@ function toggleFaq(btn) {
 const carousels = {};
 
 function setCarouselPositions(id) {
-  const c = carousels[id];
-  if (!c) return;
-  c.slides.forEach((slide) => {
-    slide.style.transform = "";
-    slide.style.opacity = "0";
-    slide.style.zIndex = "0";
-    slide.classList.remove("active");
-  });
+  // CSS handles initial state via .carousel-slide { opacity: 0 }
+  // and .carousel-slide.active { opacity: 1 }
 }
 
 function setCarouselRotation(id) {
@@ -158,8 +152,6 @@ function setActiveSlide(id, index) {
   if (!c) return;
   c.slides.forEach((slide) => {
     slide.classList.remove("active");
-    slide.style.opacity = "";
-    slide.style.zIndex = "";
   });
   c.thumbs.forEach((thumb) => thumb.classList.remove("active"));
   const slide = c.slides[index];
