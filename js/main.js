@@ -298,12 +298,14 @@ function animateCounters() {
         if (!e.isIntersecting) return;
         const el = e.target;
         const target = +el.dataset.target;
+        const thousands = el.dataset.thousands;
         const duration = 2000;
         const start = performance.now();
         function tick(now) {
           const t = Math.min((now - start) / duration, 1);
           const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
-          el.textContent = Math.round(target * ease);
+          const val = Math.round(target * ease);
+          el.textContent = thousands ? val.toLocaleString('ro-RO') : val;
           if (t < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
