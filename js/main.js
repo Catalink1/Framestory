@@ -77,9 +77,12 @@ document.querySelectorAll(".f-btn").forEach((btn) => {
     const filter = this.dataset.filter;
     const c = carousels["port"];
     if (!c) return;
+    const matches = (cat) => filter === "all" || (cat || "").split(" ").includes(filter);
     c.slides.forEach((s) => {
-      s.style.display =
-        filter === "all" || s.dataset.cat === filter ? "" : "none";
+      s.style.display = matches(s.dataset.cat) ? "" : "none";
+    });
+    c.thumbs.forEach((t) => {
+      t.style.display = matches(t.dataset.cat) ? "" : "none";
     });
     const firstVisible = Array.from(c.slides).findIndex(
       (s) => s.style.display !== "none",
