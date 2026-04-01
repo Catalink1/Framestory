@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Cătălin Cocoș | Copywriting, fotografie, storytelling</title>
+    <meta name="description" content="Articole despre copywriting, fotografie și storytelling scrise de Cătălin Cocoș — senior copywriter și fotograf independent din București." />
+    <meta name="author" content="Cătălin Cocoș" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Blog — Cătălin Cocoș" />
+    <meta property="og:description" content="Articole despre copywriting, fotografie și storytelling." />
+    <meta property="og:url" content="https://framestory.ro/blog.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://framestory.ro/img/eu.jpg" />
+    <link rel="canonical" href="https://framestory.ro/blog.html" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .blog-wrap {
+        padding-top: var(--nav-h);
+        min-height: 100vh;
+        background: var(--white);
+      }
+      .blog-intro {
+        padding: 5rem 4rem 3rem;
+        max-width: 860px;
+      }
+      .blog-intro p {
+        font-size: 0.95rem;
+        color: var(--warm-gray);
+        line-height: 1.9;
+        max-width: 560px;
+        margin-top: 1.5rem;
+      }
+      .blog-grid {
+        padding: 2rem 4rem 6rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+      }
+      .blog-card {
+        border: 1px solid var(--cream);
+        border-radius: 8px;
+        padding: 2rem;
+        background: var(--white);
+        transition: box-shadow 0.25s, transform 0.25s;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        transform: translateY(-3px);
+      }
+      .blog-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .blog-tag {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--cream);
+        color: var(--accent);
+        padding: 0.25rem 0.6rem;
+        border-radius: 3px;
+      }
+      .blog-tag.pilon {
+        background: var(--accent);
+        color: #fff;
+      }
+      .blog-date {
+        font-size: 0.72rem;
+        color: var(--warm-gray);
+        letter-spacing: 0.05em;
+      }
+      .blog-card h2 {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: var(--dark);
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+      }
+      .blog-card p {
+        font-size: 0.875rem;
+        color: var(--warm-gray);
+        line-height: 1.8;
+        margin-bottom: 1.25rem;
+      }
+      .blog-cta {
+        font-size: 0.8rem;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+        font-weight: 500;
+      }
+      .blog-empty {
+        padding: 2rem 4rem 4rem;
+        color: var(--warm-gray);
+        font-size: 0.9rem;
+      }
+      @media (max-width: 768px) {
+        .blog-intro { padding: 4rem 2rem 2rem; }
+        .blog-grid { padding: 1rem 2rem 4rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav" class="opaque">
+      <a href="index.html" class="nav-logo">Frame<em>Story</em></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="index.html#about">Despre mine</a></li>
+        <li><a href="index.html#portfolio">Portofoliu</a></li>
+        <li><a href="index.html#services">Servicii</a></li>
+        <li><a href="index.html#poetry">Poezie și Fotografie</a></li>
+        <li><a href="index.html#phone">Fotografii cu telefonul</a></li>
+        <li><a href="blog.html" style="color: var(--accent); opacity: 1">Blog</a></li>
+        <li><a href="presa.html">Presă</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="index.html">Acasă</a>
+      <a href="index.html#about">Despre mine</a>
+      <a href="index.html#portfolio">Portofoliu</a>
+      <a href="index.html#services">Servicii</a>
+      <a href="index.html#poetry">Poezie și Fotografie</a>
+      <a href="index.html#phone">Fotografii cu telefonul</a>
+      <a href="blog.html">Blog</a>
+      <a href="presa.html">Presă</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <main class="blog-wrap">
+      <section class="blog-intro">
+        <span class="label">Idei scrise</span>
+        <div class="big-title" style="margin-bottom: 0">
+          Blog<br /><em>FrameStory</em>
+        </div>
+        <p>Scriu despre copywriting, fotografie și cum funcționează cele două împreună. Articole lungi, cu substanță, fără umplutură.</p>
+      </section>
+
+      <div class="blog-grid" id="blogGrid">
+        <!-- populat din JS -->
+      </div>
+    </main>
+
+    <footer>
+      <div class="f-logo">Frame<em>Story</em></div>
+      <p class="f-tagline">„Fiecare imagine spune o poveste. Fiecare cuvânt construiește una."</p>
+      <div class="f-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+      </div>
+      <p class="f-copy">© 2025 Cătălin Cocoș · FrameStory · Toate drepturile rezervate</p>
+    </footer>
+
+    <script>
+      // Nav
+      document.getElementById("hamburger").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.add("open");
+      });
+      document.getElementById("mobileClose").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.remove("open");
+      });
+
+      // Formatare dată
+      function formatData(str) {
+        const [y, m, z] = str.split("-");
+        const luni = ["ian","feb","mar","apr","mai","iun","iul","aug","sep","oct","nov","dec"];
+        return `${+z} ${luni[+m - 1]} ${y}`;
+      }
+
+      // Încarcă articolele
+      fetch("data/blog.json")
+        .then(r => r.json())
+        .then(articole => {
+          const grid = document.getElementById("blogGrid");
+          if (!articole.length) {
+            grid.innerHTML = '<p class="blog-empty">Primul articol vine în curând.</p>';
+            return;
+          }
+          grid.innerHTML = articole.map(a => `
+            <a class="blog-card" href="articol.html?slug=${a.slug}">
+              <div class="blog-card-meta">
+                <span class="blog-tag ${a.tip === 'pilon' ? 'pilon' : ''}">${a.tip === 'pilon' ? 'Articol pilon' : a.categorie}</span>
+                <span class="blog-date">${formatData(a.data)}</span>
+              </div>
+              <h2>${a.titlu}</h2>
+              <p>${a.rezumat}</p>
+              <span class="blog-cta">Citește →</span>
+            </a>
+          `).join("");
+        })
+        .catch(() => {
+          document.getElementById("blogGrid").innerHTML =
+            '<p class="blog-empty">Articolele nu pot fi încărcate momentan.</p>';
+        });
+    </script>
+  </body>
+</html>
