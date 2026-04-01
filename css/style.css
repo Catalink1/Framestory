@@ -88,6 +88,35 @@ button { font-family: var(--font-sans); cursor: pointer; }
 #nav.on-dark .nav-links a { color: #fff; }
 #nav.on-dark.opaque .nav-links a { color: var(--dark); }
 
+/* Blog — buton 3D în nav */
+.nav-links a.nav-btn-3d {
+  background: var(--accent-lt);
+  color: #0f0c07 !important;
+  opacity: 1 !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  box-shadow: 0 5px 0 #4a2e0e, 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  top: -1px;
+}
+.nav-links a.nav-btn-3d:hover {
+  color: #0f0c07 !important;
+  opacity: 1 !important;
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #4a2e0e, 0 1px 4px rgba(0,0,0,0.3);
+}
+.nav-links a.nav-btn-3d:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #4a2e0e;
+}
+#nav.on-dark .nav-links a.nav-btn-3d,
+#nav.on-dark.opaque .nav-links a.nav-btn-3d { color: #1a1108 !important; }
+
 .hamburger {
   display: none;
   flex-direction: column;
