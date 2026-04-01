@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Articol — Cătălin Cocoș</title>
+    <meta name="description" id="pageDesc" content="" />
+    <meta name="author" content="Cătălin Cocoș" />
+    <meta property="og:title" id="ogTitle" content="" />
+    <meta property="og:description" id="ogDesc" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://framestory.ro/img/eu.jpg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .art-wrap {
+        padding-top: var(--nav-h);
+        background: var(--white);
+        min-height: 100vh;
+      }
+      .art-header {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 5rem 2rem 2.5rem;
+        border-bottom: 1px solid var(--cream);
+      }
+      .art-header .label { margin-bottom: 1rem; }
+      .art-header h1 {
+        font-family: var(--font-serif);
+        font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+        font-weight: 400;
+        color: var(--dark);
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+      }
+      .art-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.78rem;
+        color: var(--warm-gray);
+        letter-spacing: 0.05em;
+      }
+      .art-meta-dot { opacity: 0.4; }
+      .art-body {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 2rem 6rem;
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: var(--dark);
+      }
+      .art-body h2 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--dark);
+        margin: 2.5rem 0 1rem;
+        line-height: 1.3;
+      }
+      .art-body h3 {
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: var(--dark);
+        margin: 2rem 0 0.75rem;
+      }
+      .art-body p { margin-bottom: 1.4rem; }
+      .art-body ul, .art-body ol {
+        margin: 0 0 1.4rem 1.5rem;
+      }
+      .art-body li { margin-bottom: 0.5rem; }
+      .art-body blockquote {
+        border-left: 3px solid var(--accent);
+        padding: 0.75rem 1.5rem;
+        margin: 2rem 0;
+        font-family: var(--font-serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--dark);
+        background: var(--off-white);
+        border-radius: 0 6px 6px 0;
+      }
+      .art-body strong { color: var(--dark); font-weight: 600; }
+      .art-body a { color: var(--accent); text-decoration: underline; }
+      .art-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--warm-gray);
+        letter-spacing: 0.05em;
+        margin-bottom: 2rem;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .art-back:hover { color: var(--accent); }
+      .art-404 {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 6rem 2rem;
+        text-align: center;
+        color: var(--warm-gray);
+      }
+      .art-404 h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem; }
+      @media (max-width: 768px) {
+        .art-header { padding: 4rem 1.5rem 2rem; }
+        .art-body { padding: 2rem 1.5rem 4rem; font-size: 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav" class="opaque">
+      <a href="index.html" class="nav-logo">Frame<em>Story</em></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="index.html#about">Despre mine</a></li>
+        <li><a href="index.html#portfolio">Portofoliu</a></li>
+        <li><a href="index.html#services">Servicii</a></li>
+        <li><a href="index.html#poetry">Poezie și Fotografie</a></li>
+        <li><a href="index.html#phone">Fotografii cu telefonul</a></li>
+        <li><a href="blog.html" class="nav-btn-3d">Blog</a></li>
+        <li><a href="presa.html">Presă</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="index.html">Acasă</a>
+      <a href="index.html#about">Despre mine</a>
+      <a href="index.html#portfolio">Portofoliu</a>
+      <a href="index.html#services">Servicii</a>
+      <a href="index.html#poetry">Poezie și Fotografie</a>
+      <a href="index.html#phone">Fotografii cu telefonul</a>
+      <a href="blog.html">Blog</a>
+      <a href="presa.html">Presă</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <main class="art-wrap" id="artWrap">
+      <!-- populat din JS -->
+    </main>
+
+    <footer>
+      <div class="f-logo">Frame<em>Story</em></div>
+      <p class="f-tagline">„Fiecare imagine spune o poveste. Fiecare cuvânt construiește una."</p>
+      <div class="f-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+      </div>
+      <p class="f-copy">© 2025 Cătălin Cocoș · FrameStory · Toate drepturile rezervate</p>
+    </footer>
+
+    <script>
+      // Nav
+      document.getElementById("hamburger").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.add("open");
+      });
+      document.getElementById("mobileClose").addEventListener("click", () => {
+        document.getElementById("mobileNav").classList.remove("open");
+      });
+
+      function formatData(str) {
+        const [y, m, z] = str.split("-");
+        const luni = ["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+        return `${+z} ${luni[+m - 1]} ${y}`;
+      }
+
+      const slug = new URLSearchParams(window.location.search).get("slug");
+
+      fetch("data/blog.json")
+        .then(r => r.json())
+        .then(articole => {
+          const a = articole.find(x => x.slug === slug);
+          const wrap = document.getElementById("artWrap");
+
+          if (!a) {
+            wrap.innerHTML = `
+              <div class="art-404">
+                <h1>Articolul nu a fost găsit</h1>
+                <p><a href="blog.html">← Înapoi la blog</a></p>
+              </div>`;
+            return;
+          }
+
+          // Meta tags dinamice
+          document.getElementById("pageTitle").textContent = a.titlu + " — Cătălin Cocoș";
+          document.getElementById("pageDesc").content = a.rezumat;
+          document.getElementById("ogTitle").content = a.titlu;
+          document.getElementById("ogDesc").content = a.rezumat;
+
+          wrap.innerHTML = `
+            <article>
+              <header class="art-header">
+                <a class="art-back" href="blog.html">← Toate articolele</a>
+                <span class="label">${a.categorie}</span>
+                <h1>${a.titlu}</h1>
+                <div class="art-meta">
+                  <span>${formatData(a.data)}</span>
+                  <span class="art-meta-dot">·</span>
+                  <span>Cătălin Cocoș</span>
+                  ${a.tip === 'pilon' ? '<span class="art-meta-dot">·</span><span style="color:var(--accent)">Articol pilon</span>' : ''}
+                </div>
+              </header>
+              <div class="art-body">${a.continut}</div>
+            </article>`;
+        })
+        .catch(() => {
+          document.getElementById("artWrap").innerHTML =
+            '<div class="art-404"><h1>Eroare la încărcare</h1><p><a href="blog.html">← Blog</a></p></div>';
+        });
+    </script>
+  </body>
+</html>

@@ -109,8 +109,85 @@
       /* Card — book / opening pages style */
       .press-card {
         position: relative;
-        perspective: 800px;
-        min-height: 220px;
+        perspective: 1200px;
+        min-height: 280px;
+      }
+
+      /* Page turn keyframes — simulated paper curl */
+      @keyframes pageTurn {
+        0% {
+          transform: rotateY(0deg);
+          box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+          opacity: 1;
+          border-radius: 4px;
+        }
+        20% {
+          transform: rotateY(-30deg) skewY(1deg);
+          box-shadow: 10px 4px 20px rgba(0,0,0,0.12),
+                      inset -30px 0 40px rgba(0,0,0,0.06);
+          border-radius: 4px 8px 8px 4px;
+        }
+        40% {
+          transform: rotateY(-65deg) skewY(2deg) scaleX(0.92);
+          box-shadow: 12px 6px 30px rgba(0,0,0,0.18),
+                      inset -50px 0 50px rgba(0,0,0,0.1);
+          border-radius: 4px 16px 16px 4px;
+          opacity: 1;
+        }
+        60% {
+          transform: rotateY(-100deg) skewY(2.5deg) scaleX(0.86);
+          box-shadow: 6px 4px 25px rgba(0,0,0,0.15),
+                      inset -40px 0 45px rgba(0,0,0,0.08);
+          border-radius: 4px 20px 20px 4px;
+          opacity: 0.7;
+        }
+        80% {
+          transform: rotateY(-145deg) skewY(1.5deg) scaleX(0.92);
+          box-shadow: -4px 3px 15px rgba(0,0,0,0.08),
+                      inset -20px 0 30px rgba(0,0,0,0.04);
+          border-radius: 4px 14px 14px 4px;
+          opacity: 0.35;
+        }
+        100% {
+          transform: rotateY(-175deg) skewY(0deg) scaleX(1);
+          box-shadow: -2px 2px 6px rgba(0,0,0,0.04);
+          border-radius: 4px 6px 6px 4px;
+          opacity: 0.1;
+        }
+      }
+      @keyframes pageReturn {
+        0% {
+          transform: rotateY(-175deg);
+          opacity: 0.1;
+          border-radius: 4px 6px 6px 4px;
+        }
+        25% {
+          transform: rotateY(-130deg) skewY(-1.5deg) scaleX(0.9);
+          box-shadow: -6px 3px 20px rgba(0,0,0,0.1),
+                      inset 30px 0 40px rgba(0,0,0,0.06);
+          border-radius: 4px 18px 18px 4px;
+          opacity: 0.4;
+        }
+        50% {
+          transform: rotateY(-75deg) skewY(-2.5deg) scaleX(0.85);
+          box-shadow: 8px 5px 30px rgba(0,0,0,0.16),
+                      inset 50px 0 50px rgba(0,0,0,0.1);
+          border-radius: 4px 22px 22px 4px;
+          opacity: 0.75;
+        }
+        75% {
+          transform: rotateY(-25deg) skewY(-1deg) scaleX(0.95);
+          box-shadow: 6px 4px 15px rgba(0,0,0,0.1),
+                      inset 20px 0 30px rgba(0,0,0,0.04);
+          border-radius: 4px 10px 10px 4px;
+          opacity: 0.95;
+        }
+        100% {
+          transform: rotateY(0deg);
+          box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+          border-radius: 4px;
+          opacity: 1;
+        }
       }
 
       /* Front page (cover) */
@@ -126,11 +203,26 @@
         border-radius: 4px;
         box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
         transform-origin: left center;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                    box-shadow 0.5s;
         z-index: 2;
         /* spine edge */
         border-left: 4px solid var(--charcoal);
+        animation: pageReturn 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      /* page curl shadow — visible during turn */
+      .press-card-front::before {
+        content: "";
+        position: absolute;
+        top: 0; bottom: 0; right: -2px;
+        width: 35%;
+        background: linear-gradient(90deg, transparent 40%, rgba(0,0,0,0.08) 80%, rgba(0,0,0,0.02));
+        border-radius: 0 4px 4px 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s;
+        z-index: 3;
+      }
+      .press-card:hover .press-card-front::before {
+        opacity: 1;
       }
       .press-card-front::after {
         content: "";
@@ -165,10 +257,9 @@
         background-position: 0 2.2rem;
       }
 
-      /* Hover — open the book */
+      /* Hover — open the book with natural paper bend */
       .press-card:hover .press-card-front {
-        transform: rotateY(-55deg);
-        box-shadow: 8px 4px 16px rgba(0,0,0,0.12);
+        animation: pageTurn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         pointer-events: none;
       }
 
@@ -318,9 +409,17 @@
     <nav id="nav">
       <a href="index.html" class="nav-logo">Frame<em>Story</em></a>
       <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
         <li><a href="index.html#about">Despre mine</a></li>
         <li><a href="index.html#portfolio">Portofoliu</a></li>
         <li><a href="index.html#services">Servicii</a></li>
+        <li>
+          <a href="index.html#poetry">Poezie și Fotografie</a>
+        </li>
+        <li>
+          <a href="index.html#phone">Fotografii cu telefonul</a>
+        </li>
+        <li><a href="blog.html" class="nav-btn-3d">Blog</a></li>
         <li>
           <a href="presa.html" style="color: var(--accent); opacity: 1"
             >Presă</a
@@ -335,9 +434,13 @@
 
     <div class="mobile-nav" id="mobileNav">
       <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="index.html">Acasă</a>
       <a href="index.html#about">Despre mine</a>
       <a href="index.html#portfolio">Portofoliu</a>
       <a href="index.html#services">Servicii</a>
+      <a href="index.html#poetry">Poezie și Fotografie</a>
+      <a href="index.html#phone">Fotografii cu telefonul</a>
+      <a href="blog.html">Blog</a>
       <a href="presa.html">Presă</a>
       <a href="index.html#contact">Contact</a>
     </div>

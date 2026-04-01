@@ -77,9 +77,12 @@ document.querySelectorAll(".f-btn").forEach((btn) => {
     const filter = this.dataset.filter;
     const c = carousels["port"];
     if (!c) return;
+    const matches = (cat) => filter === "all" || (cat || "").split(" ").includes(filter);
     c.slides.forEach((s) => {
-      s.style.display =
-        filter === "all" || s.dataset.cat === filter ? "" : "none";
+      s.style.display = matches(s.dataset.cat) ? "" : "none";
+    });
+    c.thumbs.forEach((t) => {
+      t.style.display = matches(t.dataset.cat) ? "" : "none";
     });
     const firstVisible = Array.from(c.slides).findIndex(
       (s) => s.style.display !== "none",
@@ -139,29 +142,12 @@ function toggleFaq(btn) {
 const carousels = {};
 
 function setCarouselPositions(id) {
-  const c = carousels[id];
-  if (!c) return;
-  const count = c.slides.length;
-  const angle = 360 / count;
-  const radius = Math.max(
-    300,
-    Math.round(c.stage.clientWidth / 2 / Math.tan(Math.PI / count)),
-  );
-  c.angle = angle;
-  c.radius = radius;
-  c.slides.forEach((slide, i) => {
-    const itemAngle = i * angle;
-    slide.style.transform = `rotateY(${itemAngle}deg) translateZ(${radius}px)`;
-    slide.style.opacity = "0.28";
-    slide.style.zIndex = "1";
-    slide.classList.remove("active");
-  });
+  // CSS handles initial state via .carousel-slide { opacity: 0 }
+  // and .carousel-slide.active { opacity: 1 }
 }
 
 function setCarouselRotation(id) {
-  const c = carousels[id];
-  if (!c || !c.track) return;
-  c.track.style.transform = `translateZ(-${c.radius}px) rotateY(${-c.current * c.angle}deg)`;
+  // no-op: rotation replaced by fade transition
 }
 
 function setActiveSlide(id, index) {
@@ -169,15 +155,11 @@ function setActiveSlide(id, index) {
   if (!c) return;
   c.slides.forEach((slide) => {
     slide.classList.remove("active");
-    slide.style.opacity = "0.28";
-    slide.style.zIndex = "1";
   });
   c.thumbs.forEach((thumb) => thumb.classList.remove("active"));
   const slide = c.slides[index];
   if (!slide) return;
   slide.classList.add("active");
-  slide.style.opacity = "1";
-  slide.style.zIndex = "2";
   const thumb = c.thumbs[index];
   if (thumb) {
     thumb.classList.add("active");
@@ -316,12 +298,14 @@ function animateCounters() {
         if (!e.isIntersecting) return;
         const el = e.target;
         const target = +el.dataset.target;
+        const thousands = el.dataset.thousands;
         const duration = 2000;
         const start = performance.now();
         function tick(now) {
           const t = Math.min((now - start) / duration, 1);
           const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
-          el.textContent = Math.round(target * ease);
+          const val = Math.round(target * ease);
+          el.textContent = thousands ? val.toLocaleString('ro-RO') : val;
           if (t < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -396,7 +380,10 @@ function checkCookieConsent() {
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
   checkCookieConsent();
-  updateNav("home");
+  const hash = window.location.hash.replace("#", "");
+  const validPages = ["home", "about", "portfolio", "services", "poetry", "phone", "contact"];
+  const startPage = validPages.includes(hash) ? hash : "home";
+  showPage(startPage);
   initReveal();
   animateCounters();
   initHeroStagger();
