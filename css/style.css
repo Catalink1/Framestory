@@ -452,7 +452,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 /* home services */
 .home-services {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--cream);
 }
 .svc-item {
@@ -572,6 +572,34 @@ button { font-family: var(--font-sans); cursor: pointer; }
   transform: rotate(0deg) scale(1.04);
   box-shadow: 4px 0 0 #e0dbd2, 8px 0 0 #ede8df,
               0 12px 36px rgba(0,0,0,0.16);
+}
+
+/* Stats — al treilea slot din home-services */
+.svc-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+  cursor: default;
+  border-right: none;
+}
+.svc-stats:hover { background: transparent; }
+.svc-stats::after { display: none; }
+.stat-item { text-align: left; }
+.stat-val {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-suf { font-size: 0.65em; vertical-align: super; opacity: 0.8; }
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
 }
 
 .svc-n { display: none; }
