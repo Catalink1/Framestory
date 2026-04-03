@@ -173,6 +173,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   pointer-events: none;
   visibility: hidden;
   z-index: 0;
+  overflow-anchor: none;
 }
 .page.active {
   position: relative;
