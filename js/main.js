@@ -24,7 +24,13 @@ function showPage(id) {
       updateNav(id);
       initReveal();
       animateCounters();
-      if (id === "portfolio") setTimeout(() => initCarousel("port"), 100);
+      if (id === "portfolio") {
+        // Only init carousel if a category filter is active (not "Toate")
+        const activeFilter = document.querySelector(".f-btn.active");
+        if (activeFilter && activeFilter.dataset.filter !== "all") {
+          setTimeout(() => initCarousel("port"), 100);
+        }
+      }
       if (id === "phone") setTimeout(() => initCarousel("phone"), 100);
     }, 300);
   } else {
@@ -67,27 +73,44 @@ function closeMobile() {
   document.getElementById("mobileNav").classList.remove("open");
 }
 
-// ── Gallery filters ──
+// ── Gallery filters (masonry for "all", carousel for categories) ──
 document.querySelectorAll(".f-btn").forEach((btn) => {
   btn.addEventListener("click", function () {
-    document
-      .querySelectorAll(".f-btn")
-      .forEach((b) => b.classList.remove("active"));
+    document.querySelectorAll(".f-btn").forEach((b) => b.classList.remove("active"));
     this.classList.add("active");
+
     const filter = this.dataset.filter;
-    const c = carousels["port"];
-    if (!c) return;
-    const matches = (cat) => filter === "all" || (cat || "").split(" ").includes(filter);
-    c.slides.forEach((s) => {
-      s.style.display = matches(s.dataset.cat) ? "" : "none";
-    });
-    c.thumbs.forEach((t) => {
-      t.style.display = matches(t.dataset.cat) ? "" : "none";
-    });
-    const firstVisible = Array.from(c.slides).findIndex(
-      (s) => s.style.display !== "none",
-    );
-    if (firstVisible >= 0) carouselGo("port", firstVisible);
+    const masonry = document.getElementById("port-masonry");
+    const carousel = document.getElementById("port-carousel");
+    if (!masonry || !carousel) return;
+
+    if (filter === "all") {
+      // Show masonry, hide carousel, stop autoplay
+      masonry.style.display = "";
+      carousel.style.display = "none";
+      const c = carousels["port"];
+      if (c && c.timer) { clearInterval(c.timer); c.timer = null; }
+    } else {
+      // Hide masonry, show carousel filtered
+      masonry.style.display = "none";
+      carousel.style.display = "";
+      const c = carousels["port"];
+      if (!c) { initCarousel("port"); }
+      const cc = carousels["port"];
+      if (!cc) return;
+      const matches = (cat) => (cat || "").split(" ").includes(filter);
+      cc.slides.forEach((s) => {
+        s.style.display = matches(s.dataset.cat) ? "" : "none";
+      });
+      cc.thumbs.forEach((t) => {
+        t.style.display = matches(t.dataset.cat) ? "" : "none";
+      });
+      const firstVisible = cc.slides.findIndex((s) => s.style.display !== "none");
+      if (firstVisible >= 0) carouselGo("port", firstVisible);
+      // Restart autoplay
+      if (cc.timer) clearInterval(cc.timer);
+      cc.timer = setInterval(() => carouselMove("port", 1), 4000);
+    }
   });
 });
 
@@ -110,17 +133,36 @@ function initReveal() {
   });
 }
 
-// ── Contact form ──
-function submitForm() {
-  const name = document.getElementById("fname").value.trim();
-  const email = document.getElementById("femail").value.trim();
-  const msg = document.getElementById("fmsg").value.trim();
-  if (!name || !email || !msg) {
-    alert("Te rog completează toate câmpurile obligatorii.");
-    return;
-  }
-  document.getElementById("fSuccess").style.display = "block";
-}
+// ── Contact form (Formspree) ──
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form = this;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = "Se trimite…";
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { Accept: "application/json" },
+  })
+    .then((res) => {
+      if (res.ok) {
+        form.reset();
+        form.style.display = "none";
+        document.getElementById("fSuccess").style.display = "block";
+      } else {
+        btn.disabled = false;
+        btn.textContent = "Trimite mesajul";
+        alert("Eroare la trimitere. Încearcă din nou sau scrie la contact@framestory.ro");
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = "Trimite mesajul";
+      alert("Eroare de conexiune. Încearcă din nou.");
+    });
+});
 // ── FAQ ──
 function toggleFaq(btn) {
   const item = btn.parentElement;
@@ -129,11 +171,13 @@ function toggleFaq(btn) {
 
   document.querySelectorAll(".faq-q.open").forEach((q) => {
     q.classList.remove("open");
+    q.setAttribute("aria-expanded", "false");
     q.parentElement.querySelector(".faq-a").classList.remove("open");
   });
 
   if (!isOpen) {
     btn.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
     answer.classList.add("open");
   }
 }
@@ -353,9 +397,32 @@ function initParallax() {
   });
 }
 
+// ── Lightbox (masonry click) ──
+function openLightbox(src, caption) {
+  const lb = document.createElement("div");
+  lb.className = "lightbox";
+  lb.innerHTML = `<button class="lightbox-close">&times;</button><img src="${src}" alt="" />${caption ? `<div class="lightbox-caption">${caption}</div>` : ""}`;
+  document.body.appendChild(lb);
+  requestAnimationFrame(() => lb.classList.add("open"));
+  const close = () => { lb.classList.remove("open"); setTimeout(() => lb.remove(), 300); };
+  lb.addEventListener("click", close);
+  document.addEventListener("keydown", function esc(e) {
+    if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc); }
+  });
+}
+
+document.addEventListener("click", (e) => {
+  const item = e.target.closest(".m-item");
+  if (!item) return;
+  const img = item.querySelector("img");
+  const cap = item.querySelector(".m-caption p");
+  if (img) openLightbox(img.src, cap ? cap.textContent : "");
+});
+
 // ── Cookies ──
 function acceptCookies() {
   localStorage.setItem("cookieConsent", "accepted");
+  if (typeof loadGA === "function") loadGA();
   hideCookieBanner();
 }
 function declineCookies() {

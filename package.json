@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build": "node build.js",
+    "build:images": "node build.js images",
+    "build:minify": "node build.js minify"
+  },
   "dependencies": {
     "sharp": "^0.34.5"
   }

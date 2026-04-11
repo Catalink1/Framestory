@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ':*)",
+      "Bash(node build-pilon.js)",
+      "Bash(rm build-pilon.js)",
+      "Bash(node extend-pilon.js)",
+      "Bash(rm extend-pilon.js)",
+      "Bash(node extend2-pilon.js)",
+      "Bash(rm extend2-pilon.js)"
+    ]
+  }
+}

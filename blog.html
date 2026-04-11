@@ -2,6 +2,25 @@
 <html lang="ro">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Google Analytics (se activează doar după accept cookies) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+      function loadGA() {
+        if (document.getElementById('ga-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga-script'; s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJFBBRRZV9';
+        document.head.appendChild(s);
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('config', 'G-XJFBBRRZV9');
+      }
+      if (localStorage.getItem('cookieConsent') === 'accepted') loadGA();
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog — Cătălin Cocoș | Copywriting, fotografie, storytelling</title>
     <meta name="description" content="Articole despre copywriting, fotografie și storytelling scrise de Cătălin Cocoș — senior copywriter și fotograf independent din București." />

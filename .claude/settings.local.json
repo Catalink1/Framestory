@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node build.js)",
+      "Bash(node build.js minify)",
+      "Bash(node -e \"try { JSON.parse\\(require\\('fs'\\).readFileSync\\('data/blog.json','utf8'\\)\\); console.log\\('JSON valid'\\); } catch\\(e\\) { console.error\\('EROARE:', e.message\\); }\")",
+      "Bash(node -e ':*)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const raw=fs.readFileSync\\('data/blog.json','utf8'\\); const i=raw.indexOf\\('snippets'\\); console.log\\(raw.substring\\(i-5,i+30\\)\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);let r=fs.readFileSync\\('data/blog.json','utf8'\\);r=r.replace\\(/\\\\u201E/g,'&bdquo;'\\);r=r.replace\\(/\\\\u201D/g,'&rdquo;'\\);r=r.replace\\(/\\\\u201C/g,'&ldquo;'\\);JSON.parse\\(r\\);fs.writeFileSync\\('data/blog.json',r\\);console.log\\('OK'\\);\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/blog.json','utf8'\\)\\); console.log\\('JSON valid!'\\);\")"
+    ]
+  }
+}

@@ -2,6 +2,27 @@
 <html lang="ro">
  <head>
   <meta charset="UTF-8" />
+
+  <!-- Google Analytics (se activează doar după accept cookies) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { analytics_storage: 'denied' });
+
+    function loadGA() {
+      if (document.getElementById('ga-script')) return;
+      var s = document.createElement('script');
+      s.id = 'ga-script';
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJFBBRRZV9';
+      document.head.appendChild(s);
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('config', 'G-XJFBBRRZV9');
+    }
+
+    if (localStorage.getItem('cookieConsent') === 'accepted') loadGA();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cătălin Cocoș — Fotograf & Copywriter Senior | FrameStory București</title>
   <meta name="description" content="Cătălin Cocoș — fotograf și copywriter senior cu peste 15 ani experiență în presă și televiziune. Imagini care spun povești, texte care conving. București." />
@@ -49,12 +70,104 @@
   }
   </script>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "FrameStory — Cătălin Cocoș",
+    "description": "Servicii profesionale de copywriting SEO, fotografie și strategie de conținut în București.",
+    "url": "https://framestory.ro",
+    "telephone": "+40722595568",
+    "email": "contact@framestory.ro",
+    "image": "https://framestory.ro/img/eu.jpg",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "București",
+      "addressRegion": "Sector 6",
+      "addressCountry": "RO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.4268,
+      "longitude": 26.1025
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "România"
+    },
+    "serviceType": ["Copywriting", "Fotografie", "Content Strategy", "SEO"],
+    "founder": {
+      "@type": "Person",
+      "name": "Cătălin Cocoș"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Cu ce fel de clienți lucrezi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cu orice fel — de la startup-uri care încă nu știu exact ce vor, până la branduri care știu prea bine și au nevoie de cineva care să le spună că au dreptate. Sau nu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faci și fotografie de produs/corporate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da. Produsele arată mai bine în poze decât în realitate — ăsta e scopul. Pentru corporate, același principiu, cu zâmbete incluse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cât durează un proiect de copywriting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depinde de proiect. Documentarea e parte din proces — și nu o săresc. Odată ce știu ce ai nevoie, stabilim un termen și îl respect."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Poți livra atât textul cât și fotografia pentru același proiect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exact de asta exist. Un singur om, două limbaje. Mai simplu pentru tine, mai coerent pentru brand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Lucrezi și în afara Bucureștiului?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da, mă deplasez. România e frumoasă și am aparat foto — nu e o corvoadă."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faci și social media?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da — strategie, texte, uneori și fotografiile. Depinde ce ai nevoie și cât de mult vrei să dormi liniștit știind că cineva se ocupă."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="preload" as="image" href="img/domul-milano.webp" type="image/webp" />
   <link rel="preload" as="image" href="img/domul-milano.jpg" />
-  <link rel="preload" as="image" href="img/domul-milano-acoperis.jpg" />
-  <link rel="preload" as="image" href="img/domul-milano-detaliu.jpg" />
 </head>
   <body>
+    <a href="#main-content" class="skip-link">Sari la conținut</a>
+
     <!-- ══ NAV ══ -->
     <nav id="nav" class="on-dark">
       <a class="nav-logo" href="#" onclick="showPage('home')"
@@ -143,6 +256,7 @@
     </div>
 
     <!-- ══════════ HOME ══════════ -->
+    <main id="main-content">
     <section class="page active" id="home">
       <div class="hero">
         <div class="hero-overlay"></div>
@@ -150,11 +264,6 @@
           <p class="hero-label">Fotograf & Copywriter — București</p>
           <h1 class="hero-title">Imagini<br />care spun<br /><em>povești.</em></h1>
           <p class="hero-sub">Texte care conving. Cadre care rămân.</p>
-          <p class="hero-quote">
-            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
-            eșuează, ci aceea că țintesc prea jos și reușesc”
-            <span>– Michelangelo</span>
-          </p>
           <div class="hero-cta">
   <button class="btn-light" onclick="showPage('portfolio')">
     Vezi portofoliul
@@ -163,6 +272,13 @@
     Lucrăm împreună?
   </button>
 </div>
+        </div><!-- /.hero-content -->
+        <p class="hero-quote">
+          "Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+          eșuează, ci aceea că țintesc prea jos și reușesc"
+          <span>– Michelangelo</span>
+        </p>
+      </div><!-- /.hero -->
 
       <div class="home-intro reveal">
         <blockquote>
@@ -173,51 +289,53 @@
         <cite>— Cătălin Cocoș</cite>
       </div>
 
-      <div class="home-services reveal">
-        <!-- FOTOGRAFIE — ramă foto -->
-        <div class="svc-item svc-foto" onclick="showPage('portfolio')">
-          <div class="foto-frame">
-            <div class="foto-mat">
-              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-                <circle cx="12" cy="13" r="3.5"/>
-                <circle cx="18" cy="9.5" r="0.8" fill="var(--accent)" stroke="none"/>
+      <div class="home-bottom">
+        <div class="home-services">
+          <!-- FOTOGRAFIE — ramă foto -->
+          <div class="svc-item svc-foto" onclick="showPage('portfolio')">
+            <div class="foto-frame">
+              <div class="foto-mat">
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                  <circle cx="12" cy="13" r="3.5"/>
+                  <circle cx="18" cy="9.5" r="0.8" fill="var(--accent)" stroke="none"/>
+                </svg>
+              </div>
+            </div>
+            <h3>Fotografie</h3>
+            <p>Portret, eveniment, produs, stradă. Imagini cu caracter, nu cu filtru.</p>
+            <span class="svc-cta">Vezi portofoliu →</span>
+          </div>
+          <!-- COPYWRITING — pagină de carte -->
+          <div class="svc-item svc-copy" onclick="showPage('services')">
+            <div class="book-page">
+              <div class="book-lines">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="book-pen">
+                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                <path d="m15 5 4 4"/>
               </svg>
             </div>
+            <h3>Copywriting</h3>
+            <p>Articole SEO, social media, texte de brand. Scris cu sens, optimizat cu cap.</p>
+            <span class="svc-cta">Vezi servicii →</span>
           </div>
-          <h3>Fotografie</h3>
-          <p>Portret, eveniment, produs, stradă. Imagini cu caracter, nu cu filtru.</p>
-          <span class="svc-cta">Vezi portofoliu →</span>
         </div>
-        <!-- COPYWRITING — pagină de carte -->
-        <div class="svc-item svc-copy" onclick="showPage('services')">
-          <div class="book-page">
-            <div class="book-lines">
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="book-pen">
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-              <path d="m15 5 4 4"/>
-            </svg>
-          </div>
-          <h3>Copywriting</h3>
-          <p>Articole SEO, social media, texte de brand. Scris cu sens, optimizat cu cap.</p>
-          <span class="svc-cta">Vezi servicii →</span>
-        </div>
-      </div>
 
-      <div class="home-stats reveal">
-        <div class="stat-item">
-          <div class="stat-val"><span class="stat-num" data-target="20">0</span><span class="stat-suf">+</span></div>
-          <div class="stat-label">ani de fotografie</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val"><span class="stat-num" data-target="25">0</span><span class="stat-suf">+</span></div>
-          <div class="stat-label">ani de jurnalism</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val"><span class="stat-num" data-target="2500" data-thousands="true">0</span><span class="stat-suf">+</span></div>
-          <div class="stat-label">articole publicitare</div>
+        <div class="home-stats">
+          <div class="stat-item">
+            <div class="stat-val"><span class="stat-num" data-target="20">0</span><span class="stat-suf">+</span></div>
+            <div class="stat-label">ani de fotografie</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val"><span class="stat-num" data-target="25">0</span><span class="stat-suf">+</span></div>
+            <div class="stat-label">ani de jurnalism</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val"><span class="stat-num" data-target="2500" data-thousands="true">0</span><span class="stat-suf">+</span></div>
+            <div class="stat-label">articole publicitare</div>
+          </div>
         </div>
       </div>
     </section>
@@ -226,7 +344,10 @@
 <section class="page" id="about">
   <div class="about-wrap">
     <div class="about-photo">
-      <img src="img/eu.jpg" alt="Cătălin Cocoș" />
+      <picture>
+        <source srcset="img/eu.webp" type="image/webp" />
+        <img src="img/eu.jpg" alt="Cătălin Cocoș" loading="lazy" />
+      </picture>
     </div>
     <div class="about-text-col">
       <span class="label">Despre mine</span>
@@ -342,107 +463,164 @@
     </div>
   </div>
 
-  <div class="carousel-wrap" style="padding: 0 5vw 4rem">
+  <!-- ── Masonry grid (visible when "Toate" is active) ── -->
+  <div class="masonry" id="port-masonry">
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/domul-milano.webp" type="image/webp" /><img src="img/domul-milano.jpg" alt="Domul din Milano — fotografie alb-negru de arhitectură, Cătălin Cocoș" loading="lazy" /></picture>
+      <div class="m-caption"><p>Domul din Milano</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/domul-milano-acoperis.webp" type="image/webp" /><img src="img/domul-milano-acoperis.jpg" alt="Acoperișul Domului din Milano — detaliu arhitectural alb-negru" loading="lazy" /></picture>
+      <div class="m-caption"><p>Milano pe acoperiș</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/domul-milano-detaliu.webp" type="image/webp" /><img src="img/domul-milano-detaliu.jpg" alt="Sculpturi gotice pe fațada Domului din Milano" loading="lazy" /></picture>
+      <div class="m-caption"><p>Detaliu — Domul din Milano</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/domul-milano-strada.webp" type="image/webp" /><img src="img/domul-milano-strada.jpg" alt="Stradă din Milano cu vedere spre Dom — fotografie urbană" loading="lazy" /></picture>
+      <div class="m-caption"><p>Strada spre Dom</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/palat-milano-turisti.webp" type="image/webp" /><img src="img/palat-milano-turisti.jpg" alt="Turiști în fața unui palat din Milano — fotografie de stradă" loading="lazy" /></picture>
+      <div class="m-caption"><p>Palat și turiști</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/scutere-milano.webp" type="image/webp" /><img src="img/scutere-milano.jpg" alt="Scutere parcate pe o stradă din Milano — fotografie urbană alb-negru" loading="lazy" /></picture>
+      <div class="m-caption"><p>Scutere milaneze</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="architecture black-white">
+      <picture><source srcset="img/fereastra-detalii.webp" type="image/webp" /><img src="img/fereastra-detalii.jpg" alt="Detaliu fereastră cu ornamente arhitecturale — fotografie Milano" loading="lazy" /></picture>
+      <div class="m-caption"><p>Fereastră</p><span>Arhitectură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/amurg_de_sticla.webp" type="image/webp" /><img src="img/amurg_de_sticla.jpg" alt="Amurg de sticlă — apus spectaculos peste câmpie, colecția Foc din cer" loading="lazy" /></picture>
+      <div class="m-caption"><p>Amurg de sticlă</p><span>Foc din cer · Natură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/apus_in_dobrogea.webp" type="image/webp" /><img src="img/apus_in_dobrogea.jpg" alt="Apus dramatic în Dobrogea — cer portocaliu peste dealuri" loading="lazy" /></picture>
+      <div class="m-caption"><p>Apus în Dobrogea</p><span>Foc din cer · Natură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/apus_marea_neagra.webp" type="image/webp" /><img src="img/apus_marea_neagra.jpg" alt="Apus la Marea Neagră — reflexii de foc pe apă" loading="lazy" /></picture>
+      <div class="m-caption"><p>Apus la Marea Neagră</p><span>Foc din cer · Natură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/cer_si_foc.webp" type="image/webp" /><img src="img/cer_si_foc.jpg" alt="Cer și foc — nori aprinși în nuanțe de roșu și portocaliu" loading="lazy" /></picture>
+      <div class="m-caption"><p>Cer și foc</p><span>Foc din cer · Natură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/pasari_de_foc.webp" type="image/webp" /><img src="img/pasari_de_foc.jpg" alt="Păsări de foc — siluete de păsări pe cer incendiar la apus" loading="lazy" /></picture>
+      <div class="m-caption"><p>Păsări de foc</p><span>Foc din cer · Natură</span></div>
+    </div>
+    <div class="m-item" data-cat="nature">
+      <picture><source srcset="img/vedere.webp" type="image/webp" /><img src="img/vedere.jpg" alt="Panoramă la apus — vedere de pe deal cu lumină caldă" loading="lazy" /></picture>
+      <div class="m-caption"><p>Vedere</p><span>Foc din cer · Natură</span></div>
+    </div>
+  </div>
+
+  <!-- ── Carousel (visible when a specific category is active) ── -->
+  <div class="carousel-wrap" id="port-carousel" style="padding: 0 5vw 4rem; display: none">
     <div class="carousel-stage" id="port-stage">
       <div class="carousel-track">
         <div class="carousel-slide active" data-cat="architecture black-white">
-          <img src="img/domul-milano.jpg" alt="Domul din Milano" />
+          <picture><source srcset="img/domul-milano.webp" type="image/webp" /><img src="img/domul-milano.jpg" alt="Domul din Milano — fotografie alb-negru de arhitectură, Cătălin Cocoș" /></picture>
           <div class="carousel-caption"><p>Domul din Milano</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/domul-milano-acoperis.jpg" alt="Domul Milano — acoperiș" />
+          <picture><source srcset="img/domul-milano-acoperis.webp" type="image/webp" /><img src="img/domul-milano-acoperis.jpg" alt="Acoperișul Domului din Milano — detaliu arhitectural alb-negru" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Milano pe acoperiș</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/domul-milano-detaliu.jpg" alt="Domul Milano — detaliu" />
+          <picture><source srcset="img/domul-milano-detaliu.webp" type="image/webp" /><img src="img/domul-milano-detaliu.jpg" alt="Sculpturi gotice pe fațada Domului din Milano" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Detaliu — Domul din Milano</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/domul-milano-strada.jpg" alt="Domul Milano — stradă" />
+          <picture><source srcset="img/domul-milano-strada.webp" type="image/webp" /><img src="img/domul-milano-strada.jpg" alt="Stradă din Milano cu vedere spre Dom — fotografie urbană" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Strada spre Dom</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/palat-milano-turisti.jpg" alt="Palat Milano — turiști" />
+          <picture><source srcset="img/palat-milano-turisti.webp" type="image/webp" /><img src="img/palat-milano-turisti.jpg" alt="Turiști în fața unui palat din Milano — fotografie de stradă" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Palat și turiști</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/scutere-milano.jpg" alt="Scutere Milano" />
+          <picture><source srcset="img/scutere-milano.webp" type="image/webp" /><img src="img/scutere-milano.jpg" alt="Scutere parcate pe o stradă din Milano — fotografie urbană alb-negru" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Scutere milaneze</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="architecture black-white">
-          <img src="img/fereastra-detalii.jpg" alt="Fereastră — detalii arhitecturale" />
+          <picture><source srcset="img/fereastra-detalii.webp" type="image/webp" /><img src="img/fereastra-detalii.jpg" alt="Detaliu fereastră cu ornamente arhitecturale — fotografie Milano" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Fereastră</p><span>Arhitectură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/amurg_de_sticla.jpg" alt="Amurg de sticlă" />
+          <picture><source srcset="img/amurg_de_sticla.webp" type="image/webp" /><img src="img/amurg_de_sticla.jpg" alt="Amurg de sticlă — apus spectaculos peste câmpie, colecția Foc din cer" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Amurg de sticlă</p><span>Foc din cer · Natură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/apus_in_dobrogea.jpg" alt="Apus în Dobrogea" />
+          <picture><source srcset="img/apus_in_dobrogea.webp" type="image/webp" /><img src="img/apus_in_dobrogea.jpg" alt="Apus dramatic în Dobrogea — cer portocaliu peste dealuri" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Apus în Dobrogea</p><span>Foc din cer · Natură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/apus_marea_neagra.jpg" alt="Apus la Marea Neagră" />
+          <picture><source srcset="img/apus_marea_neagra.webp" type="image/webp" /><img src="img/apus_marea_neagra.jpg" alt="Apus la Marea Neagră — reflexii de foc pe apă" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Apus la Marea Neagră</p><span>Foc din cer · Natură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/cer_si_foc.jpg" alt="Cer și foc" />
+          <picture><source srcset="img/cer_si_foc.webp" type="image/webp" /><img src="img/cer_si_foc.jpg" alt="Cer și foc — nori aprinși în nuanțe de roșu și portocaliu" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Cer și foc</p><span>Foc din cer · Natură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/pasari_de_foc.jpg" alt="Păsări de foc" />
+          <picture><source srcset="img/pasari_de_foc.webp" type="image/webp" /><img src="img/pasari_de_foc.jpg" alt="Păsări de foc — siluete de păsări pe cer incendiar la apus" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Păsări de foc</p><span>Foc din cer · Natură</span></div>
         </div>
         <div class="carousel-slide" data-cat="nature">
-          <img src="img/vedere.jpg" alt="Vedere" />
+          <picture><source srcset="img/vedere.webp" type="image/webp" /><img src="img/vedere.jpg" alt="Panoramă la apus — vedere de pe deal cu lumină caldă" loading="lazy" /></picture>
           <div class="carousel-caption"><p>Vedere</p><span>Foc din cer · Natură</span></div>
         </div>
       </div>
 
-      <button class="carousel-btn prev" onclick="carouselMove('port', -1)">&#8592;</button>
-      <button class="carousel-btn next" onclick="carouselMove('port', 1)">&#8594;</button>
-      <button class="carousel-btn pause" id="port-pause" onclick="togglePause('port')">⏸</button>
+      <button class="carousel-btn prev" aria-label="Fotografia anterioară" onclick="carouselMove('port', -1)">&#8592;</button>
+      <button class="carousel-btn next" aria-label="Fotografia următoare" onclick="carouselMove('port', 1)">&#8594;</button>
+      <button class="carousel-btn pause" id="port-pause" aria-label="Pauză prezentare" onclick="togglePause('port')">⏸</button>
     </div>
 
     <div class="carousel-thumbs" id="port-thumbs">
       <div class="thumb active" data-cat="architecture black-white" onclick="carouselGo('port', 0)">
-        <img src="img/domul-milano.jpg" alt="" />
+        <picture><source srcset="img/thumb/domul-milano.webp" type="image/webp" /><img src="img/thumb/domul-milano.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 1)">
-        <img src="img/domul-milano-acoperis.jpg" alt="" />
+        <picture><source srcset="img/thumb/domul-milano-acoperis.webp" type="image/webp" /><img src="img/thumb/domul-milano-acoperis.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 2)">
-        <img src="img/domul-milano-detaliu.jpg" alt="" />
+        <picture><source srcset="img/thumb/domul-milano-detaliu.webp" type="image/webp" /><img src="img/thumb/domul-milano-detaliu.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 3)">
-        <img src="img/domul-milano-strada.jpg" alt="" />
+        <picture><source srcset="img/thumb/domul-milano-strada.webp" type="image/webp" /><img src="img/thumb/domul-milano-strada.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 4)">
-        <img src="img/palat-milano-turisti.jpg" alt="" />
+        <picture><source srcset="img/thumb/palat-milano-turisti.webp" type="image/webp" /><img src="img/thumb/palat-milano-turisti.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 5)">
-        <img src="img/scutere-milano.jpg" alt="" />
+        <picture><source srcset="img/thumb/scutere-milano.webp" type="image/webp" /><img src="img/thumb/scutere-milano.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="architecture black-white" onclick="carouselGo('port', 6)">
-        <img src="img/fereastra-detalii.jpg" alt="" />
+        <picture><source srcset="img/thumb/fereastra-detalii.webp" type="image/webp" /><img src="img/thumb/fereastra-detalii.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 7)">
-        <img src="img/amurg_de_sticla.jpg" alt="" />
+        <picture><source srcset="img/thumb/amurg_de_sticla.webp" type="image/webp" /><img src="img/thumb/amurg_de_sticla.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 8)">
-        <img src="img/apus_in_dobrogea.jpg" alt="" />
+        <picture><source srcset="img/thumb/apus_in_dobrogea.webp" type="image/webp" /><img src="img/thumb/apus_in_dobrogea.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 9)">
-        <img src="img/apus_marea_neagra.jpg" alt="" />
+        <picture><source srcset="img/thumb/apus_marea_neagra.webp" type="image/webp" /><img src="img/thumb/apus_marea_neagra.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 10)">
-        <img src="img/cer_si_foc.jpg" alt="" />
+        <picture><source srcset="img/thumb/cer_si_foc.webp" type="image/webp" /><img src="img/thumb/cer_si_foc.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 11)">
-        <img src="img/pasari_de_foc.jpg" alt="" />
+        <picture><source srcset="img/thumb/pasari_de_foc.webp" type="image/webp" /><img src="img/thumb/pasari_de_foc.jpg" alt="" loading="lazy" /></picture>
       </div>
       <div class="thumb" data-cat="nature" onclick="carouselGo('port', 12)">
-        <img src="img/vedere.jpg" alt="" />
+        <picture><source srcset="img/thumb/vedere.webp" type="image/webp" /><img src="img/thumb/vedere.jpg" alt="" loading="lazy" /></picture>
       </div>
     </div>
   </div>
@@ -503,7 +681,7 @@
             <h3>Fotografie</h3>
             <p>
               Fotografie cu ochi de jurnalist și sensibilitate de artist.
-              Fiecare ședință are un fir narativ — nu e doar „pozat".
+              Fiecare ședință are un fir narativ — nu e doar "pozat".
             </p>
             <ul>
               <li>Portret — personal & profesional</li>
@@ -563,32 +741,32 @@
 
           <div class="faq-list">
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Cu ce fel de clienți lucrezi?</button>
-              <div class="faq-a">Cu orice fel — de la startup-uri care încă nu știu exact ce vor, până la branduri care știu prea bine și au nevoie de cineva care să le spună că au dreptate. Sau nu.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq1" onclick="toggleFaq(this)">Cu ce fel de clienți lucrezi?</button>
+              <div class="faq-a" id="faq1" role="region">Cu orice fel — de la startup-uri care încă nu știu exact ce vor, până la branduri care știu prea bine și au nevoie de cineva care să le spună că au dreptate. Sau nu.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Faci și fotografie de produs/corporate?</button>
-              <div class="faq-a">Da. Produsele arată mai bine în poze decât în realitate — ăsta e scopul. Pentru corporate, același principiu, cu zâmbete incluse.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq2" onclick="toggleFaq(this)">Faci și fotografie de produs/corporate?</button>
+              <div class="faq-a" id="faq2" role="region">Da. Produsele arată mai bine în poze decât în realitate — ăsta e scopul. Pentru corporate, același principiu, cu zâmbete incluse.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Cât durează un proiect de copywriting?</button>
-              <div class="faq-a">Depinde de proiect. Documentarea e parte din proces — și nu o săresc. Odată ce știu ce ai nevoie, stabilim un termen și îl respect.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq3" onclick="toggleFaq(this)">Cât durează un proiect de copywriting?</button>
+              <div class="faq-a" id="faq3" role="region">Depinde de proiect. Documentarea e parte din proces — și nu o săresc. Odată ce știu ce ai nevoie, stabilim un termen și îl respect.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Lucrezi și în afara Bucureștiului?</button>
-              <div class="faq-a">Da, mă deplasez. România e frumoasă și am aparat foto — nu e o corvoadă.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq4" onclick="toggleFaq(this)">Lucrezi și în afara Bucureștiului?</button>
+              <div class="faq-a" id="faq4" role="region">Da, mă deplasez. România e frumoasă și am aparat foto — nu e o corvoadă.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Poți livra atât textul cât și fotografia pentru același proiect?</button>
-              <div class="faq-a">Exact de asta exist. Un singur om, două limbaje. Mai simplu pentru tine, mai coerent pentru brand.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq5" onclick="toggleFaq(this)">Poți livra atât textul cât și fotografia pentru același proiect?</button>
+              <div class="faq-a" id="faq5" role="region">Exact de asta exist. Un singur om, două limbaje. Mai simplu pentru tine, mai coerent pentru brand.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Cum arată procesul de lucru?</button>
-              <div class="faq-a">Începem cu o discuție în care eu ascult mai mult decât vorbesc. Apoi vin cu o propunere. Iterăm până e bine. Livrăm. Simplu pe hârtie, serios în execuție.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq6" onclick="toggleFaq(this)">Cum arată procesul de lucru?</button>
+              <div class="faq-a" id="faq6" role="region">Începem cu o discuție în care eu ascult mai mult decât vorbesc. Apoi vin cu o propunere. Iterăm până e bine. Livrăm. Simplu pe hârtie, serios în execuție.</div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" onclick="toggleFaq(this)">Faci și social media?</button>
-              <div class="faq-a">Da — strategie, texte, uneori și fotografiile. Depinde ce ai nevoie și cât de mult vrei să dormi liniștit știind că cineva se ocupă.</div>
+              <button class="faq-q" aria-expanded="false" aria-controls="faq7" onclick="toggleFaq(this)">Faci și social media?</button>
+              <div class="faq-a" id="faq7" role="region">Da — strategie, texte, uneori și fotografiile. Depinde ce ai nevoie și cât de mult vrei să dormi liniștit știind că cineva se ocupă.</div>
             </div>
           </div>
         </div>
@@ -596,7 +774,7 @@
 
         <div class="services-cta reveal">
           <p>
-            „Fiecare proiect e diferit. Dacă nu ești sigur ce ai nevoie,
+            "Fiecare proiect e diferit. Dacă nu ești sigur ce ai nevoie,
             scrie-mi și discutăm."
           </p>
           <button class="btn-accent" onclick="showPage('contact')">
@@ -618,18 +796,18 @@
             suplimentare.
           </p>
           <p class="section-quote">
-            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+            "Problema pe care o au oamenii nu este aceea că țintesc prea sus și
             eșuează, ci aceea că țintesc prea jos și reușesc"
             <span>– Michelangelo</span>
           </p>
         </div>
 
-        <div class="p-item reveal">
+        <div class="p-item">
           <div class="p-photo">
-            <img
-              src="img/luceafarul_si_luna.jpg"
-              alt="Luceafărul și Luna — Cătălin Cocoș"
-            />
+            <picture>
+              <source srcset="img/luceafarul_si_luna.webp" type="image/webp" />
+              <img src="img/luceafarul_si_luna.jpg" alt="Luceafărul și Luna — Cătălin Cocoș" loading="lazy" />
+            </picture>
           </div>
           <div class="p-divider"></div>
           <div class="p-text">
@@ -679,7 +857,7 @@
                 Alt salt mortal!...
               </p>
               <p class="p-note">
-                Ion Minulescu — <em>Ultima oră</em>, din volumul „Strofe pentru
+                Ion Minulescu — <em>Ultima oră</em>, din volumul "Strofe pentru
                 toată lumea", 1930
               </p>
             </div>
@@ -687,7 +865,7 @@
         </div>
 
         <!-- Al doilea item — foto în dreapta -->
-        <div class="p-item p-item--rev reveal">
+        <div class="p-item p-item--rev">
   <div class="p-text">
     <span class="p-eyebrow">George Bacovia</span>
     <div class="p-poem-block">
@@ -710,10 +888,10 @@
   </div>
   <div class="p-divider"></div>
   <div class="p-photo">
-    <img
-      src="img/frunza_toamna.jpg"
-      alt="Frunză de toamnă — fotografie de Cătălin Cocoș"
-    />
+    <picture>
+      <source srcset="img/frunza_toamna.webp" type="image/webp" />
+      <img src="img/frunza_toamna.jpg" alt="Frunză de toamnă — fotografie de Cătălin Cocoș" loading="lazy" />
+    </picture>
   </div>
 </div>
     </section>
@@ -738,53 +916,54 @@
       <div class="carousel-stage" id="phone-stage">
         <div class="carousel-track">
           <div class="carousel-slide active">
-            <img src="img/amurg_inghetat.jpg" alt="Amurg înghețat" />
+            <picture><source srcset="img/amurg_inghetat.webp" type="image/webp" /><img src="img/amurg_inghetat.jpg" alt="Amurg înghețat — peisaj de iarnă fotografiat cu telefonul" /></picture>
             <div class="carousel-caption"><p>Amurg înghețat</p></div>
           </div>
           <div class="carousel-slide">
-            <img src="img/culori_de_geata.jpg" alt="Culori de gheață" />
+            <picture><source srcset="img/culori_de_geata.webp" type="image/webp" /><img src="img/culori_de_geata.jpg" alt="Culori de gheață — cristale de gheață în lumină naturală" loading="lazy" /></picture>
             <div class="carousel-caption"><p>Culori de gheață</p></div>
           </div>
           <div class="carousel-slide">
-            <img src="img/gard-gheata.jpg" alt="Gard de gheață" />
+            <picture><source srcset="img/gard-gheata.webp" type="image/webp" /><img src="img/gard-gheata.jpg" alt="Gard acoperit de gheață — macro iarnă" loading="lazy" /></picture>
             <div class="carousel-caption"><p>Gard de gheață</p></div>
           </div>
           <div class="carousel-slide">
-            <img src="img/gaura_de_gheata.jpg" alt="Gaură de gheață" />
+            <picture><source srcset="img/gaura_de_gheata.webp" type="image/webp" /><img src="img/gaura_de_gheata.jpg" alt="Gaură de gheață — formă abstractă în stratul de gheață" loading="lazy" /></picture>
             <div class="carousel-caption"><p>Gaură de gheață</p></div>
           </div>
           <div class="carousel-slide">
-            <img src="img/plecaciune_inghetata.jpg" alt="Plecăciune înghețată" />
+            <picture><source srcset="img/plecaciune_inghetata.webp" type="image/webp" /><img src="img/plecaciune_inghetata.jpg" alt="Plecăciune înghețată — ramură îndoită sub greutatea gheții" loading="lazy" /></picture>
             <div class="carousel-caption"><p>Plecăciune înghețată</p></div>
           </div>
           <div class="carousel-slide">
-            <img src="img/soare_inghetat.jpg" alt="Soare înghețat" />
+            <picture><source srcset="img/soare_inghetat.webp" type="image/webp" /><img src="img/soare_inghetat.jpg" alt="Soare înghețat — lumină de iarnă prin cristale de gheață" loading="lazy" /></picture>
             <div class="carousel-caption"><p>Soare înghețat</p></div>
           </div>
         </div>
 
-        <button class="carousel-btn prev" onclick="carouselMove('phone', -1)">&#8592;</button>
-        <button class="carousel-btn next" onclick="carouselMove('phone', 1)">&#8594;</button>
+        <button class="carousel-btn prev" aria-label="Fotografia anterioară" onclick="carouselMove('phone', -1)">&#8592;</button>
+        <button class="carousel-btn next" aria-label="Fotografia următoare" onclick="carouselMove('phone', 1)">&#8594;</button>
+        <button class="carousel-btn pause" id="phone-pause" aria-label="Pauză prezentare" onclick="togglePause('phone')">⏸</button>
       </div>
 
       <div class="carousel-thumbs" id="phone-thumbs">
         <div class="thumb active" onclick="carouselGo('phone', 0)">
-          <img src="img/amurg_inghetat.jpg" alt="Amurg înghețat" />
+          <picture><source srcset="img/thumb/amurg_inghetat.webp" type="image/webp" /><img src="img/thumb/amurg_inghetat.jpg" alt="Amurg înghețat — peisaj de iarnă fotografiat cu telefonul" loading="lazy" /></picture>
         </div>
         <div class="thumb" onclick="carouselGo('phone', 1)">
-          <img src="img/culori_de_geata.jpg" alt="Culori de gheață" />
+          <picture><source srcset="img/thumb/culori_de_geata.webp" type="image/webp" /><img src="img/thumb/culori_de_geata.jpg" alt="Culori de gheață — cristale de gheață în lumină naturală" loading="lazy" /></picture>
         </div>
         <div class="thumb" onclick="carouselGo('phone', 2)">
-          <img src="img/gard-gheata.jpg" alt="Gard de gheață" />
+          <picture><source srcset="img/thumb/gard-gheata.webp" type="image/webp" /><img src="img/thumb/gard-gheata.jpg" alt="Gard acoperit de gheață — macro iarnă" loading="lazy" /></picture>
         </div>
         <div class="thumb" onclick="carouselGo('phone', 3)">
-          <img src="img/gaura_de_gheata.jpg" alt="Gaură de gheață" />
+          <picture><source srcset="img/thumb/gaura_de_gheata.webp" type="image/webp" /><img src="img/thumb/gaura_de_gheata.jpg" alt="Gaură de gheață — formă abstractă în stratul de gheață" loading="lazy" /></picture>
         </div>
         <div class="thumb" onclick="carouselGo('phone', 4)">
-          <img src="img/plecaciune_inghetata.jpg" alt="Plecăciune înghețată" />
+          <picture><source srcset="img/thumb/plecaciune_inghetata.webp" type="image/webp" /><img src="img/thumb/plecaciune_inghetata.jpg" alt="Plecăciune înghețată — ramură îndoită sub greutatea gheții" loading="lazy" /></picture>
         </div>
         <div class="thumb" onclick="carouselGo('phone', 5)">
-          <img src="img/soare_inghetat.jpg" alt="Soare înghețat" />
+          <picture><source srcset="img/thumb/soare_inghetat.webp" type="image/webp" /><img src="img/thumb/soare_inghetat.jpg" alt="Soare înghețat — lumină de iarnă prin cristale de gheață" loading="lazy" /></picture>
         </div>
       </div>
     </div>
@@ -804,8 +983,8 @@
             Clarificăm împreună ce ai nevoie.
           </p>
           <p class="section-quote">
-            „Problema pe care o au oamenii nu este aceea că țintesc prea sus și
-            eșuează, ci aceea că țintesc prea jos și reușesc”
+            "Problema pe care o au oamenii nu este aceea că țintesc prea sus și
+            eșuează, ci aceea că țintesc prea jos și reușesc"
             <span>– Michelangelo</span>
           </p>
           <div class="c-info">
@@ -831,46 +1010,51 @@
         </div>
         <div class="contact-right">
           <h3>Trimite un mesaj</h3>
-          <div class="f-group">
-            <label for="fname">Numele tău</label>
-            <input type="text" id="fname" placeholder="Ion Popescu" />
-          </div>
-          <div class="f-group">
-            <label for="femail">Email</label>
-            <input type="email" id="femail" placeholder="ion@example.com" />
-          </div>
-          <div class="f-group">
-            <label for="fsubject">Tipul proiectului</label>
-            <select id="fsubject">
-              <option value="">— Alege —</option>
-              <option>Copywriting / Content SEO</option>
-              <option>Fotografie</option>
-              <option>Strategie de conținut</option>
-              <option>Proiect combinat (text + foto)</option>
-              <option>Altceva</option>
-            </select>
-          </div>
-          <div class="f-group">
-            <label for="fmsg">Mesajul tău</label>
-            <textarea
-              id="fmsg"
-              placeholder="Spune-mi pe scurt despre proiect..."
-            ></textarea>
-          </div>
-          <button class="btn-dark" onclick="submitForm()">
-            Trimite mesajul
-          </button>
+          <form id="contactForm" action="https://formspree.io/f/xvzvwjln" method="POST">
+            <div class="f-group">
+              <label for="fname">Numele tău</label>
+              <input type="text" name="name" id="fname" placeholder="Ion Popescu" required />
+            </div>
+            <div class="f-group">
+              <label for="femail">Email</label>
+              <input type="email" name="email" id="femail" placeholder="ion@example.com" required />
+            </div>
+            <div class="f-group">
+              <label for="fsubject">Tipul proiectului</label>
+              <select name="subject" id="fsubject">
+                <option value="">— Alege —</option>
+                <option>Copywriting / Content SEO</option>
+                <option>Fotografie</option>
+                <option>Strategie de conținut</option>
+                <option>Proiect combinat (text + foto)</option>
+                <option>Altceva</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label for="fmsg">Mesajul tău</label>
+              <textarea name="message" id="fmsg" placeholder="Spune-mi pe scurt despre proiect..." required></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="Mesaj nou de pe FrameStory.ro" />
+            <input type="text" name="_gotcha" style="display:none" />
+            <button type="submit" class="btn-dark">Trimite mesajul</button>
+          </form>
           <div class="f-success" id="fSuccess">
             ✓ Mesajul a fost trimis. Îți răspund în maximum 24 de ore.
           </div>
-          <p
-            style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--stone)"
-          >
-            * Formularul necesită configurarea Formspree înainte de publicare.
-          </p>
         </div>
       </div>
     </section>
+
+    </main>
+
+    <!-- ══ COOKIE BANNER ══ -->
+    <div class="cookie-banner" id="cookieBanner">
+      <p>Acest site folosește cookies pentru analiză și o experiență mai bună. <a href="#" onclick="showPage('contact'); return false;">Detalii</a></p>
+      <div class="cookie-btns">
+        <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+        <button class="cookie-decline" onclick="declineCookies()">Refuz</button>
+      </div>
+    </div>
 
     <footer>
   <div class="f-logo">Frame<em>Story</em></div>
@@ -892,6 +1076,6 @@
   <p class="f-copy">© 2025 Cătălin Cocoș. Toate drepturile rezervate.</p>
 </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js"></script>
   </body>
 </html>
