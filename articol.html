@@ -94,6 +94,24 @@
         transition: color 0.2s;
       }
       .art-back:hover { color: var(--accent); }
+      .art-hero {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 0;
+      }
+      .art-hero img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+      .art-body .art-inline-img {
+        margin: 2.5rem 0;
+      }
+      .art-body .art-inline-img img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
       .art-404 {
         max-width: 720px;
         margin: 0 auto;
@@ -255,6 +273,10 @@
           document.getElementById("ogTitle").content = a.titlu;
           document.getElementById("ogDesc").content = a.rezumat;
 
+          const heroHtml = a.imagine
+            ? `<div class="art-hero"><img src="img/${a.imagine}" alt="${a.titlu}" /></div>`
+            : '';
+
           wrap.innerHTML = `
             <article>
               <header class="art-header">
@@ -268,6 +290,7 @@
                   ${a.tip === 'pilon' ? '<span class="art-meta-dot">·</span><span style="color:var(--accent)">Articol pilon</span>' : ''}
                 </div>
               </header>
+              ${heroHtml}
               <div class="art-body">${a.continut}</div>
             </article>`;
         })
