@@ -7,7 +7,8 @@
       "Bash(node extend-pilon.js)",
       "Bash(rm extend-pilon.js)",
       "Bash(node extend2-pilon.js)",
-      "Bash(rm extend2-pilon.js)"
+      "Bash(rm extend2-pilon.js)",
+      "Read(//d/Autocolant/**)"
     ]
   }
 }
