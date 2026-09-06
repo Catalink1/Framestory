@@ -19,7 +19,18 @@
       "Bash(taskkill //F //IM node.exe //FI \"WINDOWTITLE eq *http-server*\")",
       "Bash(netstat -ano)",
       "Bash(taskkill //F //PID 18180)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(where php *)",
+      "Bash(where docker *)",
+      "Read(//c//**)",
+      "Bash(cd /tmp)",
+      "Bash(npm ls *)",
+      "Bash(npm view *)",
+      "Bash(mkdir -p /tmp/phplint)",
+      "Read(//tmp/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)"
     ]
   }
 }

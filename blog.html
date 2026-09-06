@@ -221,6 +221,7 @@
         .then(r => r.json())
         .then(articole => {
           const grid = document.getElementById("blogGrid");
+          articole = articole.slice().sort((a, b) => b.data.localeCompare(a.data));
           if (!articole.length) {
             grid.innerHTML = '<p class="blog-empty">Primul articol vine în curând.</p>';
             return;
