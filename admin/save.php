@@ -23,6 +23,9 @@ $tip = ($_POST['tip'] ?? '') === 'pilon' ? 'pilon' : 'articol';
 $rezumat = trim((string) ($_POST['rezumat'] ?? ''));
 $continut = (string) ($_POST['continut'] ?? '');
 $imagineExisting = trim((string) ($_POST['imagine_existing'] ?? ''));
+$seoTitle = trim((string) ($_POST['seo_title'] ?? ''));
+$focusKeyphrase = trim((string) ($_POST['focus_keyphrase'] ?? ''));
+$keywords = trim((string) ($_POST['keywords'] ?? ''));
 
 $categorieSelect = trim((string) ($_POST['categorie_select'] ?? ''));
 $categorie = $categorieSelect === '__new__'
@@ -64,6 +67,9 @@ if ($errors) {
         'rezumat' => $rezumat,
         'continut' => $continut,
         'imagine' => $imagineExisting,
+        'seo_title' => $seoTitle,
+        'focus_keyphrase' => $focusKeyphrase,
+        'keywords' => $keywords,
     ];
     $categories = existing_categories($articles);
     http_response_code(400);
@@ -100,6 +106,9 @@ $entry = [
     'continut' => $continut,
 ];
 if ($imagine !== '') $entry['imagine'] = $imagine;
+if ($seoTitle !== '') $entry['seo_title'] = $seoTitle;
+if ($focusKeyphrase !== '') $entry['focus_keyphrase'] = $focusKeyphrase;
+if ($keywords !== '') $entry['keywords'] = $keywords;
 
 if ($isEdit) {
     $found = false;

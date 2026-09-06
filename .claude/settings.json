@@ -23,7 +23,11 @@
       "Bash(node lint.js \"d:/Claude/clients/Framestory.ro/admin/inc/functions.php\")",
       "Bash(rm -rf /tmp/phplint4)",
       "PowerShell(if \\($rReport.Content -match \"Fatal error\"\\) { Write-Output \"FATAL ERROR:\"; $rReport.Content } else { Write-Output \"no fatal, content length: $\\($rReport.Content.Length\\)\"; $rReport.Content.Substring\\(0, [Math]::Min\\(1500,$rReport.Content.Length\\)\\) })",
-      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log && git status --short)"
+      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log && git status --short)",
+      "Bash(curl -s -o admin/inc/Parsedown.php --max-time 15 https://raw.githubusercontent.com/erusev/parsedown/master/Parsedown.php)",
+      "Bash(curl -s -o admin/inc/Parsedown.LICENSE.txt --max-time 15 https://raw.githubusercontent.com/erusev/parsedown/master/LICENSE.txt)",
+      "Bash(cygpath -w /tmp/test-article.md)",
+      "Bash(rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log)"
     ],
     "additionalDirectories": [
       "d:\\Claude\\clients\\Framestory.ro\\.claude"

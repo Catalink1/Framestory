@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="description" id="pageDesc" content="" />
+    <meta name="keywords" id="pageKeywords" content="" />
     <meta name="author" content="Cătălin Cocoș" />
     <meta property="og:title" id="ogTitle" content="" />
     <meta property="og:description" id="ogDesc" content="" />
@@ -273,9 +274,10 @@
           }
 
           // Meta tags dinamice
-          document.getElementById("pageTitle").textContent = a.titlu + " — Cătălin Cocoș";
+          document.getElementById("pageTitle").textContent = (a.seo_title || a.titlu) + " — Cătălin Cocoș";
           document.getElementById("pageDesc").content = a.rezumat;
-          document.getElementById("ogTitle").content = a.titlu;
+          document.getElementById("pageKeywords").content = a.keywords || "";
+          document.getElementById("ogTitle").content = a.seo_title || a.titlu;
           document.getElementById("ogDesc").content = a.rezumat;
 
           const heroWebp = a.imagine ? a.imagine.replace(/\.(jpe?g|png)$/i, '.webp') : '';

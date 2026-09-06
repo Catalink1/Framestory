@@ -6,6 +6,7 @@ $articles = read_articles();
 $slug = trim((string) ($_GET['slug'] ?? ''));
 $isEdit = $slug !== '';
 $article = ['data' => date('Y-m-d')];
+$fromImport = false;
 
 if ($isEdit) {
     $found = null;
@@ -17,6 +18,14 @@ if ($isEdit) {
         exit;
     }
     $article = $found;
+} elseif (($_GET['from_import'] ?? '') === '1' && !empty($_SESSION['import_draft'])) {
+    $article = $_SESSION['import_draft'] + $article;
+    // e mereu un articol NOU — dacă .md-ul a sugerat un slug, îl arătăm în câmp,
+    // dar "slug_original" rămâne gol explicit ca să nu se potrivească accidental
+    // (și să suprascrie) un articol existent cu același slug.
+    $article['slug_original'] = '';
+    $fromImport = true;
+    unset($_SESSION['import_draft']);
 }
 
 $errors = [];
@@ -36,6 +45,9 @@ $categories = existing_categories($articles);
 
   <main class="admin-main admin-main-narrow">
     <h1><?= $isEdit ? 'Editează articol' : 'Articol nou' ?></h1>
+    <?php if ($fromImport): ?>
+      <div class="flash flash-ok">Articol precompletat din fișierul Markdown importat — verifică totul înainte să publici.</div>
+    <?php endif; ?>
     <?php include __DIR__ . '/inc/article-form.php'; ?>
   </main>
 

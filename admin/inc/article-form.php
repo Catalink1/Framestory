@@ -28,7 +28,7 @@ $v = function ($key, $default = '') use ($article) {
 
 <form method="post" action="save.php" enctype="multipart/form-data" id="articleForm" class="article-form">
   <input type="hidden" name="csrf_token" value="<?= h(csrf_token()) ?>" />
-  <input type="hidden" name="slug_original" value="<?= $v('slug') ?>" />
+  <input type="hidden" name="slug_original" value="<?= isset($article['slug_original']) ? h($article['slug_original']) : $v('slug') ?>" />
   <input type="hidden" name="imagine_existing" value="<?= $v('imagine') ?>" />
 
   <div class="field">
@@ -74,6 +74,25 @@ $v = function ($key, $default = '') use ($article) {
     <textarea id="rezumat" name="rezumat" rows="3" required><?= $v('rezumat') ?></textarea>
     <p class="hint"><span id="rezumatCount">0</span> caractere</p>
   </div>
+
+  <fieldset class="field-group">
+    <legend>SEO avansat <span class="hint-inline">(opțional — dacă lipsesc, se folosesc titlul și rezumatul de mai sus)</span></legend>
+
+    <div class="field">
+      <label for="seo_title">Titlu SEO <span class="hint-inline">(ce apare în Google — dacă e gol, se folosește titlul articolului)</span></label>
+      <input type="text" id="seo_title" name="seo_title" value="<?= $v('seo_title') ?>" />
+    </div>
+
+    <div class="field">
+      <label for="focus_keyphrase">Frază cheie principală</label>
+      <input type="text" id="focus_keyphrase" name="focus_keyphrase" value="<?= $v('focus_keyphrase') ?>" />
+    </div>
+
+    <div class="field">
+      <label for="keywords">Cuvinte cheie <span class="hint-inline">(separate prin virgulă)</span></label>
+      <input type="text" id="keywords" name="keywords" value="<?= $v('keywords') ?>" />
+    </div>
+  </fieldset>
 
   <div class="field">
     <label for="imagine">Imagine principală (hero) <span class="hint-inline">— opțional, JPG sau PNG</span></label>

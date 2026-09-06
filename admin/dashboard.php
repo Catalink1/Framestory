@@ -34,7 +34,10 @@ function fmt_ro_date($str) {
   <main class="admin-main">
     <div class="admin-header-row">
       <h1>Articole</h1>
-      <a href="edit.php" class="btn btn-primary">+ Articol nou</a>
+      <div style="display:flex;gap:0.8rem">
+        <a href="import-md.php" class="btn btn-ghost">Importă din Markdown</a>
+        <a href="edit.php" class="btn btn-primary">+ Articol nou</a>
+      </div>
     </div>
 
     <?php if ($flash): ?><div class="flash flash-ok"><?= h($flash) ?></div><?php endif; ?>

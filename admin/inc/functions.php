@@ -387,3 +387,59 @@ function sync_site_settings(array $old, array $new) {
 
     return $report;
 }
+
+/* ─────────── import articol din Markdown ─────────── */
+
+/**
+ * Desparte un fișier .md în [frontmatter, corp]. Frontmatter e blocul
+ * "--- ... ---" de la începutul fișierului, cu perechi simple "cheie: valoare"
+ * pe fiecare linie (nu implementăm YAML complet — nu avem nevoie de liste
+ * sau obiecte imbricate, doar chei plate). Dacă nu există bloc frontmatter,
+ * întoarce un array gol și tot fișierul ca și corp.
+ */
+function parse_frontmatter($content) {
+    $content = preg_replace('/^\xEF\xBB\xBF/', '', $content); // BOM, dacă există
+    if (!preg_match('/^---\s*\r?\n(.*?)\r?\n---\s*\r?\n?/s', $content, $m)) {
+        return [[], $content];
+    }
+    $meta = [];
+    foreach (preg_split('/\r?\n/', $m[1]) as $line) {
+        if (trim($line) === '' || strpos($line, ':') === false) continue;
+        [$key, $value] = explode(':', $line, 2);
+        $key = strtolower(trim($key));
+        $value = trim($value);
+        // scoate ghilimelele de încadrare, dacă există
+        if (strlen($value) >= 2 && (
+            ($value[0] === '"' && substr($value, -1) === '"') ||
+            ($value[0] === "'" && substr($value, -1) === "'")
+        )) {
+            $value = substr($value, 1, -1);
+        }
+        $meta[$key] = $value;
+    }
+    $body = substr($content, strlen($m[0]));
+    return [$meta, ltrim($body, "\r\n")];
+}
+
+/** Convertește un draft (frontmatter + body Markdown) în structura folosită de article-form.php. */
+function draft_from_markdown($mdContent) {
+    require_once __DIR__ . '/Parsedown.php';
+    [$meta, $body] = parse_frontmatter($mdContent);
+
+    $parsedown = new Parsedown();
+    $parsedown->setSafeMode(false); // avem nevoie de HTML brut (casete evidențiate, stat-cards) trecut neatins
+    $html = $parsedown->text(trim($body));
+
+    return [
+        'titlu' => $meta['title'] ?? '',
+        'seo_title' => $meta['seo_title'] ?? '',
+        'focus_keyphrase' => $meta['focus_keyphrase'] ?? '',
+        'keywords' => $meta['keywords'] ?? '',
+        'rezumat' => $meta['excerpt'] ?? '',
+        'categorie' => $meta['category'] ?? ($meta['categorie'] ?? ''),
+        'data' => $meta['date'] ?? date('Y-m-d'),
+        'tip' => (($meta['type'] ?? ($meta['tip'] ?? '')) === 'pilon') ? 'pilon' : 'articol',
+        'slug' => $meta['slug'] ?? '',
+        'continut' => $html,
+    ];
+}
