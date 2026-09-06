@@ -32,13 +32,13 @@ Text normal, cu **bold** pentru accente, *italic* pentru nuanțe, și [linkuri c
   <div class="stat-card"><div class="sc-num">25%</div><div class="sc-label">etichetă scurtă</div><div class="sc-src">sursă</div></div>
 </div>
 
-## Întrebări frecvente
+## Ai dubii? Bine. Uite răspunsurile. (exemplu de titlu atractiv pentru secțiunea de întrebări — NU „Întrebări frecvente")
 
 ### O întrebare pe care ar pune-o cineva pe Google?
 
 Răspuns direct și scurt, în 2-3 propoziții (bun pentru featured snippets / AEO).
 
-Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [portofoliu](index.html#portfolio) sau [contact](index.html#contact).
+Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [portofoliu](index.html#portfolio) sau [contact](index.html#contact). (CTA-ul poate fi și altundeva în articol, vezi nota 3 de mai jos.)
 
 <!--
   ACESTA E UN ȘABLON, NU UN ARTICOL REAL. Nu-l încărca așa cum e —
@@ -73,12 +73,18 @@ Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [por
        un H2. Minim 2 linkuri către alte articole + 3 spre index.html
        (#services, #portfolio, #contact).
      - AEO (căutare vocală / featured snippets): fiecare H2 răspunde
-       direct în primele 2-3 propoziții; include o secțiune de Întrebări
-       frecvente (H3 = întrebarea, răspuns concis imediat după).
+       direct în primele 2-3 propoziții. O secțiune de întrebări (H3 =
+       întrebarea, răspuns concis imediat după) NU e obligatorie la
+       fiecare articol — dar când există, titlul ei (H2) trebuie să fie
+       atractiv, niciodată literalmente „Întrebări frecvente" (vezi
+       exemplul de mai sus).
      - GEO (citare de AI Overviews/ChatGPT/Perplexity): citează surse
        reale cu link extern, folosește cifre concrete (blocul
        stat-cards), scrie afirmativ ("X reduce Y cu Z%"), nu vag
        ("poate ajuta").
+     - CTA: OBLIGATORIU în fiecare articol (spre servicii/portofoliu/
+       contact). De obicei la final, dar nu neapărat — poate fi integrat
+       editorial, atractiv și logic, oriunde în text unde are sens.
 
   4) Lungime: minim ~900 cuvinte pentru un articol obișnuit, 3000-7000+
      pentru un articol "pilon" (type: pilon în loc de type: articol).
