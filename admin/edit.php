@@ -7,6 +7,7 @@ $slug = trim((string) ($_GET['slug'] ?? ''));
 $isEdit = $slug !== '';
 $article = ['data' => date('Y-m-d')];
 $fromImport = false;
+$importWarnings = [];
 
 if ($isEdit) {
     $found = null;
@@ -25,7 +26,8 @@ if ($isEdit) {
     // (și să suprascrie) un articol existent cu același slug.
     $article['slug_original'] = '';
     $fromImport = true;
-    unset($_SESSION['import_draft']);
+    $importWarnings = $_SESSION['import_warnings'] ?? [];
+    unset($_SESSION['import_draft'], $_SESSION['import_warnings']);
 }
 
 $errors = [];
@@ -47,6 +49,14 @@ $categories = existing_categories($articles);
     <h1><?= $isEdit ? 'Editează articol' : 'Articol nou' ?></h1>
     <?php if ($fromImport): ?>
       <div class="flash flash-ok">Articol precompletat din fișierul Markdown importat — verifică totul înainte să publici.</div>
+    <?php endif; ?>
+    <?php if ($importWarnings): ?>
+      <div class="flash flash-error">
+        <strong>De verificat:</strong>
+        <ul>
+          <?php foreach ($importWarnings as $w): ?><li><?= h($w) ?></li><?php endforeach; ?>
+        </ul>
+      </div>
     <?php endif; ?>
     <?php include __DIR__ . '/inc/article-form.php'; ?>
   </main>

@@ -27,7 +27,13 @@
       "Bash(curl -s -o admin/inc/Parsedown.php --max-time 15 https://raw.githubusercontent.com/erusev/parsedown/master/Parsedown.php)",
       "Bash(curl -s -o admin/inc/Parsedown.LICENSE.txt --max-time 15 https://raw.githubusercontent.com/erusev/parsedown/master/LICENSE.txt)",
       "Bash(cygpath -w /tmp/test-article.md)",
-      "Bash(rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log)"
+      "Bash(rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log)",
+      "Bash(mkdir -p /tmp/test-import-folder)",
+      "Bash(cat)",
+      "Bash(cygpath -w /tmp/test-import-folder)",
+      "Bash(mkdir -p /tmp/test-import2)",
+      "Bash(cygpath -w /tmp/test-import2)",
+      "Bash(rm -f img/al-doilea-test-fara-hero-explicit*.jpg img/al-doilea-test-fara-hero-explicit*.webp)"
     ],
     "additionalDirectories": [
       "d:\\Claude\\clients\\Framestory.ro\\.claude"

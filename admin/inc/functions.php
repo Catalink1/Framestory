@@ -422,15 +422,85 @@ function parse_frontmatter($content) {
 }
 
 /** Convertește un draft (frontmatter + body Markdown) în structura folosită de article-form.php. */
-function draft_from_markdown($mdContent) {
+/**
+ * $images: [basename_lowercase => tmp_upload_path, ...] — fotografiile
+ * încărcate odată cu fișierul .md (dintr-un folder sau selecție multiplă).
+ * Întoarce [draft, warnings] — warnings descrie orice imagine care nu a
+ * putut fi folosită (nereferențiată în text, sau referențiată dar lipsă).
+ */
+function draft_from_markdown($mdContent, array $images = []) {
     require_once __DIR__ . '/Parsedown.php';
     [$meta, $body] = parse_frontmatter($mdContent);
+
+    $baseSlug = slugify($meta['title'] ?? 'articol');
+    $warnings = [];
+    $used = [];
+    $hero = '';
+
+    // 1) imagine principală explicită din frontmatter ("hero: poza1.jpg")
+    if (!empty($meta['hero'])) {
+        $key = strtolower(basename($meta['hero']));
+        if (isset($images[$key])) {
+            try {
+                $hero = process_uploaded_image($images[$key], $baseSlug);
+                $used[$key] = true;
+            } catch (ImageError $e) {
+                $warnings[] = 'Imaginea principală „' . $meta['hero'] . '" nu a putut fi procesată: ' . $e->getMessage();
+            }
+        } else {
+            $warnings[] = 'Frontmatter specifică hero: ' . $meta['hero'] . ', dar acel fișier nu a fost încărcat.';
+        }
+    }
+
+    // 2) imagini inline — sintaxă Markdown ![alt](nume-fisier.jpg) referind un fișier încărcat
+    $inlineIndex = 0;
+    $body = preg_replace_callback('/!\[([^\]]*)\]\(([^)\s]+)\)/', function ($m) use ($images, &$used, $baseSlug, &$inlineIndex, &$warnings) {
+        $alt = $m[1];
+        $refBase = strtolower(basename(trim($m[2])));
+        if (!isset($images[$refBase])) {
+            // fie o imagine externă (URL), fie un fișier care nu a fost încărcat — nu atingem sintaxa
+            if (!preg_match('#^https?://#i', $m[2])) {
+                $warnings[] = 'Imaginea „' . $m[2] . '" e referită în text dar nu a fost încărcată — a rămas ca link simplu.';
+            }
+            return $m[0];
+        }
+        $inlineIndex++;
+        try {
+            $filename = process_uploaded_image($images[$refBase], $baseSlug . '-' . $inlineIndex);
+        } catch (ImageError $e) {
+            $warnings[] = 'Imaginea „' . $m[2] . '" nu a putut fi procesată: ' . $e->getMessage();
+            return $m[0];
+        }
+        $used[$refBase] = true;
+        $webp = preg_replace('/\.(jpe?g|png)$/i', '.webp', $filename);
+        return '<div class="art-inline-img"><picture><source srcset="img/' . h($webp) . '" type="image/webp" /><img src="img/' . h($filename) . '" alt="' . h($alt) . '" loading="lazy" /></picture></div>';
+    }, $body);
+
+    // 3) orice imagine încărcată dar nefolosită încă: prima devine hero (dacă nu există deja unul), restul se urcă oricum ca să nu se piardă, cu avertisment
+    $leftoverIndex = 0;
+    foreach ($images as $key => $tmpPath) {
+        if (isset($used[$key])) continue;
+        $leftoverIndex++;
+        $wantsHero = $hero === '';
+        try {
+            $filename = process_uploaded_image($tmpPath, $baseSlug . ($wantsHero ? '-hero' : '-extra-' . $leftoverIndex));
+        } catch (ImageError $e) {
+            $warnings[] = 'Imaginea „' . $key . '" nu a putut fi procesată: ' . $e->getMessage();
+            continue;
+        }
+        $used[$key] = true;
+        if ($wantsHero) {
+            $hero = $filename;
+        } else {
+            $warnings[] = 'Imaginea „' . $key . '" a fost încărcată în img/' . $filename . ' dar nu apare nicăieri în articol — o poți insera manual din editor.';
+        }
+    }
 
     $parsedown = new Parsedown();
     $parsedown->setSafeMode(false); // avem nevoie de HTML brut (casete evidențiate, stat-cards) trecut neatins
     $html = $parsedown->text(trim($body));
 
-    return [
+    $draft = [
         'titlu' => $meta['title'] ?? '',
         'seo_title' => $meta['seo_title'] ?? '',
         'focus_keyphrase' => $meta['focus_keyphrase'] ?? '',
@@ -442,4 +512,7 @@ function draft_from_markdown($mdContent) {
         'slug' => $meta['slug'] ?? '',
         'continut' => $html,
     ];
+    if ($hero !== '') $draft['imagine'] = $hero;
+
+    return [$draft, $warnings];
 }
