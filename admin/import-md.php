@@ -88,14 +88,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="hidden" name="csrf_token" value="<?= h(csrf_token()) ?>" />
 
       <div class="field">
-        <label for="filesMulti">Fișiere (.md + fotografii)</label>
-        <input type="file" id="filesMulti" name="files[]" multiple accept=".md,.markdown,.txt,image/jpeg,image/png" />
-        <p class="hint">Ține Ctrl (sau Cmd pe Mac) apăsat ca să selectezi mai multe fișiere deodată.</p>
-      </div>
-
-      <div class="field">
-        <label for="filesFolder">…sau alege un folder întreg <span class="hint-inline">(Chrome/Edge)</span></label>
-        <input type="file" id="filesFolder" name="files[]" multiple webkitdirectory />
+        <label>Alege ce încarci</label>
+        <div class="upload-choice">
+          <div class="upload-option">
+            <input type="file" id="filesMulti" name="files[]" multiple accept=".md,.markdown,.txt,image/jpeg,image/png" class="upload-input-hidden" />
+            <label for="filesMulti" class="btn btn-ghost">📄 Alege fișiere (.md + poze)</label>
+            <p class="hint" id="filesMultiInfo">Niciun fișier ales — ține Ctrl/Cmd apăsat ca să alegi mai multe deodată.</p>
+          </div>
+          <div class="upload-option">
+            <input type="file" id="filesFolder" name="files[]" multiple webkitdirectory class="upload-input-hidden" />
+            <label for="filesFolder" class="btn btn-ghost">📁 Alege un folder întreg</label>
+            <p class="hint" id="filesFolderInfo">Niciun folder ales — merge în Chrome/Edge; dacă butonul nu deschide un selector de foldere, browserul tău nu-l suportă, folosește „Alege fișiere" de mai sus.</p>
+          </div>
+        </div>
       </div>
 
       <div class="form-actions">
@@ -103,6 +108,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="dashboard.php" class="btn btn-ghost">Anulează</a>
       </div>
     </form>
+
+    <script>
+      function describeFiles(input, infoEl, emptyText) {
+        input.addEventListener("change", function () {
+          if (!input.files.length) { infoEl.textContent = emptyText; return; }
+          var names = Array.prototype.map.call(input.files, function (f) { return f.name; });
+          infoEl.textContent = input.files.length + " fișier(e) ales(e): " + names.join(", ");
+        });
+      }
+      describeFiles(document.getElementById("filesMulti"), document.getElementById("filesMultiInfo"), "Niciun fișier ales — ține Ctrl/Cmd apăsat ca să alegi mai multe deodată.");
+      describeFiles(document.getElementById("filesFolder"), document.getElementById("filesFolderInfo"), "Niciun folder ales — merge în Chrome/Edge.");
+    </script>
   </main>
 </body>
 </html>
