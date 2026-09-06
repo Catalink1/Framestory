@@ -33,7 +33,16 @@
       "Bash(cygpath -w /tmp/test-import-folder)",
       "Bash(mkdir -p /tmp/test-import2)",
       "Bash(cygpath -w /tmp/test-import2)",
-      "Bash(rm -f img/al-doilea-test-fara-hero-explicit*.jpg img/al-doilea-test-fara-hero-explicit*.webp)"
+      "Bash(rm -f img/al-doilea-test-fara-hero-explicit*.jpg img/al-doilea-test-fara-hero-explicit*.webp)",
+      "Bash(ls \"C:\\\\Users\\\\Catalink\\\\.claude\\\\projects\\\\d--Claude-clients-Framestory-ro\\\\memory\\\\\")",
+      "Read(//c/Users/Catalink/.claude/projects/d--Claude-clients-Framestory-ro/**)",
+      "Read(//c/Users/Catalink/.claude/projects/d--Claude-clients-Framestory-ro/memory/**)",
+      "Bash(mkdir -p /tmp/test-template)",
+      "Bash(cp \"d:\\\\Claude\\\\clients\\\\Framestory.ro\\\\admin\\\\TEMPLATE-articol.md\" /tmp/test-template/articol.md)",
+      "Bash(cygpath -w /tmp/test-template)",
+      "Bash(mkdir -p /tmp/phplint7)",
+      "Bash(rm -rf /tmp/phplint7)",
+      "Bash(rm -f img/titlul-articolului*.jpg img/titlul-articolului*.webp)"
     ],
     "additionalDirectories": [
       "d:\\Claude\\clients\\Framestory.ro\\.claude"

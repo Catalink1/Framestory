@@ -432,6 +432,11 @@ function draft_from_markdown($mdContent, array $images = []) {
     require_once __DIR__ . '/Parsedown.php';
     [$meta, $body] = parse_frontmatter($mdContent);
 
+    // comentarii HTML (ex. note de instrucțiuni lăsate într-un șablon) nu au
+    // ce căuta în articolul publicat — sunt invizibile pe site, dar rămân
+    // în cod dacă nu le scoatem aici.
+    $body = preg_replace('/<!--.*?-->/s', '', $body);
+
     $baseSlug = slugify($meta['title'] ?? 'articol');
     $warnings = [];
     $used = [];
