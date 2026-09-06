@@ -517,7 +517,10 @@ function draft_from_markdown($mdContent, array $images = []) {
         'slug' => $meta['slug'] ?? '',
         'continut' => $html,
     ];
-    if ($hero !== '') $draft['imagine'] = $hero;
+    if ($hero !== '') {
+        $draft['imagine'] = $hero;
+        if (!empty($meta['hero_alt'])) $draft['imagine_alt'] = $meta['hero_alt'];
+    }
 
     return [$draft, $warnings];
 }

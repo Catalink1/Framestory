@@ -23,6 +23,7 @@ $tip = ($_POST['tip'] ?? '') === 'pilon' ? 'pilon' : 'articol';
 $rezumat = trim((string) ($_POST['rezumat'] ?? ''));
 $continut = (string) ($_POST['continut'] ?? '');
 $imagineExisting = trim((string) ($_POST['imagine_existing'] ?? ''));
+$imagineAlt = trim((string) ($_POST['imagine_alt'] ?? ''));
 $seoTitle = trim((string) ($_POST['seo_title'] ?? ''));
 $focusKeyphrase = trim((string) ($_POST['focus_keyphrase'] ?? ''));
 $keywords = trim((string) ($_POST['keywords'] ?? ''));
@@ -67,6 +68,7 @@ if ($errors) {
         'rezumat' => $rezumat,
         'continut' => $continut,
         'imagine' => $imagineExisting,
+        'imagine_alt' => $imagineAlt,
         'seo_title' => $seoTitle,
         'focus_keyphrase' => $focusKeyphrase,
         'keywords' => $keywords,
@@ -106,6 +108,7 @@ $entry = [
     'continut' => $continut,
 ];
 if ($imagine !== '') $entry['imagine'] = $imagine;
+if ($imagineAlt !== '') $entry['imagine_alt'] = $imagineAlt;
 if ($seoTitle !== '') $entry['seo_title'] = $seoTitle;
 if ($focusKeyphrase !== '') $entry['focus_keyphrase'] = $focusKeyphrase;
 if ($keywords !== '') $entry['keywords'] = $keywords;

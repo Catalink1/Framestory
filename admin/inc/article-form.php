@@ -106,6 +106,11 @@ $v = function ($key, $default = '') use ($article) {
   </div>
 
   <div class="field">
+    <label for="imagine_alt">Text alternativ (alt) pentru imaginea principală <span class="hint-inline">— dacă lipsește, se folosește titlul articolului</span></label>
+    <input type="text" id="imagine_alt" name="imagine_alt" value="<?= $v('imagine_alt') ?>" placeholder="Descriere scurtă a imaginii, pentru accesibilitate și SEO" />
+  </div>
+
+  <div class="field">
     <label for="continut">Conținut</label>
     <textarea id="continut" name="continut"><?= h($article['continut'] ?? '') ?></textarea>
   </div>

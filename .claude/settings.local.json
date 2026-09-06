@@ -43,7 +43,26 @@
       "Bash(git commit *)",
       "Bash(git push *)",
       "Bash(git remote *)",
-      "Bash(git merge *)"
+      "Bash(git merge *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://github.com/Catalink1/Framestory)",
+      "Bash(curl -s https://github.com/Catalink1/Framestory)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -A \"Mozilla/5.0\" \"https://www.linkedin.com/in/c%C4%83t%C4%83lin-coco%C8%99-7ab2882b/\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" -A \"Mozilla/5.0\" \"https://www.linkedin.com/in/c%C4%83t%C4%83lin-coco%C8%99-7ab2882b/\")",
+      "Bash(curl -sL -o /dev/null -w \"final: %{http_code}\\\\n\" -A \"Mozilla/5.0\" \"https://www.linkedin.com/in/c%C4%83t%C4%83lin-coco%C8%99-7ab2882b/\")",
+      "Bash(mkdir -p /tmp/phplint8)",
+      "Bash(rm -rf /tmp/phplint8)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/admin/)",
+      "Bash(curl -s -w \"\\\\nSTATUS:%{http_code}\\\\n\" http://localhost:8000/admin/import-md.php)",
+      "Bash(grep -n 'hero:\\\\|$hero\\\\b\\\\|imagine_alt\\\\|draft\\\\[' admin/inc/functions.php)",
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('data/blog.json','utf8'\\)\\).length\\)\")",
+      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && ls img/ | grep -i \"test-import-cu-hero-alt\\\\|test-alt-text\" *)",
+      "Bash(rm -f \"d:/Claude/clients/Framestory.ro/.claude/php-server.log\" \"d:/Claude/clients/Framestory.ro/.claude/php-server-err.log\" 2>&1 || echo \"server still running, will retry\")",
+      "Bash(mkdir -p /tmp/phplint10)",
+      "Bash(rm -rf /tmp/phplint10)"
+    ],
+    "additionalDirectories": [
+      "D:\\Claude\\clients\\Framestory.ro\\img",
+      "d:\\Claude\\clients\\Framestory.ro\\.claude"
     ]
   }
 }

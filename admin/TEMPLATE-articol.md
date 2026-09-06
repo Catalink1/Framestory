@@ -8,6 +8,7 @@ category: Numele categoriei (una nouă sau una existentă — Copywriting SEO, S
 date: 2026-01-01
 type: articol
 hero: nume-poza-principala.jpg
+hero_alt: Descriere scurtă a imaginii principale, pentru accesibilitate și SEO — dacă lipsește, se folosește titlul articolului
 ---
 
 Primul paragraf — răspunde direct la subiect din primele 2-3 propoziții (bun pentru căutarea vocală / AEO).
@@ -59,9 +60,12 @@ Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [por
 
   2) Poze: dă-le nume clare (fără diacritice, fără spații — ex.
      "biroul-meu.jpg", nu "poza mea 2.jpg") și încarcă-le ODATĂ cu acest
-     fișier .md. Cea numită la "hero:" devine imaginea principală. Orice
-     ![...](nume.jpg) din text, dacă poza a fost încărcată, devine
-     imagine inline automat.
+     fișier .md. Cea numită la "hero:" devine imaginea principală, cu
+     textul alternativ din "hero_alt:" (dacă lipsește, se folosește
+     titlul articolului — dar mai bine scrie unul descriptiv). Orice
+     ![descriere](nume.jpg) din text, dacă poza a fost încărcată, devine
+     imagine inline automat — descrierea dintre paranteze pătrate E alt
+     text-ul ei, deja funcțional, nu mai trebuie completat separat.
 
   3) SEO + AEO + GEO — reguli de conținut, nu doar de format:
      - title (H1) vs seo_title: NU trebuie să fie identice. H1 e pentru

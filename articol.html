@@ -282,7 +282,7 @@
 
           const heroWebp = a.imagine ? a.imagine.replace(/\.(jpe?g|png)$/i, '.webp') : '';
           const heroHtml = a.imagine
-            ? `<div class="art-hero"><picture><source srcset="img/${heroWebp}" type="image/webp" /><img src="img/${a.imagine}" alt="${a.titlu}" loading="lazy" /></picture></div>`
+            ? `<div class="art-hero"><picture><source srcset="img/${heroWebp}" type="image/webp" /><img src="img/${a.imagine}" alt="${a.imagine_alt || a.titlu}" loading="lazy" /></picture></div>`
             : '';
 
           wrap.innerHTML = `
