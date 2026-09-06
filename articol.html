@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="pageTitle">Articol — Cătălin Cocoș</title>
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="description" id="pageDesc" content="" />
     <meta name="author" content="Cătălin Cocoș" />
     <meta property="og:title" id="ogTitle" content="" />
@@ -273,8 +278,9 @@
           document.getElementById("ogTitle").content = a.titlu;
           document.getElementById("ogDesc").content = a.rezumat;
 
+          const heroWebp = a.imagine ? a.imagine.replace(/\.(jpe?g|png)$/i, '.webp') : '';
           const heroHtml = a.imagine
-            ? `<div class="art-hero"><img src="img/${a.imagine}" alt="${a.titlu}" /></div>`
+            ? `<div class="art-hero"><picture><source srcset="img/${heroWebp}" type="image/webp" /><img src="img/${a.imagine}" alt="${a.titlu}" loading="lazy" /></picture></div>`
             : '';
 
           wrap.innerHTML = `
