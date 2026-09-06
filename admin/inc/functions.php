@@ -18,6 +18,14 @@ function h($str) {
     return htmlspecialchars((string) $str, ENT_QUOTES, 'UTF-8');
 }
 
+/* ─────────── mbstring, cu fallback dacă extensia lipsește de pe server ─────────── */
+function str_len($s) {
+    return function_exists('mb_strlen') ? mb_strlen($s, 'UTF-8') : strlen($s);
+}
+function str_lower($s) {
+    return function_exists('mb_strtolower') ? mb_strtolower($s, 'UTF-8') : strtolower($s);
+}
+
 /* ─────────── CSRF ─────────── */
 function csrf_token() {
     if (empty($_SESSION['csrf'])) {
@@ -36,7 +44,7 @@ function slugify($text) {
         'Ă' => 'a', 'Â' => 'a', 'Î' => 'i', 'Ș' => 's', 'Ş' => 's', 'Ț' => 't', 'Ţ' => 't',
     ];
     $text = strtr($text, $map);
-    $text = mb_strtolower($text, 'UTF-8');
+    $text = str_lower($text);
     $text = preg_replace('/[^a-z0-9]+/u', '-', $text);
     $text = trim($text, '-');
     $text = preg_replace('/-+/', '-', $text);
@@ -167,29 +175,66 @@ function process_uploaded_image($tmpPath, $baseName) {
 }
 
 /* ─────────── sitemap.xml ─────────── */
+/**
+ * Extrage loc/lastmod/changefreq/priority dintr-un bloc <url>...</url> brut.
+ */
+function parse_sitemap_url_block($block) {
+    preg_match('/<loc>(.*?)<\/loc>/s', $block, $mLoc);
+    preg_match('/<lastmod>(.*?)<\/lastmod>/s', $block, $mLast);
+    preg_match('/<changefreq>(.*?)<\/changefreq>/s', $block, $mFreq);
+    preg_match('/<priority>(.*?)<\/priority>/s', $block, $mPrio);
+    return [
+        'loc' => trim($mLoc[1] ?? ''),
+        'lastmod' => trim($mLast[1] ?? ''),
+        'changefreq' => trim($mFreq[1] ?? ''),
+        'priority' => trim($mPrio[1] ?? ''),
+    ];
+}
+
+function render_sitemap_url_block(array $u) {
+    $out = "  <url>\n    <loc>{$u['loc']}</loc>\n";
+    if ($u['lastmod'] !== '') $out .= "    <lastmod>{$u['lastmod']}</lastmod>\n";
+    if ($u['changefreq'] !== '') $out .= "    <changefreq>{$u['changefreq']}</changefreq>\n";
+    if ($u['priority'] !== '') $out .= "    <priority>{$u['priority']}</priority>\n";
+    return $out . "  </url>";
+}
+
+/**
+ * Regenerează sitemap.xml complet: păstrează neschimbate toate blocurile <url>
+ * care NU sunt articole de blog (home, ancore, blog.html, presa.html...),
+ * elimină intrările vechi de articole și le înlocuiește cu unele proaspete,
+ * generate din data/blog.json curent. Rescriere completă și deterministă —
+ * nu editare "chirurgicală" cu regex pe fișierul existent (fragilă, putea
+ * muta/duplica blocuri la apeluri succesive).
+ */
 function sync_sitemap(array $articles) {
     $xml = @file_get_contents(SITEMAP_PATH);
     if ($xml === false) return false;
 
-    // scoate toate blocurile <url> ale articolelor de blog
-    $xml = preg_replace(
-        '/\s*<url>\s*<loc>[^<]*articol\.html\?slug=[^<]*<\/loc>.*?<\/url>\s*/s',
-        "\n",
-        $xml
-    );
+    preg_match_all('/<url>.*?<\/url>/s', $xml, $m);
 
-    $blocks = '';
-    foreach ($articles as $a) {
-        if (empty($a['slug'])) continue;
-        $loc = SITE_URL . '/articol.html?slug=' . rawurlencode($a['slug']);
-        $lastmod = h($a['data'] ?? date('Y-m-d'));
-        $priority = (($a['tip'] ?? '') === 'pilon') ? '0.9' : '0.7';
-        $blocks .= "  <url>\n    <loc>" . h($loc) . "</loc>\n    <lastmod>{$lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>{$priority}</priority>\n  </url>\n";
+    $kept = [];
+    foreach ($m[0] as $block) {
+        if (strpos($block, 'articol.html?slug=') !== false) continue;
+        $kept[] = parse_sitemap_url_block($block);
     }
 
-    $xml = preg_replace('/\s*<\/urlset>\s*$/', "\n" . $blocks . "</urlset>\n", $xml, 1);
+    foreach ($articles as $a) {
+        if (empty($a['slug'])) continue;
+        $kept[] = [
+            'loc' => SITE_URL . '/articol.html?slug=' . rawurlencode($a['slug']),
+            'lastmod' => h($a['data'] ?? date('Y-m-d')),
+            'changefreq' => 'monthly',
+            'priority' => (($a['tip'] ?? '') === 'pilon') ? '0.9' : '0.7',
+        ];
+    }
 
-    return @file_put_contents(SITEMAP_PATH, $xml, LOCK_EX) !== false;
+    $body = implode("\n", array_map('render_sitemap_url_block', $kept));
+    $out = '<?xml version="1.0" encoding="UTF-8"?>' . "\n"
+         . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n"
+         . $body . "\n</urlset>\n";
+
+    return @file_put_contents(SITEMAP_PATH, $out, LOCK_EX) !== false;
 }
 
 /* ─────────── categorii existente (pentru select) ─────────── */

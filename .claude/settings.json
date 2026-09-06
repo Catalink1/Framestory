@@ -8,7 +8,17 @@
       "Bash(rm extend-pilon.js)",
       "Bash(node extend2-pilon.js)",
       "Bash(rm extend2-pilon.js)",
-      "Read(//d/Autocolant/**)"
+      "Read(//d/Autocolant/**)",
+      "Bash(node -e ' *)",
+      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f img/articol-de-test-e2e.jpg img/articol-de-test-e2e.webp && git checkout -- sitemap.xml && rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log && git status --short)",
+      "PowerShell(Get-Process php -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f .claude/php-server.log .claude/php-server-err.log && git status --short)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "d:\\Claude\\clients\\Framestory.ro\\.claude"
     ]
   }
 }

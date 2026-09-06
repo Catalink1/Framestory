@@ -30,7 +30,13 @@
       "Bash(mkdir -p /tmp/phplint)",
       "Read(//tmp/**)",
       "Bash(npm init *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(where winget *)",
+      "Bash(where choco *)",
+      "Bash(php -v)",
+      "PowerShell(winget search php)",
+      "PowerShell(winget install -e --id PHP.PHP.8.3 --accept-package-agreements --accept-source-agreements)",
+      "PowerShell(winget install -e --id PHP.PHP.8.4 --accept-package-agreements --accept-source-agreements)"
     ]
   }
 }

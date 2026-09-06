@@ -17,9 +17,9 @@ if ($needsSetup && $_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ??
         $password = (string) ($_POST['password'] ?? '');
         $password2 = (string) ($_POST['password2'] ?? '');
 
-        if ($username === '' || mb_strlen($username) < 3) {
+        if ($username === '' || str_len($username) < 3) {
             $error = 'Alege un utilizator de minim 3 caractere.';
-        } elseif (mb_strlen($password) < 8) {
+        } elseif (str_len($password) < 8) {
             $error = 'Parola trebuie să aibă minim 8 caractere.';
         } elseif ($password !== $password2) {
             $error = 'Parolele nu coincid.';
