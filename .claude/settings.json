@@ -15,7 +15,15 @@
       "PowerShell(Stop-Process -Force)",
       "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f .claude/php-server.log .claude/php-server-err.log && git status --short)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(mkdir -p /tmp/phplint4)",
+      "Read(//tmp/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node lint.js \"d:/Claude/clients/Framestory.ro/admin/inc/functions.php\")",
+      "Bash(rm -rf /tmp/phplint4)",
+      "PowerShell(if \\($rReport.Content -match \"Fatal error\"\\) { Write-Output \"FATAL ERROR:\"; $rReport.Content } else { Write-Output \"no fatal, content length: $\\($rReport.Content.Length\\)\"; $rReport.Content.Substring\\(0, [Math]::Min\\(1500,$rReport.Content.Length\\)\\) })",
+      "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && rm -f admin/config.php .claude/php-server.log .claude/php-server-err.log && git status --short)"
     ],
     "additionalDirectories": [
       "d:\\Claude\\clients\\Framestory.ro\\.claude"

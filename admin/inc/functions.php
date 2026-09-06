@@ -9,6 +9,8 @@ if (!defined('ADMIN_ACCESS')) {
 }
 
 define('BLOG_JSON_PATH', dirname(__DIR__, 2) . '/data/blog.json');
+define('PRESS_JSON_PATH', dirname(__DIR__, 2) . '/data/presa.json');
+define('SETTINGS_JSON_PATH', dirname(__DIR__, 2) . '/data/settings.json');
 define('IMG_DIR_FS', dirname(__DIR__, 2) . '/img');
 define('SITEMAP_PATH', dirname(__DIR__, 2) . '/sitemap.xml');
 define('SITE_URL', 'https://framestory.ro');
@@ -67,17 +69,22 @@ function unique_slug($base, array $existingSlugs, $excludeSlug = null) {
 }
 
 /* ─────────── data/blog.json ─────────── */
-function read_articles() {
-    $json = @file_get_contents(BLOG_JSON_PATH);
+/**
+ * Citește o colecție JSON (array de obiecte) de la o cale dată.
+ * Folosită atât pentru data/blog.json, cât și pentru data/presa.json.
+ */
+function read_json_collection($path) {
+    $json = @file_get_contents($path);
     if ($json === false) return [];
     $data = json_decode($json, true);
     return is_array($data) ? $data : [];
 }
 
-function write_articles(array $articles) {
-    $json = json_encode($articles, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+/** Scrie o colecție JSON la o cale dată, cu lock exclusiv. */
+function write_json_collection($path, array $items) {
+    $json = json_encode($items, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     if ($json === false) return false;
-    $fp = fopen(BLOG_JSON_PATH, 'c');
+    $fp = fopen($path, 'c');
     if (!$fp) return false;
     $ok = false;
     if (flock($fp, LOCK_EX)) {
@@ -90,6 +97,38 @@ function write_articles(array $articles) {
     }
     fclose($fp);
     return $ok;
+}
+
+function read_articles() {
+    return read_json_collection(BLOG_JSON_PATH);
+}
+function write_articles(array $articles) {
+    return write_json_collection(BLOG_JSON_PATH, $articles);
+}
+
+function read_press() {
+    return read_json_collection(PRESS_JSON_PATH);
+}
+function write_press(array $items) {
+    return write_json_collection(PRESS_JSON_PATH, $items);
+}
+
+/** Citește data/settings.json ca array asociativ, cu valori implicite dacă lipsesc chei. */
+function read_settings() {
+    $defaults = [
+        'email' => '', 'telefon' => '', 'locatie' => '', 'ga_id' => '',
+        'social' => ['facebook' => '', 'linkedin' => '', 'instagram' => '', 'tiktok' => ''],
+    ];
+    $json = @file_get_contents(SETTINGS_JSON_PATH);
+    $data = $json !== false ? json_decode($json, true) : null;
+    if (!is_array($data)) $data = [];
+    $data += $defaults;
+    $data['social'] = (is_array($data['social'] ?? null) ? $data['social'] : []) + $defaults['social'];
+    return $data;
+}
+function write_settings(array $settings) {
+    $json = json_encode($settings, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    return @file_put_contents(SETTINGS_JSON_PATH, $json, LOCK_EX) !== false;
 }
 
 /* ─────────── imagini ─────────── */
@@ -244,4 +283,107 @@ function existing_categories(array $articles) {
         if (!empty($a['categorie'])) $cats[$a['categorie']] = true;
     }
     return array_keys($cats);
+}
+
+/* ─────────── sincronizare setări (email/telefon/social/GA) în paginile HTML ─────────── */
+
+/**
+ * Aplică o listă de înlocuiri "găsește exact X de N ori, înlocuiește cu Y"
+ * pe un fișier. Dacă X nu apare exact de N ori, acea înlocuire e SĂRITĂ
+ * (nu se scrie nimic pentru ea) — nu vrem niciodată să stricăm un fișier
+ * pe baza unei presupuneri greșite despre conținutul lui curent.
+ * Întoarce un raport: pentru fiecare operație, 'done' | 'skipped' | 'unchanged'.
+ */
+function apply_verified_replacements($filePath, array $ops) {
+    $content = @file_get_contents($filePath);
+    $report = [];
+    if ($content === false) {
+        foreach ($ops as $op) $report[$op['label']] = 'missing-file';
+        return $report;
+    }
+
+    $changed = false;
+    foreach ($ops as $op) {
+        $find = $op['find'];
+        $replace = $op['replace'];
+        $expected = $op['count'];
+        $label = $op['label'];
+
+        if ($find === $replace) { $report[$label] = 'unchanged'; continue; }
+
+        $actual = substr_count($content, $find);
+        if ($actual !== $expected) { $report[$label] = 'skipped'; continue; }
+
+        $content = str_replace($find, $replace, $content);
+        $report[$label] = 'done';
+        $changed = true;
+    }
+
+    if ($changed) {
+        @file_put_contents($filePath, $content, LOCK_EX);
+    }
+    return $report;
+}
+
+/** Derivă din numărul de telefon afișat (ex. "0722 595 568") variantele folosite în site. */
+function phone_variants($display) {
+    $digits = preg_replace('/\D+/', '', $display);
+    $intl = '';
+    if (strlen($digits) === 10 && $digits[0] === '0') {
+        $intl = '+40' . substr($digits, 1);
+    }
+    return ['display' => $display, 'digits' => $digits, 'intl' => $intl];
+}
+
+/**
+ * Sincronizează valorile de setări (email, telefon, locație, social, GA ID)
+ * din $old (settings.json dinainte de salvare) către $new (ce tocmai s-a
+ * salvat), în index.html / blog.html / presa.html. NU atinge blocurile
+ * JSON-LD (schema.org) — acelea rămân neschimbate intenționat, sunt o
+ * îmbunătățire separată dacă e nevoie.
+ *
+ * Întoarce un raport plat, util pentru afișat în admin ce s-a schimbat
+ * efectiv și ce a fost sărit (fișier lipsă valoare veche neregăsită etc.)
+ */
+function sync_site_settings(array $old, array $new) {
+    $root = dirname(__DIR__, 2);
+    $report = [];
+
+    // ── contact + locație, doar în index.html (secțiunea vizibilă de contact) ──
+    $oldPhone = phone_variants($old['telefon'] ?? '');
+    $newPhone = phone_variants($new['telefon'] ?? '');
+
+    $indexOps = [
+        ['label' => 'Email', 'find' => (string) ($old['email'] ?? ''), 'replace' => (string) ($new['email'] ?? ''), 'count' => 4],
+        // ancorate cu context (nu doar cifrele goale) — "0722595568" e coincidental
+        // o subsecvență a formatului internațional "+40722595568", deci un match pe
+        // cifrele goale ar număra greșit 3 apariții în loc de 2 și ar fi sărit degeaba.
+        ['label' => 'Telefon (link tel:)', 'find' => 'tel:' . $oldPhone['digits'], 'replace' => 'tel:' . $newPhone['digits'], 'count' => 1],
+        ['label' => 'Telefon (schema.org)', 'find' => '"telephone": "' . $oldPhone['digits'] . '"', 'replace' => '"telephone": "' . $newPhone['digits'] . '"', 'count' => 1],
+        ['label' => 'Telefon (format afișat)', 'find' => $oldPhone['display'], 'replace' => $newPhone['display'], 'count' => 1],
+        ['label' => 'Locație', 'find' => (string) ($old['locatie'] ?? ''), 'replace' => (string) ($new['locatie'] ?? ''), 'count' => 1],
+        ['label' => 'Facebook', 'find' => (string) ($old['social']['facebook'] ?? ''), 'replace' => (string) ($new['social']['facebook'] ?? ''), 'count' => 1],
+        // LinkedIn apare identic (fără query params) și în footer și în JSON-LD "sameAs" — 2 apariții reale.
+        ['label' => 'LinkedIn', 'find' => (string) ($old['social']['linkedin'] ?? ''), 'replace' => (string) ($new['social']['linkedin'] ?? ''), 'count' => 2],
+        ['label' => 'Instagram', 'find' => (string) ($old['social']['instagram'] ?? ''), 'replace' => (string) ($new['social']['instagram'] ?? ''), 'count' => 1],
+        ['label' => 'TikTok', 'find' => (string) ($old['social']['tiktok'] ?? ''), 'replace' => (string) ($new['social']['tiktok'] ?? ''), 'count' => 1],
+    ];
+    if ($oldPhone['intl'] !== '' && $newPhone['intl'] !== '') {
+        $indexOps[] = ['label' => 'Telefon (format internațional)', 'find' => $oldPhone['intl'], 'replace' => $newPhone['intl'], 'count' => 1];
+    }
+    $report['index.html'] = apply_verified_replacements($root . '/index.html', $indexOps);
+
+    // ── ID Google Analytics, în toate paginile care îl au ──
+    $oldGa = (string) ($old['ga_id'] ?? '');
+    $newGa = (string) ($new['ga_id'] ?? '');
+    if ($oldGa !== $newGa) {
+        foreach (['index.html', 'blog.html', 'presa.html'] as $file) {
+            $report[$file . ' (Google Analytics)'] = apply_verified_replacements(
+                $root . '/' . $file,
+                [['label' => 'ID Google Analytics', 'find' => $oldGa, 'replace' => $newGa, 'count' => 2]]
+            );
+        }
+    }
+
+    return $report;
 }

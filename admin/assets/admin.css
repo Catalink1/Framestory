@@ -60,6 +60,7 @@ h1 { font-weight: 600; font-size: 1.5rem; margin: 0 0 1rem; }
 .badge { font-size: 0.7rem; padding: 0.2rem 0.55rem; border-radius: 3px; background: var(--admin-border); color: var(--admin-muted); }
 .badge-pilon { background: var(--admin-accent); color: #fff; }
 .empty-state { color: var(--admin-muted); }
+.press-filter { width: 100%; max-width: 360px; margin-bottom: 1rem; padding: 0.6rem 0.9rem; border: 1px solid var(--admin-border); border-radius: 6px; font-size: 0.88rem; }
 
 /* ── forms ── */
 .field { margin-bottom: 1.4rem; }
