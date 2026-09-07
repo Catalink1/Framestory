@@ -58,7 +58,12 @@
       "Bash(cd \"d:\\\\Claude\\\\clients\\\\Framestory.ro\" && ls img/ | grep -i \"test-import-cu-hero-alt\\\\|test-alt-text\" *)",
       "Bash(rm -f \"d:/Claude/clients/Framestory.ro/.claude/php-server.log\" \"d:/Claude/clients/Framestory.ro/.claude/php-server-err.log\" 2>&1 || echo \"server still running, will retry\")",
       "Bash(mkdir -p /tmp/phplint10)",
-      "Bash(rm -rf /tmp/phplint10)"
+      "Bash(rm -rf /tmp/phplint10)",
+      "Bash(curl -s http://localhost:8000/admin/import-md.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/admin/import-md.php)",
+      "Bash(curl -s http://localhost:8000/admin/assets/admin.css)",
+      "PowerShell(Get-Process php -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)"
     ],
     "additionalDirectories": [
       "D:\\Claude\\clients\\Framestory.ro\\img",

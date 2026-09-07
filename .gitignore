@@ -2,3 +2,5 @@ node_modules/
 compress.js
 build.js
 admin/config.php
+.claude/php-server.log
+.claude/php-server-err.log

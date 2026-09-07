@@ -1,14 +1,14 @@
 ---
-title: Google a șters ceva de pe internet. Și aproape nimeni n-a observat.
+title: Ce nu mai caută Google pe internet
 seo_title: Ce s-a schimbat în SEO, AEO și GEO în 2026 — pe scurt
 focus_keyphrase: ce s-a schimbat în SEO în 2026
 keywords: SEO 2026, AEO, GEO, FAQ rich results, actualizare Google 2026, E-E-A-T, algoritm Google
-excerpt: Recent, Google a retras liniștit o funcție pe care mii de site-uri o foloseau. Iată ce s-a schimbat cu adevărat în SEO, AEO și GEO anul ăsta — pe înțelesul tuturor, nu doar al specialiștilor.
-category: Strategie & Vizibilitate
+excerpt: Google a retras discret FAQ rich results, o funcție folosită de mii de site-uri. Ce s-a schimbat cu adevărat în SEO, AEO și GEO în 2026 — pe înțelesul tuturor.
+category: Copywriting SEO
 date: 2026-09-07
 type: articol
-hero: PUNE-AICI-O-POZA-A-TA.jpg
-hero_alt: Scrie aici o descriere a pozei tale
+hero: urma-afis-desprins.jpg
+hero_alt: Urmă luminoasă lăsată pe un perete decolorat de soare, în locul unui afiș desprins recent — pioneze ruginite și bucăți de bandă adezivă îngălbenită rămase pe zid.
 ---
 
 > **Eu:** Din ce știu, nu mai este așa utilă secțiunea de FAQ de pe un site.
@@ -17,9 +17,9 @@ hero_alt: Scrie aici o descriere a pozei tale
 >
 > *(câteva căutări mai târziu)*
 >
-> **Asistentul AI:** Aveai dreptate. Dar e mai grav decât o presimțire.
+> **Asistentul AI:** Aveai dreptate. Dar e mai important decât o presimțire.
 
-Așa a început, de fapt, articolul ăsta — nu cu un plan editorial, ci cu o bănuială pe care am refuzat s-o las nesigilată. Genul de senzație pe care o ai după ani de scris pentru internet, fără să poți cita sursa exactă. Am cerut o verificare în loc de o presupunere, și răspunsul m-a luat prin surprindere — nu pentru că aveam dreptate, ci pentru **cât de mult** aveam dreptate.
+Așa a început, de fapt, articolul ăsta — nu cu un plan editorial, ci cu o bănuială pe care am refuzat s-o las neverificată. Genul de senzație pe care o ai după ani de scris pentru internet, fără să poți cita sursa exactă. Am cerut o verificare în loc de o presupunere, și răspunsul m-a luat prin surprindere — nu pentru că aveam dreptate, ci pentru **cât de mult** aveam dreptate.
 
 ## Ce am găsit când am verificat, de fapt
 
@@ -46,6 +46,8 @@ Am săpat mai departe, pentru că un asemenea gest — o schimbare majoră anun�
 Pe scurt: Google a devenit mult mai bun la a deosebi un text scris de cineva care chiar știe despre ce vorbește de un text care doar *sună* corect. Site-urile cu studii proprii, cifre reale, exemple verificabile au câștigat teren. Cele cu conținut generic — corect gramatical, dar fără nimic specific dedesubt — au pierdut, uneori dramatic.
 
 Și mai e ceva: de curând, Google a clarificat explicit că regulile lui anti-spam se aplică acum și încercărilor de a manipula răspunsurile generate de AI din căutare — AI Overviews și AI Mode. Adică nu mai poți păcăli doar algoritmul clasic. Trebuie să nu păcălești nici robotul care rezumă internetul pentru utilizator.
+
+![Mână care notează cifre și idei cu pixul într-un carnet uzat, pe un birou de lemn, lângă o cană de cafea și un laptop întredeschis.](notite-scrise-de-mana.jpg)
 
 ## Ce înseamnă toate astea, dacă nu ești specialist SEO
 

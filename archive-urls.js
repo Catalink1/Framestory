@@ -1,7 +1,10 @@
 /**
- * Salvează toate URL-urile din presa.html pe Wayback Machine (archive.org)
+ * Salvează toate URL-urile din data/texte.json pe Wayback Machine (archive.org)
  *
  * Rulează: node archive-urls.js
+ *
+ * Util pentru că textele publicate stau pe site-uri terțe — o copie pe Wayback
+ * rămâne chiar dacă publicația șterge articolul.
  *
  * Wayback Machine are rate limiting, așa că scriptul trimite câte un request
  * la fiecare 5 secunde pentru a nu fi blocat.
@@ -11,14 +14,11 @@ const fs = require("fs");
 const https = require("https");
 const http = require("http");
 
-// Extrage URL-urile din presa.html
-const html = fs.readFileSync("presa.html", "utf-8");
-const urls = [];
-const regex = /url:\s*"(https?:\/\/[^"]+)"/g;
-let match;
-while ((match = regex.exec(html)) !== null) {
-  urls.push(match[1]);
-}
+// Extrage URL-urile din data/texte.json
+const items = JSON.parse(fs.readFileSync("data/texte.json", "utf-8"));
+const urls = items
+  .map((it) => it.url)
+  .filter((u) => typeof u === "string" && /^https?:\/\//.test(u));
 
 console.log(`Găsite ${urls.length} URL-uri de arhivat.\n`);
 

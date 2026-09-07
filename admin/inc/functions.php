@@ -9,7 +9,7 @@ if (!defined('ADMIN_ACCESS')) {
 }
 
 define('BLOG_JSON_PATH', dirname(__DIR__, 2) . '/data/blog.json');
-define('PRESS_JSON_PATH', dirname(__DIR__, 2) . '/data/presa.json');
+define('TEXTE_JSON_PATH', dirname(__DIR__, 2) . '/data/texte.json');
 define('SETTINGS_JSON_PATH', dirname(__DIR__, 2) . '/data/settings.json');
 define('IMG_DIR_FS', dirname(__DIR__, 2) . '/img');
 define('SITEMAP_PATH', dirname(__DIR__, 2) . '/sitemap.xml');
@@ -71,7 +71,7 @@ function unique_slug($base, array $existingSlugs, $excludeSlug = null) {
 /* ─────────── data/blog.json ─────────── */
 /**
  * Citește o colecție JSON (array de obiecte) de la o cale dată.
- * Folosită atât pentru data/blog.json, cât și pentru data/presa.json.
+ * Folosită atât pentru data/blog.json, cât și pentru data/texte.json.
  */
 function read_json_collection($path) {
     $json = @file_get_contents($path);
@@ -106,11 +106,11 @@ function write_articles(array $articles) {
     return write_json_collection(BLOG_JSON_PATH, $articles);
 }
 
-function read_press() {
-    return read_json_collection(PRESS_JSON_PATH);
+function read_texte() {
+    return read_json_collection(TEXTE_JSON_PATH);
 }
-function write_press(array $items) {
-    return write_json_collection(PRESS_JSON_PATH, $items);
+function write_texte(array $items) {
+    return write_json_collection(TEXTE_JSON_PATH, $items);
 }
 
 /** Citește data/settings.json ca array asociativ, cu valori implicite dacă lipsesc chei. */
@@ -240,7 +240,7 @@ function render_sitemap_url_block(array $u) {
 
 /**
  * Regenerează sitemap.xml complet: păstrează neschimbate toate blocurile <url>
- * care NU sunt articole de blog (home, ancore, blog.html, presa.html...),
+ * care NU sunt articole de blog (home, ancore, blog.html, texte.html...),
  * elimină intrările vechi de articole și le înlocuiește cu unele proaspete,
  * generate din data/blog.json curent. Rescriere completă și deterministă —
  * nu editare "chirurgicală" cu regex pe fișierul existent (fragilă, putea
@@ -338,7 +338,7 @@ function phone_variants($display) {
 /**
  * Sincronizează valorile de setări (email, telefon, locație, social, GA ID)
  * din $old (settings.json dinainte de salvare) către $new (ce tocmai s-a
- * salvat), în index.html / blog.html / presa.html. NU atinge blocurile
+ * salvat), în index.html / blog.html / texte.html. NU atinge blocurile
  * JSON-LD (schema.org) — acelea rămân neschimbate intenționat, sunt o
  * îmbunătățire separată dacă e nevoie.
  *
@@ -377,7 +377,7 @@ function sync_site_settings(array $old, array $new) {
     $oldGa = (string) ($old['ga_id'] ?? '');
     $newGa = (string) ($new['ga_id'] ?? '');
     if ($oldGa !== $newGa) {
-        foreach (['index.html', 'blog.html', 'presa.html'] as $file) {
+        foreach (['index.html', 'blog.html', 'texte.html'] as $file) {
             $report[$file . ' (Google Analytics)'] = apply_verified_replacements(
                 $root . '/' . $file,
                 [['label' => 'ID Google Analytics', 'find' => $oldGa, 'replace' => $newGa, 'count' => 2]]
