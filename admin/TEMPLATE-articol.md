@@ -11,7 +11,7 @@ hero: nume-poza-principala.jpg
 hero_alt: Descriere scurtă a imaginii principale, pentru accesibilitate și SEO — dacă lipsește, se folosește titlul articolului
 ---
 
-Primul paragraf — răspunde direct la subiect din primele 2-3 propoziții (bun pentru căutarea vocală / AEO).
+Primul paragraf — răspunde COMPLET la subiect în primele ~200 de cuvinte (nu doar 2-3 propoziții) — atât motoarele clasice, cât și AI Overviews/ChatGPT/Perplexity evaluează mai ales începutul paginii ca să decidă dacă te citează.
 
 ## Primul subtitlu (H2)
 
@@ -67,7 +67,8 @@ Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [por
      imagine inline automat — descrierea dintre paranteze pătrate E alt
      text-ul ei, deja funcțional, nu mai trebuie completat separat.
 
-  3) SEO + AEO + GEO — reguli de conținut, nu doar de format:
+  3) SEO + AEO + GEO — reguli de conținut, nu doar de format (actualizate
+     septembrie 2026, pe baza schimbărilor reale confirmate de Google):
      - title (H1) vs seo_title: NU trebuie să fie identice. H1 e pentru
        cititor — poate fi mai atractiv, mai liber, chiar provocator.
        seo_title e pentru motorul de căutare — cu fraza cheie cât mai
@@ -75,21 +76,45 @@ Ultimul paragraf — încheiere + CTA spre [servicii](index.html#services), [por
        ca să nu se taie în Google. Scrie-le pe fiecare cu scopul lui.
      - SEO: fraza cheie principală în titlu, primul paragraf și cel puțin
        un H2. Minim 2 linkuri către alte articole + 3 spre index.html
-       (#services, #portfolio, #contact).
-     - AEO (căutare vocală / featured snippets): fiecare H2 răspunde
-       direct în primele 2-3 propoziții. O secțiune de întrebări (H3 =
-       întrebarea, răspuns concis imediat după) NU e obligatorie la
-       fiecare articol — dar când există, titlul ei (H2) trebuie să fie
-       atractiv, niciodată literalmente „Întrebări frecvente" (vezi
-       exemplul de mai sus).
-     - GEO (citare de AI Overviews/ChatGPT/Perplexity): citează surse
-       reale cu link extern, folosește cifre concrete (blocul
-       stat-cards), scrie afirmativ ("X reduce Y cu Z%"), nu vag
-       ("poate ajuta").
+       (#services, #portfolio, #contact). Context și profunzime bat
+       potrivirea mecanică de cuvinte cheie — Google evaluează acum mult
+       mai mult autoritatea tematică și claritatea structurii.
+     - AEO: mulți utilizatori pornesc azi de la un răspuns generat de AI
+       (AI Overviews, ChatGPT, Perplexity), nu de la o listă de linkuri.
+       O secțiune de întrebări (H3 = întrebarea, răspuns concis imediat
+       după) NU e obligatorie la fiecare articol — dar când există,
+       titlul ei (H2) trebuie să fie atractiv, niciodată literalmente
+       „Întrebări frecvente" (vezi exemplul de mai sus). IMPORTANT: din
+       7 mai 2026 Google a retras complet FAQ rich results din
+       rezultatele căutării — casetele extensibile de întrebări nu mai
+       apar în SERP, indiferent de schema markup. Deci nu mai scrii FAQ
+       ca să „prinzi" spațiu suplimentar în Google — o scrii doar dacă
+       chiar ajută cititorul să înțeleagă rapid ceva concret.
+     - GEO: citează surse reale cu link extern, folosește cifre concrete
+       (blocul stat-cards), scrie afirmativ ("X reduce Y cu Z%"), nu vag
+       ("poate ajuta"). Conținutul original — date proprii, exemple
+       reale, opinie argumentată — e citat de AI; parafrazarea genericului
+       altcuiva, nu.
      - CTA: OBLIGATORIU în fiecare articol (spre servicii/portofoliu/
        contact). De obicei la final, dar nu neapărat — poate fi integrat
        editorial, atractiv și logic, oriunde în text unde are sens.
 
-  4) Lungime: minim ~900 cuvinte pentru un articol obișnuit, 3000-7000+
+  4) Experiență reală + prospețime (regulă nouă, din actualizarea de
+     core Google din martie 2026 — a amplificat E-E-A-T mai mult ca
+     oricând):
+     - Detalii concrete, verificabile, de primă mână bat conținutul
+       „comprehensiv" dar impersonal. Exemple reale, cifre proprii,
+       nume de proiecte/clienți (unde se poate), o opinie clar asumată —
+       nu generalități de tipul „este important să..." care ar putea fi
+       scrise despre orice subiect de oricine.
+     - EVITĂ vocea „parafrazare AI" — propoziții corecte gramatical dar
+       fără nimic specific dedesubt. Conținutul care sună generic a
+       pierdut trafic semnificativ la actualizările din 2026; conținutul
+       cu date/studii proprii a câștigat vizibilitate.
+     - Articolele vechi merită revizuite din când în când (fapte, cifre,
+       exemple aduse la zi) — paginile actualizate recent sunt citate
+       disproporționat mai des de motoarele AI decât cele neatinse de ani.
+
+  5) Lungime: minim ~900 cuvinte pentru un articol obișnuit, 3000-7000+
      pentru un articol "pilon" (type: pilon în loc de type: articol).
 -->
