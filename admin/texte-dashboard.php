@@ -13,7 +13,7 @@ if (($_GET['deleted'] ?? '') === '1') $flash = 'Text șters.';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Texte publicate — Admin FrameStory</title>
+  <title>Texte publicate — Admin</title>
   <link rel="stylesheet" href="assets/admin.css" />
 </head>
 <body>

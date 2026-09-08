@@ -38,7 +38,7 @@ $categories = existing_categories($articles);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?= $isEdit ? 'Editează articol' : 'Articol nou' ?> — Admin FrameStory</title>
+  <title><?= $isEdit ? 'Editează articol' : 'Articol nou' ?> — Admin</title>
   <link rel="stylesheet" href="assets/admin.css" />
   <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>

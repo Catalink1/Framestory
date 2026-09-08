@@ -11,7 +11,7 @@ unset($_SESSION['settings_report']);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setări — Admin FrameStory</title>
+  <title>Setări — Admin</title>
   <link rel="stylesheet" href="assets/admin.css" />
 </head>
 <body>

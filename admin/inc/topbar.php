@@ -5,7 +5,7 @@ if (!defined('ADMIN_ACCESS')) {
 }
 ?>
 <header class="topbar">
-  <a href="dashboard.php" class="topbar-logo">Frame<em>Story</em> <span>admin</span></a>
+  <a href="dashboard.php" class="topbar-logo">Cătălin <em>Cocoș</em> <span>admin</span></a>
   <nav class="topbar-nav">
     <a href="dashboard.php">Articole</a>
     <a href="import-md.php">Importă din Markdown</a>

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://framestory.ro/sitemap.xml
+Sitemap: https://catalincocos.ro/sitemap.xml

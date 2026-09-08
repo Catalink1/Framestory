@@ -57,12 +57,12 @@ if (!$needsSetup && $_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?= $needsSetup ? 'Setup admin' : 'Autentificare' ?> — FrameStory</title>
+  <title><?= $needsSetup ? 'Setup admin' : 'Autentificare' ?> — Admin</title>
   <link rel="stylesheet" href="assets/admin.css" />
 </head>
 <body class="login-body">
   <main class="login-box">
-    <div class="login-logo">Frame<em>Story</em></div>
+    <div class="login-logo">Cătălin <em>Cocoș</em></div>
 
     <?php if ($error): ?><div class="flash flash-error"><?= h($error) ?></div><?php endif; ?>
 

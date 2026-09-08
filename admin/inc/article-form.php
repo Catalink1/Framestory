@@ -39,7 +39,7 @@ $v = function ($key, $default = '') use ($article) {
   <div class="field">
     <label for="slug">Slug (adresa articolului)</label>
     <input type="text" id="slug" name="slug" value="<?= $v('slug') ?>" placeholder="se generează automat din titlu" />
-    <p class="hint">framestory.ro/articol.html?slug=<span id="slugPreview"><?= $v('slug') ?></span> — schimbă-l doar dacă știi ce faci, schimbă adresa articolului.</p>
+    <p class="hint">catalincocos.ro/articol.html?slug=<span id="slugPreview"><?= $v('slug') ?></span> — schimbă-l doar dacă știi ce faci, schimbă adresa articolului.</p>
   </div>
 
   <div class="field-row">

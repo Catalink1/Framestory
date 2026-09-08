@@ -32,7 +32,7 @@ $errors = [];
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?= $isEdit ? 'Editează text' : 'Text nou' ?> — Admin FrameStory</title>
+  <title><?= $isEdit ? 'Editează text' : 'Text nou' ?> — Admin</title>
   <link rel="stylesheet" href="assets/admin.css" />
 </head>
 <body>

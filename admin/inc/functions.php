@@ -1,6 +1,6 @@
 <?php
 /**
- * admin/inc/functions.php — funcții helper pentru panoul de admin FrameStory.
+ * admin/inc/functions.php — funcții helper pentru panoul de admin.
  * Nu se accesează direct (protejat prin ADMIN_ACCESS + .htaccess).
  */
 if (!defined('ADMIN_ACCESS')) {
@@ -13,7 +13,7 @@ define('TEXTE_JSON_PATH', dirname(__DIR__, 2) . '/data/texte.json');
 define('SETTINGS_JSON_PATH', dirname(__DIR__, 2) . '/data/settings.json');
 define('IMG_DIR_FS', dirname(__DIR__, 2) . '/img');
 define('SITEMAP_PATH', dirname(__DIR__, 2) . '/sitemap.xml');
-define('SITE_URL', 'https://framestory.ro');
+define('SITE_URL', 'https://catalincocos.ro');
 
 /* ─────────── output helper ─────────── */
 function h($str) {

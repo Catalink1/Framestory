@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   FRAMESTORY.RO — main.js
+   catalincocos.ro — main.js
 ═══════════════════════════════════════ */
 
 // ── Page navigation ──
@@ -154,7 +154,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
       } else {
         btn.disabled = false;
         btn.textContent = "Trimite mesajul";
-        alert("Eroare la trimitere. Încearcă din nou sau scrie la contact@framestory.ro");
+        alert("Eroare la trimitere. Încearcă din nou sau scrie la contact@catalincocos.ro");
       }
     })
     .catch(() => {
