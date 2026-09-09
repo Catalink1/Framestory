@@ -318,7 +318,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 4rem 5rem;
+  padding: var(--nav-h) 4rem 5rem;
   max-width: 940px;
   margin-left: 3rem;
   gap: 1rem;
@@ -362,7 +362,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 4rem 5rem;
+  padding: var(--nav-h) 4rem 5rem;
   max-width: 940px;
   margin-left: 3rem;
   gap: 1rem;
@@ -1432,7 +1432,7 @@ footer {
   #nav { padding: 0 2rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero-content { padding: 0 2rem 7rem; }
+  .hero-content { padding: var(--nav-h) 2rem 7rem; }
   .hero-quote {
     top: auto;
     bottom: 1.75rem;

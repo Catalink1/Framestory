@@ -12,6 +12,13 @@
 </IfModule>
 # END cPanel-generated php ini directives, do not edit
 
+# ── /index.html → / (canonical, o singură adresă) ──────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+</IfModule>
+
 # ── Cache policy ────────────────────────────────────────────────
 # HTML + JSON data: always revalidate, so content updates are seen
 # immediately (no stale pages after a deploy or an admin edit).

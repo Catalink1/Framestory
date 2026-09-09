@@ -444,9 +444,19 @@ function checkCookieConsent() {
   }
 }
 
+// ── Nu adăuga „#" în URL la click pe linkurile care doar declanșează showPage ──
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href="#"]');
+  if (a) e.preventDefault();
+});
+
 // ── Init ──
 document.addEventListener("DOMContentLoaded", () => {
   checkCookieConsent();
+  // curăță „/index.html" și „#..." rămase în bara de adrese
+  if (location.pathname.endsWith("/index.html")) {
+    history.replaceState(null, "", "/" + location.search);
+  }
   const hash = window.location.hash.replace("#", "");
   const validPages = ["home", "about", "portfolio", "services", "poetry", "phone", "contact"];
   const startPage = validPages.includes(hash) ? hash : "home";
