@@ -207,11 +207,18 @@ function setActiveSlide(id, index) {
   const thumb = c.thumbs[index];
   if (thumb) {
     thumb.classList.add("active");
-    thumb.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+    // Centrează thumbnail-ul activ DOAR pe orizontală, în banda lui.
+    // (scrollIntoView cu block:"nearest" muta și pagina pe verticală —
+    //  pe alte pagini, cu carusel ascuns, sărea scroll-ul spre header.)
+    const strip = thumb.parentElement;
+    if (strip && strip.scrollWidth > strip.clientWidth + 1) {
+      const sr = strip.getBoundingClientRect();
+      const tr = thumb.getBoundingClientRect();
+      strip.scrollBy({
+        left: tr.left + tr.width / 2 - (sr.left + sr.width / 2),
+        behavior: "smooth",
+      });
+    }
   }
 }
 
