@@ -4,6 +4,12 @@
    dacă ai ales deja pe orice pagină, banner-ul nu mai apare. */
 (function () {
   "use strict";
+
+  /* An curent în footer — © <span class="js-year"> */
+  var y = String(new Date().getFullYear());
+  var yEls = document.querySelectorAll(".js-year");
+  for (var i = 0; i < yEls.length; i++) yEls[i].textContent = y;
+
   var KEY = "cookieConsent";
 
   var stored = null;

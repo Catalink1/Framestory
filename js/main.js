@@ -451,6 +451,11 @@ function checkCookieConsent() {
   }
 }
 
+// ── An curent în footer (© <span class="js-year">) ──
+document.querySelectorAll(".js-year").forEach((el) => {
+  el.textContent = new Date().getFullYear();
+});
+
 // ── Nu adăuga „#" în URL la click pe linkurile care doar declanșează showPage ──
 document.addEventListener("click", (e) => {
   const a = e.target.closest('a[href="#"]');
