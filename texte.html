@@ -6,35 +6,50 @@
     <!-- Google Analytics (se activează doar după accept cookies) -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('consent', 'default', { analytics_storage: 'denied' });
-      function loadGA() {
-        if (document.getElementById('ga-script')) return;
-        var s = document.createElement('script');
-        s.id = 'ga-script'; s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XJFBBRRZV9';
-        document.head.appendChild(s);
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-        gtag('config', 'G-XJFBBRRZV9');
+      function gtag() {
+        dataLayer.push(arguments);
       }
-      if (localStorage.getItem('cookieConsent') === 'accepted') loadGA();
+      gtag("js", new Date());
+      gtag("consent", "default", { analytics_storage: "denied" });
+      function loadGA() {
+        if (document.getElementById("ga-script")) return;
+        var s = document.createElement("script");
+        s.id = "ga-script";
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-XJFBBRRZV9";
+        document.head.appendChild(s);
+        gtag("consent", "update", { analytics_storage: "granted" });
+        gtag("config", "G-XJFBBRRZV9");
+      }
+      if (localStorage.getItem("cookieConsent") === "accepted") loadGA();
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Texte publicate — Cătălin Cocoș | Advertoriale și articole scrise pentru clienți</title>
+    <title>
+      Texte publicate — Cătălin Cocoș | Advertoriale și articole scrise pentru
+      clienți
+    </title>
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="description" content="Selecție de advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații online — cultură, business, food, educație și lifestyle, în română și engleză." />
-    <meta name="keywords" content="Cătălin Cocoș texte, advertoriale, articole scrise pe comandă, copywriter România, texte publicate, content marketing" />
+    <meta
+      name="description"
+      content="Selecție de advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații online — cultură, business, food, educație și lifestyle, în română și engleză."
+    />
+    <meta
+      name="keywords"
+      content="Cătălin Cocoș texte, advertoriale, articole scrise pe comandă, copywriter România, texte publicate, content marketing"
+    />
     <meta name="author" content="Cătălin Cocoș" />
     <meta name="robots" content="index, follow" />
 
     <meta property="og:title" content="Texte publicate — Cătălin Cocoș" />
-    <meta property="og:description" content="Advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații — cultură, business, food, educație, lifestyle." />
+    <meta
+      property="og:description"
+      content="Advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații — cultură, business, food, educație, lifestyle."
+    />
     <meta property="og:url" content="https://catalincocos.ro/texte.html" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://catalincocos.ro/img/eu.jpg" />
@@ -42,12 +57,15 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Texte publicate — Cătălin Cocoș" />
-    <meta name="twitter:description" content="Advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații." />
+    <meta
+      name="twitter:description"
+      content="Advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații."
+    />
     <meta name="twitter:image" content="https://catalincocos.ro/img/eu.jpg" />
 
     <link rel="canonical" href="https://catalincocos.ro/texte.html" />
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=502da5c1" />
     <style>
       /* ══════════════════════════════
        TEXTE PUBLICATE PAGE
@@ -178,40 +196,44 @@
       @keyframes pageTurn {
         0% {
           transform: rotateY(0deg);
-          box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+          box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.06);
           opacity: 1;
           border-radius: 4px;
         }
         20% {
           transform: rotateY(-30deg) skewY(1deg);
-          box-shadow: 10px 4px 20px rgba(0,0,0,0.12),
-                      inset -30px 0 40px rgba(0,0,0,0.06);
+          box-shadow:
+            10px 4px 20px rgba(0, 0, 0, 0.12),
+            inset -30px 0 40px rgba(0, 0, 0, 0.06);
           border-radius: 4px 8px 8px 4px;
         }
         40% {
           transform: rotateY(-65deg) skewY(2deg) scaleX(0.92);
-          box-shadow: 12px 6px 30px rgba(0,0,0,0.18),
-                      inset -50px 0 50px rgba(0,0,0,0.1);
+          box-shadow:
+            12px 6px 30px rgba(0, 0, 0, 0.18),
+            inset -50px 0 50px rgba(0, 0, 0, 0.1);
           border-radius: 4px 16px 16px 4px;
           opacity: 1;
         }
         60% {
           transform: rotateY(-100deg) skewY(2.5deg) scaleX(0.86);
-          box-shadow: 6px 4px 25px rgba(0,0,0,0.15),
-                      inset -40px 0 45px rgba(0,0,0,0.08);
+          box-shadow:
+            6px 4px 25px rgba(0, 0, 0, 0.15),
+            inset -40px 0 45px rgba(0, 0, 0, 0.08);
           border-radius: 4px 20px 20px 4px;
           opacity: 0.7;
         }
         80% {
           transform: rotateY(-145deg) skewY(1.5deg) scaleX(0.92);
-          box-shadow: -4px 3px 15px rgba(0,0,0,0.08),
-                      inset -20px 0 30px rgba(0,0,0,0.04);
+          box-shadow:
+            -4px 3px 15px rgba(0, 0, 0, 0.08),
+            inset -20px 0 30px rgba(0, 0, 0, 0.04);
           border-radius: 4px 14px 14px 4px;
           opacity: 0.35;
         }
         100% {
           transform: rotateY(-175deg) skewY(0deg) scaleX(1);
-          box-shadow: -2px 2px 6px rgba(0,0,0,0.04);
+          box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.04);
           border-radius: 4px 6px 6px 4px;
           opacity: 0.1;
         }
@@ -224,28 +246,31 @@
         }
         25% {
           transform: rotateY(-130deg) skewY(-1.5deg) scaleX(0.9);
-          box-shadow: -6px 3px 20px rgba(0,0,0,0.1),
-                      inset 30px 0 40px rgba(0,0,0,0.06);
+          box-shadow:
+            -6px 3px 20px rgba(0, 0, 0, 0.1),
+            inset 30px 0 40px rgba(0, 0, 0, 0.06);
           border-radius: 4px 18px 18px 4px;
           opacity: 0.4;
         }
         50% {
           transform: rotateY(-75deg) skewY(-2.5deg) scaleX(0.85);
-          box-shadow: 8px 5px 30px rgba(0,0,0,0.16),
-                      inset 50px 0 50px rgba(0,0,0,0.1);
+          box-shadow:
+            8px 5px 30px rgba(0, 0, 0, 0.16),
+            inset 50px 0 50px rgba(0, 0, 0, 0.1);
           border-radius: 4px 22px 22px 4px;
           opacity: 0.75;
         }
         75% {
           transform: rotateY(-25deg) skewY(-1deg) scaleX(0.95);
-          box-shadow: 6px 4px 15px rgba(0,0,0,0.1),
-                      inset 20px 0 30px rgba(0,0,0,0.04);
+          box-shadow:
+            6px 4px 15px rgba(0, 0, 0, 0.1),
+            inset 20px 0 30px rgba(0, 0, 0, 0.04);
           border-radius: 4px 10px 10px 4px;
           opacity: 0.95;
         }
         100% {
           transform: rotateY(0deg);
-          box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+          box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.06);
           border-radius: 4px;
           opacity: 1;
         }
@@ -262,7 +287,7 @@
         height: 100%;
         border: 1px solid #e8e3da;
         border-radius: 4px;
-        box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+        box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.06);
         transform-origin: left center;
         z-index: 2;
         /* spine edge */
@@ -273,9 +298,16 @@
       .press-card-front::before {
         content: "";
         position: absolute;
-        top: 0; bottom: 0; right: -2px;
+        top: 0;
+        bottom: 0;
+        right: -2px;
         width: 35%;
-        background: linear-gradient(90deg, transparent 40%, rgba(0,0,0,0.08) 80%, rgba(0,0,0,0.02));
+        background: linear-gradient(
+          90deg,
+          transparent 40%,
+          rgba(0, 0, 0, 0.08) 80%,
+          rgba(0, 0, 0, 0.02)
+        );
         border-radius: 0 4px 4px 0;
         pointer-events: none;
         opacity: 0;
@@ -288,16 +320,21 @@
       .press-card-front::after {
         content: "";
         position: absolute;
-        top: 0; right: 0;
-        width: 20px; height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0,0,0,0.03));
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03));
         pointer-events: none;
       }
 
       /* Inner page (revealed on hover) */
       .press-card-inner {
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: linear-gradient(135deg, #f5f0e8, #ede8df);
         border: 1px solid #ddd8cf;
         border-left: 4px solid var(--accent);
@@ -312,8 +349,8 @@
           180deg,
           transparent 0px,
           transparent 28px,
-          rgba(0,0,0,0.04) 28px,
-          rgba(0,0,0,0.04) 29px
+          rgba(0, 0, 0, 0.04) 28px,
+          rgba(0, 0, 0, 0.04) 29px
         );
         background-position: 0 2.2rem;
       }
@@ -390,7 +427,10 @@
         border-radius: 6px;
         margin-top: auto;
         box-shadow: 0 3px 0 #6b5235;
-        transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+        transition:
+          background 0.2s,
+          transform 0.1s,
+          box-shadow 0.1s;
       }
       .press-card-link:hover {
         background: var(--charcoal);
@@ -438,38 +478,48 @@
     </style>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Texte publicate — Cătălin Cocoș",
-      "description": "Selecție de advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații online din România.",
-      "url": "https://catalincocos.ro/texte.html",
-      "mainEntity": {
-        "@type": "ItemList",
-        "name": "Texte scrise de Cătălin Cocoș, publicate în presa online",
-        "numberOfItems": 31,
-        "itemListOrder": "https://schema.org/ItemListUnordered"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://catalincocos.ro" },
-          { "@type": "ListItem", "position": 2, "name": "Texte publicate", "item": "https://catalincocos.ro/texte.html" }
-        ]
-      },
-      "about": {
-        "@type": "Person",
-        "name": "Cătălin Cocoș",
-        "jobTitle": "Fotograf & Copywriter Senior",
-        "url": "https://catalincocos.ro",
-        "sameAs": [
-          "https://www.facebook.com/CatalinCocosCatalink",
-          "https://www.linkedin.com/in/catalin-cocos-7ab2882b/",
-          "https://www.instagram.com/catalink1",
-          "https://www.tiktok.com/@catalincocos8"
-        ]
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Texte publicate — Cătălin Cocoș",
+        "description": "Selecție de advertoriale și articole scrise de Cătălin Cocoș pentru clienți și publicații online din România.",
+        "url": "https://catalincocos.ro/texte.html",
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Texte scrise de Cătălin Cocoș, publicate în presa online",
+          "numberOfItems": 34,
+          "itemListOrder": "https://schema.org/ItemListUnordered"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Acasă",
+              "item": "https://catalincocos.ro"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Texte publicate",
+              "item": "https://catalincocos.ro/texte.html"
+            }
+          ]
+        },
+        "about": {
+          "@type": "Person",
+          "name": "Cătălin Cocoș",
+          "jobTitle": "Fotograf & Copywriter Senior",
+          "url": "https://catalincocos.ro",
+          "sameAs": [
+            "https://www.facebook.com/CatalinCocosCatalink",
+            "https://www.linkedin.com/in/catalin-cocos-7ab2882b/",
+            "https://www.instagram.com/catalink1",
+            "https://www.tiktok.com/@catalincocos8"
+          ]
+        }
       }
-    }
     </script>
   </head>
   <body>
@@ -526,7 +576,7 @@
           <strong>O selecție</strong> — doar o mică parte din ce am scris pentru
           clienți și publicații. Advertoriale și articole pe cultură și
           patrimoniu, business, food, educație și lifestyle, în română și
-          engleză. <a href="index.html#contact">Lista completă, la cerere</a>.
+          engleză.
         </p>
       </section>
 
@@ -582,9 +632,7 @@
           </svg>
         </a>
       </div>
-      <p class="f-copy">
-        © 2025 Cătălin Cocoș · Toate drepturile rezervate
-      </p>
+      <p class="f-copy">© 2025 Cătălin Cocoș · Toate drepturile rezervate</p>
     </footer>
 
     <script>
@@ -625,9 +673,8 @@
       }
 
       function cardHtml(a) {
-        const lang = a.lang === "en"
-          ? '<span class="press-card-lang">EN</span>'
-          : "";
+        const lang =
+          a.lang === "en" ? '<span class="press-card-lang">EN</span>' : "";
         return `
     <article class="press-card reveal">
       <div class="press-card-front">
@@ -659,7 +706,9 @@
         let html = "";
         let currentTheme = null;
         const counts = {};
-        sorted.forEach((a) => { counts[a.tema] = (counts[a.tema] || 0) + 1; });
+        sorted.forEach((a) => {
+          counts[a.tema] = (counts[a.tema] || 0) + 1;
+        });
 
         sorted.forEach((a) => {
           if (a.tema !== currentTheme) {
@@ -679,7 +728,8 @@
         });
 
         grid.innerHTML = html;
-        info.textContent = list.length + (list.length === 1 ? " text" : " texte");
+        info.textContent =
+          list.length + (list.length === 1 ? " text" : " texte");
 
         requestAnimationFrame(() => {
           document.querySelectorAll(".press-card.reveal").forEach((el, i) => {
@@ -749,7 +799,8 @@
           renderCards(filter(search.value.trim()));
         })
         .catch(() => {
-          grid.innerHTML = '<div class="press-empty"><p>Textele nu pot fi încărcate momentan.</p></div>';
+          grid.innerHTML =
+            '<div class="press-empty"><p>Textele nu pot fi încărcate momentan.</p></div>';
         });
     </script>
   </body>

@@ -2,5 +2,7 @@ node_modules/
 compress.js
 build.js
 admin/config.php
+.ftp.json
+.deploy-manifest.json
 .claude/php-server.log
 .claude/php-server-err.log

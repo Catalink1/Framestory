@@ -1,0 +1,8 @@
+{
+  "host": "ftp.catalincocos.ro",
+  "user": "deploy@catalincocos.ro",
+  "password": "PASTE-THE-FTP-PASSWORD-HERE",
+  "remoteDir": "",
+  "secure": true,
+  "insecure": false
+}

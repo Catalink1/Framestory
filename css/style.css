@@ -1432,13 +1432,29 @@ footer {
   #nav { padding: 0 2rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero-content { padding: 0 2rem 4rem; }
+  .hero-content { padding: 0 2rem 7rem; }
+  .hero-quote {
+    top: auto;
+    bottom: 1.75rem;
+    left: 2rem;
+    right: 2rem;
+    width: auto;
+    text-align: left;
+    font-size: 0.95rem;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border-radius: 0;
+  }
   .about-wrap { grid-template-columns: 1fr; }
   .about-photo { position: relative; height: 60vw; }
   .about-text-col { padding: 3rem 2rem; }
   .home-bottom { grid-template-columns: 1fr; }
   .home-services { grid-template-columns: 1fr; }
-  .home-stats { flex-direction: row; border-left: none; border-top: 1px solid var(--cream); padding: 2.5rem 2rem; }
+  .home-bottom, .home-services, .svc-item, .home-stats { min-width: 0; }
+  .home-stats { flex-flow: row wrap; border-left: none; border-top: 1px solid var(--cream); padding: 2.5rem 2rem; }
+  .home-stats .stat-item { flex: 1 1 8rem; }
+  .stat-val { min-width: 0; }
   .svc-item { border-right: none; border-bottom: 1px solid var(--cream); }
   .portfolio-head { padding: calc(var(--nav-h) + 2rem) 2rem 1rem; }
   .masonry { padding: 1rem 2rem 4rem; columns: 2; column-gap: 10px; }
@@ -1452,12 +1468,24 @@ footer {
   .contact-wrap { grid-template-columns: 1fr; }
   .contact-left { padding: 4rem 2rem; }
   .contact-right { padding: 3rem 2rem 4rem; }
-  footer { padding: 2rem; flex-direction: column; text-align: center; }
+  footer {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .f-tagline { max-width: 22rem; margin: 0 auto; }
+  .f-social { justify-content: center; }
+  .f-copy { padding-top: 0; }
   .home-intro { padding: 5rem 2rem; }
   .poetry-intro { padding: 3rem 2rem 2rem; }
 }
 @media (max-width: 600px) {
   .masonry { columns: 1; padding: 0.5rem 1rem 3rem; }
+  .home-stats { flex-direction: column; }
+  .svc-item { padding: 2.75rem 1.5rem; }
+  .phone-grid { grid-template-columns: 1fr; }
 }
 
   /* ══ CARUSEL CU THUMBNAILS ══ */
