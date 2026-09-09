@@ -2,6 +2,27 @@
 <html lang="ro">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Google Analytics (se activează doar după accept cookies) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+
+      function loadGA() {
+        if (document.getElementById('ga-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga-script';
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BHKM4XF83R';
+        document.head.appendChild(s);
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('config', 'G-BHKM4XF83R');
+      }
+
+      if (localStorage.getItem('cookieConsent') === 'accepted') loadGA();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title id="pageTitle">Articol — Cătălin Cocoș</title>
 
@@ -307,5 +328,6 @@
             '<div class="art-404"><h1>Eroare la încărcare</h1><p><a href="blog.html">← Blog</a></p></div>';
         });
     </script>
+    <script src="js/cookie-consent.js?v=76d49a8c"></script>
   </body>
 </html>
