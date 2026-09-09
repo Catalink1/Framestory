@@ -133,7 +133,7 @@ function initReveal() {
   });
 }
 
-// ── Contact form (Formspree) ──
+// ── Contact form (contact.php) ──
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const form = this;
